@@ -206,6 +206,111 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
+      <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/1-1.1js、css的引入方式/">1-1.1js、css的引入方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            border-radius: 50%;
+        }
+    &lt;/style&gt;
+    &lt;!-- 最常用--&gt;
+    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
+    &lt;style&gt;
+        @import url(style.css);
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--css引入方式--&gt;
+&lt;!--
+1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
+2、内嵌式:写在style标签里
+3、外链式：通过link标签引入css文件
+4、导入式：通过@import 引入css 文件
+
+--&gt;
+&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
+&lt;!--js的引入方式--&gt;
+&lt;!--
+1、行内引入：直接写到标签内部  安全性低，几乎不用
+2、内嵌式：写到script标签里
+3、外链式:通过script标签的src属性  常用
+document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
+--&gt;
+&lt;script&gt;
+    alert(&quot;哈哈&quot;)
+&lt;/script&gt;
+
+
+相对路径  ../  上一级目录
+         ./   当前目录
+
+&lt;script src=&quot;./1.js&quot;&gt;
+    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
+&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt; 
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="[layout]-开启新篇章" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
