@@ -3,42 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>1-1.8boolean | 冰箱里的水</title>
+  <title>1-3.4选项卡 | 冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script&amp;gt;
-    //boolean">
+    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;
+    &amp;lt;style&amp;gt;
+        * {
+            margin: 0;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1-1.8boolean">
-<meta property="og:url" content="http://yoursite.com/2015/01/01/1-1.8boolean/index.html">
+<meta property="og:title" content="1-3.4选项卡">
+<meta property="og:url" content="http://yoursite.com/2015/01/03/1-3.4选项卡/index.html">
 <meta property="og:site_name" content="冰箱里的水">
 <meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script&amp;gt;
-    //boolean">
-<meta property="og:updated_time" content="2016-08-10T15:21:46.000Z">
+    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;
+    &amp;lt;style&amp;gt;
+        * {
+            margin: 0;">
+<meta property="og:updated_time" content="2016-08-10T15:32:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-1.8boolean">
+<meta name="twitter:title" content="1-3.4选项卡">
 <meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script&amp;gt;
-    //boolean">
+    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;
+    &amp;lt;style&amp;gt;
+        * {
+            margin: 0;">
   
     <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
   
@@ -227,11 +224,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="[layout]-1-1.8boolean" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="[layout]-1-3.4选项卡" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.8boolean/" class="article-date">
-      <time datetime="2015-01-01T12:00:08.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/03/1-3.4选项卡/" class="article-date">
+      <time datetime="2015-01-03T12:00:04.000Z" itemprop="datePublished">2015-01-03</time>
 </a>
     </div>
   
@@ -244,7 +241,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      1-1.8boolean
+      1-3.4选项卡
     </h1>
   
 
@@ -262,91 +259,99 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 306px;
+            margin: 0 auto;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid orange;
+        }
+
+        li.on {
+            background: -webkit-linear-gradient(top, #ff6600, yellow);
+            border-bottom: none;
+        }
+
+        .box div {
+            display: none;
+            width: 304px;
+            height: 200px;
+            font-size: 30px;
+            border: 1px solid lawngreen;
+        }
+
+        .box div.on {
+            display: block;
+            margin-top: -1px;
+            border-top: none;
+        }
+
+    &lt;/style&gt;
+
 &lt;/head&gt;
 &lt;body&gt;
+&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;&quot;&gt;篮球&lt;/li&gt;
+        &lt;li&gt;足球&lt;/li&gt;
+        &lt;li&gt;乒乓球&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;on&quot;&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+&lt;/div&gt;
 &lt;script&gt;
-    //boolean  布尔数据类型：只有两个值 true false
-    //!  取反
-    console.log(!3);  //false
-    //    首先将3转换为boolean数据类型  执行Boolean(3)--》true的方法，然后再取反  --》false
+    //选项卡
+    //1）要操作谁就先获取谁
+    var box = document.getElementById(&apos;box&apos;);
+    var lis = box.getElementsByTagName(&apos;li&apos;);
+    var divs = box.getElementsByTagName(&apos;div&apos;);
+    //    console.log(lis)
+    //    lis[0]  lis[索引]
+    //2)执行操作
+    for (var i = 0; i &lt; lis.length; i++) {
+        //自定义属性
+        //console.log(typeof lis[i]);
+        lis[i].zfpx = i;
+        //鼠标移入
+        lis[i].onmouseover = function () {
+            //将所有的li和div的类名on 去掉（将class类名设置为&apos;&apos;），然后再将当前li和对应的div加上class 为on的这个类名
+            for (var j = 0; j &lt; lis.length; j++) {
+                lis[j].className = &apos;&apos;;
+                divs[j].className = &apos;&apos;;
+            }
+            this.className = &apos;on&apos;;
+//            console.log(i);//3
+            //this 当前操作的元素
+            divs[this.zfpx].className = &apos;on&apos;;
 
-    //    !要检测的值  先默认将这个值转换boolean类型，然后再取反
-    //    如果一个值转换为布尔数据类型，只有0、NaN、&apos;&apos;、null、undefined是false，其余都是true
-
-    //    !! 先取反再取反，相当于直接转换为布尔数据类型
-    //    Boolean(要转换的内容)  将其他数据类型转换为布尔数据类型
-
-
-    //    Boolean(3)  --&gt;true
-    //    !3 ---&gt;false
-    //    !!3 ---&gt;true
-
-    //    = 赋值
-    //    == 比较
-    //
-    //    1==1  -- true
-    //    1==2   --false
-    //    &quot;zhang&quot;==&quot;zhangsan&quot;  --false
-    //    &quot;zs&quot;==&quot;zs&quot;   --true
-    //    相同数据类型的两个值直接比较是否相等
-
-    //    val1==val2
-    //    不同数据类型的两个值之间的比较，遵循以下规则
-    /*
-     转换为数字  默认调用Number()
-     转换为字符串  默认调用toString()
-     **布尔转换为数字 true 1   false 0
-
-     1）对象==对象  永远不相等
-     []==[]  false
-     {}=={}  false
-     2）对象==字符串  先将对象转换为字符串，然后再进行比较
-     []==&apos;&apos;
-     首先，[]转化为字符串，浏览器会默认执行toString()的方法 ==[].toString()  --&gt;&quot;&quot;  然后，&quot;&quot;==&apos;&apos;  比较，返回true
-
-     3）对象==布尔  对象先转换字符串，再转换为数字；布尔也转换为数字
-     []==false  --&gt;true
-     [].toString() ---&quot;&quot;   Number(&quot;&quot;) ---0
-     Number(false)  ---0
-
-     4)对象==数字    对象先转字符串，再转换为数字
-     []==0  --&gt;true
-     [].toString() ---&apos;&apos;   Number(&apos;&apos;)---0
-
-     5)布尔==字符串   都转还为数字
-     true==&apos;0&apos;  false
-     Number(true) ---1
-     Number(&apos;0&apos;) ---0
-     6)布尔==数字     布尔转化为数字
-     true==1 ---&gt;true   Number(true)  1
-     7)数字==字符串   字符串转化为数字
-     1==&apos;123&apos;
-     8)null==undefined  true
-     9)null或者undefined和其他任何数据类型的值比较，永远不相等
-
-
-     */
-
-    //    =赋值
-    //    ==比较
-    //    ===严格比较：数据类型和值必须全部都相等 返回true，如果数据类型不相等 返回false
-
-    //    null==undefined     --true
-    //    null===undefined    --false
-
-
-    //    Boolean 只有两个值：true false
-    //    !     取反
-    //    !!
-    //    Boolean()
-    //    0、NaN、&apos;&apos;、null、undefined  是false
+        }
+    }
 
 
 &lt;/script&gt;
+
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -362,15 +367,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/01/01/1-1.9Object/">
-                    1-1.9Object
+                <a href="/2015/01/03/1-3.4选项卡2/">
+                    1-3.4选项卡2
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/01/01/1-1.7Number/">
-                    1-1.7Number
+                <a href="/2015/01/03/1-3.3函数中的返回值/">
+                    1-3.3函数中的返回值
                 </a>
             </div>
         
@@ -438,7 +443,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"1-1.8boolean　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"1-3.4选项卡　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -454,7 +459,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/01/01/1-1.8boolean/" data-title="1-1.8boolean" data-url="http://yoursite.com/2015/01/01/1-1.8boolean/"></div>
+    <div class="ds-thread" data-thread-key="2015/01/03/1-3.4选项卡/" data-title="1-3.4选项卡" data-url="http://yoursite.com/2015/01/03/1-3.4选项卡/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -478,7 +483,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/01/01/1-1.9Object/" title="上一篇: 1-1.9Object">
+            <a href="/2015/01/03/1-3.4选项卡2/" title="上一篇: 1-3.4选项卡2">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -486,7 +491,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/01/01/1-1.7Number/" title="下一篇: 1-1.7Number">
+            <a href="/2015/01/03/1-3.3函数中的返回值/" title="下一篇: 1-3.3函数中的返回值">
                 <i class="fa fa-angle-right"></i>
             </a>
         

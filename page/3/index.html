@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 冰箱里的水</title>
+  <title>冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="冰箱里的水">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="冰箱里的水">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="冰箱里的水">
@@ -27,8 +27,13 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+      <style> .article { opacity: 0;} </style>
+  
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
   
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -38,9 +43,9 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: false,
+          isHome: true,
           isPost: false,
-          isArchive: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false,
@@ -201,295 +206,415 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="[layout]-1-1.4js的命名规范" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.4js的命名规范/" class="article-date">
+      <time datetime="2015-01-01T12:00:04.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/1-1.4js的命名规范/">1-1.4js的命名规范</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    /*
+    * 1、在js中严格区分大小写
+    * test Test object  Object  string  String number
+    * 2、遵循驼峰命名法：（匈牙利命名法）
+    *    1）首字母小写，其余每个有意义的单词首字母大写
+    *    oDiv  studentInfo  studentInfo  xueshengInfo
+    *    2）由数字、字母、下划线_、$组成，不能数字作为开头
+    *       123zhufeng （错误的）
+    *       $jquery  $num
+    *
+    * 3、不能使用关键字和保留字
+           关键字：js中有特殊意义的
+    *      保留字：js中未来可能会用到的
+    *
+    */
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
     
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/02/1-2.2开关灯效果2/" class="archive-article-date">
-      <time datetime="2015-01-02T12:00:03.000Z" itemprop="datePublished">01-02</time>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-1.3js的组成" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.3js的组成/" class="article-date">
+      <time datetime="2015-01-01T12:00:03.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/02/1-2.2开关灯效果2/">1-2.2开关灯效果2</a>
+      <a class="article-title" href="/2015/01/01/1-1.3js的组成/">1-1.3js的组成</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+&lt;!--
+浏览器 window --》  文档 document --》 html --》head、body    
+--&gt;
+&lt;!--js的组成
+1、ECMAscript(5): 规定了js的命名规范、变量、数据类型、基本语法、操作语句等最核心的东西
+2、DOM：document object model  文档对象模型
+3、BOM：browser object model  浏览器对象模型
+--&gt;
+
+&lt;!--
+html  css文件放在head标签里，然后写html代码，js的代码写在body标签最后面
+js是用来操作html结构的，要先加载html代码 再去加载js代码
+
+--&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/02/1-2.2开关灯效果/" class="archive-article-date">
-      <time datetime="2015-01-02T12:00:02.000Z" itemprop="datePublished">01-02</time>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-1.2js的输出方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.2js的输出方式/" class="article-date">
+      <time datetime="2015-01-01T12:00:02.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/02/1-2.2开关灯效果/">1-2.2开关灯效果</a>
+      <a class="article-title" href="/2015/01/01/1-1.2js的输出方式/">1-1.2js的输出方式</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    //js的注释  ctrl+/  注释一行
+    //    ctrl+shift+/  注释多行
+    /*
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    js的输出方式
+    1、alert(要输出的内容);   直接在页面中弹出一个层
+    2、console.log(要输出的内容);  按f12（fn+f12）在控制台中定位console页卡中显示  通常用于调试
+
+        Elements： 调试静态的页面 显示html代码  css属性
+        Sources: 网页的源代码
+        NetWork：用于调试接口
+        Timeline：网络的请求事件
+        Resources：网站的源代码 cookies  本地存储
+    3、document.write(要输出的内容);  直接显示在页面上 相当于不停的在页面中写内容
+    4、innerHTML、innerText 向指定元素中添加内容
+
+
+    */
+    alert(&apos;你好&apos;);
+    console.log(&apos;张三&apos;,&apos;1002321&apos;);
+    console.log(123);
+    document.write(&apos;李四&apos;);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/02/1-2.1js中的判断/" class="archive-article-date">
-      <time datetime="2015-01-02T12:00:00.000Z" itemprop="datePublished">01-02</time>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
+      <time datetime="2015-01-01T12:00:01.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/02/1-2.1js中的判断/">1-2.1js中的判断</a>
+      <a class="article-title" href="/2015/01/01/1-1.1js、css的引入方式/">1-1.1js、css的引入方式</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            border-radius: 50%;
+        }
+    &lt;/style&gt;
+    &lt;!-- 最常用--&gt;
+    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
+    &lt;style&gt;
+        @import url(style.css);
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--css引入方式--&gt;
+&lt;!--
+1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
+2、内嵌式:写在style标签里
+3、外链式：通过link标签引入css文件
+4、导入式：通过@import 引入css 文件
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+--&gt;
+&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
+&lt;!--js的引入方式--&gt;
+&lt;!--
+1、行内引入：直接写到标签内部  安全性低，几乎不用
+2、内嵌式：写到script标签里
+3、外链式:通过script标签的src属性  常用
+document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
+--&gt;
+&lt;script&gt;
+    alert(&quot;哈哈&quot;)
+&lt;/script&gt;
+
+
+相对路径  ../  上一级目录
+         ./   当前目录
+
+&lt;script src=&quot;./1.js&quot;&gt;
+    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
+&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt; 
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.11检测数据类型/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:11.000Z" itemprop="datePublished">01-01</time>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-开启新篇章" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/开启新篇章/" class="article-date">
+      <time datetime="2015-01-01T00:00:00.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.11检测数据类型/">1-1.11检测数据类型</a>
+      <a class="article-title" href="/2015/01/01/开启新篇章/">开启新篇章</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>我在这里记录我的JavaScript学习！</p>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:10.000Z" itemprop="datePublished">01-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/">1-1.10基本数据类型和引用数据类型的本质区别</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.9Object/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:09.000Z" itemprop="datePublished">01-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.9Object/">1-1.9Object</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.8boolean/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:08.000Z" itemprop="datePublished">01-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.8boolean/">1-1.8boolean</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.7Number/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:07.000Z" itemprop="datePublished">01-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.7Number/">1-1.7Number</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.6js中的数据类型/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:06.000Z" itemprop="datePublished">01-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.6js中的数据类型/">1-1.6js中的数据类型</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-[layout]">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2015/01/01/1-1.5js中的变量/" class="archive-article-date">
-      <time datetime="2015-01-01T12:00:05.000Z" itemprop="datePublished">01-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/01/1-1.5js中的变量/">1-1.5js中的变量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
-
 </div>
       <footer id="footer">
     <div class="outer">
