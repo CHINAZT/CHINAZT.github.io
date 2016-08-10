@@ -206,11 +206,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="[layout]-1-3.5九九乘法表" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-3.7点击自增" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/03/1-3.5九九乘法表/" class="article-date">
-      <time datetime="2015-01-03T12:00:06.000Z" itemprop="datePublished">2015-01-03</time>
+      <a href="/2015/01/06/2-3.7点击自增/" class="article-date">
+      <time datetime="2015-01-06T12:00:07.000Z" itemprop="datePublished">2015-01-06</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.5九九乘法表/">1-3.5九九乘法表</a>
+      <a class="article-title" href="/2015/01/06/2-3.7点击自增/">2-3.7点击自增</a>
     </h1>
   
 
@@ -237,147 +237,454 @@
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
+    &lt;title&gt;&lt;/title&gt;
     &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
+        body{
+            font-size: 100px;
         }
-
-        ul {
-            list-style: none;
-            width: 900px;
-            height: 270px;
-            border: 1px solid orange;
-            border-radius: 10px;
-            position: absolute;
-            /*top: 50%;
-            left: 50%;
-            margin-top: -135px;
-            margin-left: -450px;*/
-            margin: auto;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            overflow: hidden;
-        }
-
-        li {
-            height: 30px;
-        }
-
-        li span {
-            display: inline-block;
-            width: 100px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-        }
-
-        .bg1 {
-            background: lawngreen;
-        }
-
-        .bg2 {
-            background: papayawhip;
-        }
-
-        .bg3 {
-            background: orange;
-        }
-
-        .bg4 {
-            background: yellow;
+        #box{
+            width: 200px;
+            margin: 50px auto;
         }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div id=&quot;box&quot;&gt;
-    &lt;!--&lt;ul&gt;
-        &lt;li class=&quot;bg1&quot;&gt;
-            &lt;span&gt;1  * 1 = 1&lt;/span&gt;
-        &lt;/li&gt;
-        &lt;li class=&quot;bg2&quot;&gt;
-            &lt;span&gt;1 * 2 = 2&lt;/span&gt;
-            &lt;span&gt;2 * 2 = 4&lt;/span&gt;
-        &lt;/li&gt;
-        &lt;li class=&quot;bg3&quot;&gt;
-            &lt;span&gt;1 * 3 = 3&lt;/span&gt;
-            &lt;span&gt;2 * 3 = 6&lt;/span&gt;
-            &lt;span&gt;3 * 3 = 9&lt;/span&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
---&gt;
-
+    &lt;input type=&quot;button&quot; value=&quot;点击我吧&quot;/&gt;
+    &lt;div id=&quot;num&quot;&gt;0&lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
-    //拼接字符串
-    var box = document.getElementById(&apos;box&apos;);
-    var str = &apos;&apos;;
-    str += &apos;&lt;ul&gt;&apos;;
-    //li代表的是每一行  一共有9行
-    for (var i = 1; i &lt;= 9; i++) {
-        str += &apos;&lt;li&gt;&apos;;
-        for (var j = 1; j &lt;= i; j++) {
-            str += &apos;&lt;span&gt;&apos;;
-            //j  列
-            //i  行
-            str += j + &apos; * &apos; + i + &apos; = &apos; + (j * i);
-            str += &apos;&lt;/span&gt;&apos;;
+    var oBtn=document.getElementsByTagName(&apos;input&apos;)[0];
+    var oDiv=document.getElementById(&apos;num&apos;);
+    var bOk=true;
+    var timer=null;
+    var num=0;
+    oBtn.onclick=function(){
+        //当点击按钮的时候，如果bOk为true，开启一个定时器，不断累加num,并把累加的值，放到oDiv.innerHTML;让bOk=false;
+        if(bOk){
+            timer=setInterval(function(){
+                num++;
+                oDiv.innerHTML=num;
+            },500)
+        }else{
+            clearInterval(timer);
         }
-        str += &apos;&lt;/li&gt;&apos;;
+        bOk=!bOk;
     }
-    str += &apos;&lt;/ul&gt;&apos;;
-    //    console.log(str)
-    //    2*3  2/3 13%3
-    box.innerHTML = str;
-    //innerText 不能识别html标签
 
-    var lis = box.getElementsByTagName(&apos;li&apos;);
-    for (var i = 0; i &lt; lis.length; i++) {
-        var li = lis[i];
-        /*if(i%3==0){
-         li.className = &apos;bg1&apos;;
-         }else if(i%3==1){
-         li.className = &apos;bg2&apos;;
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-3.6获取随机验证码" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/06/2-3.6获取随机验证码/" class="article-date">
+      <time datetime="2015-01-06T12:00:06.000Z" itemprop="datePublished">2015-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/06/2-3.6获取随机验证码/">2-3.6获取随机验证码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        body{
+            font-size: 100px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    //rnd功能：求[n-m]之间的随机整数 &apos;3&apos; &apos;19px&apos;
+    function rnd(n,m){
+        n=Number(n);//首先把n转成数字
+        m=Number(m);//把m转成数字
+        //先判断参数传错的情况
+        if(isNaN(n) || isNaN(m)){
+            return Math.random(); //如果用户调用rnd，拿到的是0-1之间的随机小数，说明他传参传错了；
+        }
+        if(n&gt;m){//判断n&gt;m的情况
+            var tmp=m;
+            m=n;
+            n=tmp;
+        }
+        return Math.round(Math.random()*(m-n)+n);
+
+    }
+    var strCode=&apos;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&apos;;
+    var str=&apos;&apos;;
+    //var ary=[];
+    /*for(var i=0; i&lt;4; i++){
+        var rnd=Math.round(Math.random()*61);
+        if(ary.indexOf(rnd) !== -1){//重复
+            i--;
+        }else{
+            ary.push(rnd);//用数组解决索引这个数字的重复问题
+            str+=strCode.charAt(rnd);//通过不重复的数字，把它作为索引找到字符串对应的内容；
+        }
+    }*/
+    /*while(ary.length&lt;4){
+        var rnd=Math.round(Math.random()*61);
+        if(ary.indexOf(rnd)===-1){
+            ary.push(rnd);
+            str+=strCode.charAt(rnd);
+        }
+    }*/
+    //判断只要str.length&lt;4; 一样取随机整数，判断如果字符串中没有 rnd对应的字符；才给字符串添加这个字符；
+    while(str.length&lt;4){
+        var rnd=rnd(0,61);
+        //当字符串不存在rnd对应的字符；才给字符串添加这个字符；
+        if(str.indexOf(strCode.charAt(rnd)) === -1){
+            str+=strCode.charAt(rnd);
+        }
+    }
+    document.write(str)
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-3.5倒计时" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/06/2-3.5倒计时/" class="article-date">
+      <time datetime="2015-01-06T12:00:05.000Z" itemprop="datePublished">2015-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/06/2-3.5倒计时/">2-3.5倒计时</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        div {
+            font-size: 50px;
+        }
+
+        div span {
+            font-weight: bold;
+            color: red;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;距离下课还有 &lt;span&gt;00天00:00:00&lt;/span&gt;&lt;/div&gt;
+&lt;script&gt;
+    var oSpan = document.getElementsByTagName(&apos;span&apos;)[0];
+    function toDou(n) {
+        return n &gt;= 0 &amp;&amp; n &lt; 10 ? &apos;0&apos; + n : &apos;&apos; + n;
+    }
+    function getDate() {
+        /*//1.获取日期对象
+         var oDate = new Date();
+         oDate.getTime() //getTime()现在距离1970年1月1日  00:00:00的毫秒数； 格林尼治时间
+         new Date(&apos;2015/1/6 18:00:00&apos;).getTime()//未来时间距离1970年1月1日 00:00:00的毫秒数
+         //求 未来时间距离现在的毫秒数
+         new Date(&apos;2015/1/6 18:00:00&apos;).getTime() - oDate.getTime()*/
+        //1.获取日期对象
+        var oDate = new Date();
+        var oldTime = oDate.getTime();//现在距离1970年的毫秒数
+        var newDate = new Date(&apos;2015/1/6 18:00:00&apos;);
+        var newTime = newDate.getTime();//未来时间距离1970年的毫秒数
+        var s = Math.floor((newTime - oldTime) / 1000);//未来时间距离现在的秒数
+        //求出一天有多少秒 24*60*60=86400；
+        var d = Math.floor(s / 86400);//整数部分代表的是天；
+        s = s % 86400;//余数代表 剩下的秒数；
+        var h = Math.floor(s / 3600);//整数部分代表小时；
+        s %= 3600; //余数代表 剩下的秒数；
+        var m = Math.floor(s / 60);
+        s %= 60;
+        var str = toDou(d) + &apos;天&apos; + toDou(h) + &apos;:&apos; + toDou(m) + &apos;:&apos; + toDou(s);
+        oSpan.innerHTML = str;
+    }
+    getDate();
+    setInterval(getDate, 1000);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-3.4定时器" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/06/2-3.4定时器/" class="article-date">
+      <time datetime="2015-01-06T12:00:04.000Z" itemprop="datePublished">2015-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/06/2-3.4定时器/">2-3.4定时器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    //setInterval有两个参数：1）回调函数 2）毫秒数
+    //setInterval：每隔一段时间走一次；只要不关闭页面或关闭定时器，他会一直走下去；
+    //手动关闭：clearInterval()
+    var n = 0;
+    /*var timer=setInterval(function(){
+     n++;
+     alert(n)
+     if(n==5){
+     clearInterval(timer);//关闭定时器，必须关闭有名字的定时器；
+     }
+     },1000)*/
+    //setTimeout：一段时间后只走一次；
+    // clearTimeout(定时器的名字)
+    var timer = setTimeout(function () {
+        alert(n);
+    }, 1000)
+
+
+
+
+
+    //用setTimeout实现setInterval
+     //递归：函数自己调用自己
+var n=0;
+function fn(){
+    n++;//1 2 3....
+    alert(n)
+    if(n===5){//当n===5的时候，结束定时器，同时，阻断程序执行；
+       // console.log(n);
+        clearTimeout(timer);//结束定时器
+        return;//阻断程序执行；
+    }
+    var timer=setTimeout(fn,1000);//开启定时器；
+}
+fn();
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-3.3日期对象" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/06/2-3.3日期对象/" class="article-date">
+      <time datetime="2015-01-06T12:00:03.000Z" itemprop="datePublished">2015-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/06/2-3.3日期对象/">2-3.3日期对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-size: 100px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    //toDou:实现两位数
+    function toDou(n) {
+        /*if(n&gt;=0 &amp;&amp; n&lt;10){
+         return &apos;0&apos;+n;
          }else{
-         li.className = &apos;bg3&apos;;
+         return &apos;&apos;+n;
          }*/
-//        i%2==0?li.className = &apos;bg1&apos;:li.className = &apos;bg2&apos;;
-
-        /*switch (i%3){
-         case 0:
-         li.className = &apos;bg1&apos;;
-         break;
-         case 1:
-         li.className = &apos;bg2&apos;;
-         break;
-         default:
-         li.className = &apos;bg3&apos;;
-         }*/
-        li.className = &apos;bg&apos; + (i % 3 + 1);//bg1
-
-        li.name = &apos;bg&apos; + (i % 3 + 1);
-
-        //鼠标移入
-        //this当前操作的元素
-        li.onmouseover = function () {
-            this.className = &apos;bg4&apos;;
-        }
-        //鼠标移出
-        li.onmouseout = function () {
-//            console.log(i);//9
-            this.className = this.name;
-        }
-
-
+        return n &gt;= 0 &amp;&amp; n &lt; 10 ? &apos;0&apos; + n : &apos;&apos; + n;
     }
-
-
+    function getDate() {
+        var oDate = new Date();//获取日期对象
+        var y = oDate.getFullYear();//获取年份
+        var m = oDate.getMonth() + 1;//获取月份的时候，必须+1；
+        var d = oDate.getDate();//获取日
+        var w = oDate.getDay();//获取星期 0123456   0：代表星期日；
+        var h = oDate.getHours();//获取小时
+        var min = oDate.getMinutes();//获取分钟
+        var s = oDate.getSeconds();//获取秒
+        var str = toDou(h) + &apos;:&apos; + toDou(min) + &apos;:&apos; + toDou(s)//字符串拼接
+        document.body.innerHTML = str;
+    }
+    getDate();//这里手动调用一次，是为了防止1秒后才执行，页面出现空白的情况
+    var timer = setInterval(getDate, 1000)//每 隔一秒获取一次最新的日期对象；
 &lt;/script&gt;
-
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -406,11 +713,11 @@
 
 
   
-    <article id="[layout]-1-3.4选项卡2" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-3.2字符串方法的运用" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/03/1-3.4选项卡2/" class="article-date">
-      <time datetime="2015-01-03T12:00:05.000Z" itemprop="datePublished">2015-01-03</time>
+      <a href="/2015/01/06/2-3.2字符串方法的运用/" class="article-date">
+      <time datetime="2015-01-06T12:00:02.000Z" itemprop="datePublished">2015-01-06</time>
 </a>
     </div>
   
@@ -423,7 +730,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.4选项卡2/">1-3.4选项卡2</a>
+      <a class="article-title" href="/2015/01/06/2-3.2字符串方法的运用/">2-3.2字符串方法的运用</a>
     </h1>
   
 
@@ -436,639 +743,27 @@
         <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        ul {
-            list-style: none;
-            overflow: hidden;
-        }
-
-        .box {
-            width: 306px;
-            margin: 0 auto;
-        }
-
-        li {
-            float: left;
-            width: 100px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            border: 1px solid orange;
-            cursor: pointer;
-        }
-
-        li.on {
-            background: -webkit-linear-gradient(top, #ff6600, yellow);
-            border-bottom: none;
-        }
-
-        .box div {
-            display: none;
-            width: 304px;
-            height: 200px;
-            font-size: 30px;
-            border: 1px solid lawngreen;
-        }
-
-        .box div.on {
-            display: block;
-            margin-top: -1px;
-            border-top: none;
-        }
-
-    &lt;/style&gt;
-
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
-    &lt;ul&gt;
-        &lt;li class=&quot;on&quot;&gt;篮球&lt;/li&gt;
-        &lt;li&gt;足球&lt;/li&gt;
-        &lt;li&gt;乒乓球&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;div class=&quot;on&quot;&gt;1&lt;/div&gt;
-    &lt;div&gt;2&lt;/div&gt;
-    &lt;div&gt;3&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    //    document.getElementById()
-    var box = document.getElementById(&apos;box&apos;);
-    var lis = box.getElementsByTagName(&apos;li&apos;);
-    var divs = box.getElementsByTagName(&apos;div&apos;);
-    //    console.log(lis[0]);
-    //    lis[索引]
-    //    console.log(lis.item(0));  //索引
-    for (var i = 0; i &lt; lis.length; i++) {
-//        console.log(typeof lis[i]);
-        lis[i].zhufeng = i;
-        lis[i].onmouseover = function () {
-            for (var j = 0; j &lt; lis.length; j++) {
-                lis[j].className = &apos;&apos;;//class类名设置为空
-                divs[j].className = &apos;&apos;;
-            }
-            this.className = &apos;on&apos;;
-            divs[this.zhufeng].className = &apos;on&apos;;
-        }
-    }
-
-
-&lt;/script&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-3.4选项卡" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/03/1-3.4选项卡/" class="article-date">
-      <time datetime="2015-01-03T12:00:04.000Z" itemprop="datePublished">2015-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.4选项卡/">1-3.4选项卡</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        ul {
-            list-style: none;
-            overflow: hidden;
-        }
-
-        .box {
-            width: 306px;
-            margin: 0 auto;
-        }
-
-        li {
-            float: left;
-            width: 100px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            border: 1px solid orange;
-        }
-
-        li.on {
-            background: -webkit-linear-gradient(top, #ff6600, yellow);
-            border-bottom: none;
-        }
-
-        .box div {
-            display: none;
-            width: 304px;
-            height: 200px;
-            font-size: 30px;
-            border: 1px solid lawngreen;
-        }
-
-        .box div.on {
-            display: block;
-            margin-top: -1px;
-            border-top: none;
-        }
-
-    &lt;/style&gt;
-
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
-    &lt;ul&gt;
-        &lt;li class=&quot;&quot;&gt;篮球&lt;/li&gt;
-        &lt;li&gt;足球&lt;/li&gt;
-        &lt;li&gt;乒乓球&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;div class=&quot;on&quot;&gt;1&lt;/div&gt;
-    &lt;div&gt;2&lt;/div&gt;
-    &lt;div&gt;3&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    //选项卡
-    //1）要操作谁就先获取谁
-    var box = document.getElementById(&apos;box&apos;);
-    var lis = box.getElementsByTagName(&apos;li&apos;);
-    var divs = box.getElementsByTagName(&apos;div&apos;);
-    //    console.log(lis)
-    //    lis[0]  lis[索引]
-    //2)执行操作
-    for (var i = 0; i &lt; lis.length; i++) {
-        //自定义属性
-        //console.log(typeof lis[i]);
-        lis[i].zfpx = i;
-        //鼠标移入
-        lis[i].onmouseover = function () {
-            //将所有的li和div的类名on 去掉（将class类名设置为&apos;&apos;），然后再将当前li和对应的div加上class 为on的这个类名
-            for (var j = 0; j &lt; lis.length; j++) {
-                lis[j].className = &apos;&apos;;
-                divs[j].className = &apos;&apos;;
-            }
-            this.className = &apos;on&apos;;
-//            console.log(i);//3
-            //this 当前操作的元素
-            divs[this.zfpx].className = &apos;on&apos;;
-
-        }
-    }
-
-
-&lt;/script&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-3.3函数中的返回值" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/03/1-3.3函数中的返回值/" class="article-date">
-      <time datetime="2015-01-03T12:00:03.000Z" itemprop="datePublished">2015-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.3函数中的返回值/">1-3.3函数中的返回值</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    function sum() {
-        var total = null;
-        total = 1 + 1;
-//        return total;//return后面的代码不会执行
-//        alert(123)
-    }
-
-    console.log(sum());
-    //没有返回值，输出undefined
-    console.log(sum);
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-3.2函数中的形参" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/03/1-3.2函数中的形参/" class="article-date">
-      <time datetime="2015-01-03T12:00:02.000Z" itemprop="datePublished">2015-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.2函数中的形参/">1-3.2函数中的形参</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //任意两个数求和
-    //形参：相当于入口
-    function sum(a, b) {
-        var total = null;
-        total = a + b;  //a=4  b=5
-        console.log(total);//number+undefined   ---NaN
-    }
-    //    sum(4,5);
-    sum(10);//a=10  b=undefined
-    //如果形参没有传递具体的值，默认是undefined
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-3.1函数" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/03/1-3.1函数/" class="article-date">
-      <time datetime="2015-01-03T12:00:01.000Z" itemprop="datePublished">2015-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.1函数/">1-3.1函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Title&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //函数  function
-    //一个功能  一个方法
-
-    //求和的方法
-    //函数分为两部分：1，创建函数；2，执行函数
-    //创建函数
-    function sum() {
-        //函数体:实现这个方法，执行的代码
-        var total = null;
-        total = 1 + 1;
-        console.log(total);
-    }
-
-    sum();//执行函数
-    sum();//一个函数可以执行很多次，每次执行和上一次执行没有任何关系
-    sum;
-
-    //函数执行的时候会形成一个私有作用域，函数体里面的代码从上到下执行，外界无法访问，也无法修改，我们把函数执行时的这种机制叫做闭包。闭包不是一种形式（书写），而是一种机制
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-2.5隔行变色2" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/02/1-2.5隔行变色2/" class="article-date">
-      <time datetime="2015-01-02T12:00:07.000Z" itemprop="datePublished">2015-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.5隔行变色2/">1-2.5隔行变色2</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>    &lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        ul {
-            width: 500px;
-            margin: 10px auto;
-            border-radius: 10px;
-            border: 1px solid yellow;
-            overflow: hidden;
-        }
-
-        li {
-            height: 30px;
-            line-height: 30px;
-        }
-
-        .bg1 {
-            background: plum;
-        }
-
-        .bg2 {
-            background: lawngreen;
-        }
-
-        .bg3 {
-            background: lavenderblush;
-        }
-
-    &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;ul id=&quot;list&quot;&gt;
-    &lt;li&gt;韩娱之星光最闪耀 第二五八章 永恒 [VIP]&lt;/li&gt;
-    &lt;li&gt;君子岳大掌门 第一百四十六章 岳子&lt;/li&gt;
-    &lt;li&gt;十界主宰 第六百五十八章 扬威&lt;/li&gt;
-    &lt;li&gt;天外飞医 第700章 杀生屠戮&lt;/li&gt;
-    &lt;li&gt;超强保镖 第八百六十七章&lt;/li&gt;
-    &lt;li&gt;韩娱之星光最闪耀 第二五八章 永恒 [VIP]&lt;/li&gt;
-    &lt;li&gt;君子岳大掌门 第一百四十六章 岳子&lt;/li&gt;
-    &lt;li&gt;十界主宰 第六百五十八章 扬威&lt;/li&gt;
-    &lt;li&gt;天外飞医 第700章 杀生屠戮&lt;/li&gt;
-    &lt;li&gt;超强保镖 第八百六十七章&lt;/li&gt;
-    &lt;li&gt;韩娱之星光最闪耀 第二五八章 永恒 [VIP]&lt;/li&gt;
-    &lt;li&gt;君子岳大掌门 第一百四十六章 岳子&lt;/li&gt;
-    &lt;li&gt;十界主宰 第六百五十八章 扬威&lt;/li&gt;
-    &lt;li&gt;天外飞医 第700章 杀生屠戮&lt;/li&gt;
-    &lt;li&gt;超强保镖 第八百六十七章&lt;/li&gt;
-&lt;/ul&gt;
 &lt;script&gt;
-
-    //1）获取要操作的元素
-    var oList = document.getElementById(&apos;list&apos;);
-    var oLis = oList.getElementsByTagName(&apos;li&apos;);
-
-    //    对象 类数组
-    //    索引  oLis[0]
-    //    oLis.length  15
-    console.log(oLis);
-    //    i  oLis的索引
-    for (var i = 0; i &lt; oLis.length; i++) {
-//        第一行  索引：0  偶数   class：bg1
-//        第二行  索引：1  奇数   class:bg2
-        var oLi = oLis[i];
-//        i%2 模   i除以2取余数
-//        console.log(typeof oLi)  object
-//        自定义属性    obj.age =7
-        if (i % 2 == 0) {
-            oLi.className = &apos;bg1&apos;;
-            oLi.name = &apos;bg1&apos;;
-        } else {
-            oLi.className = &apos;bg2&apos;;
-            oLi.name = &apos;bg2&apos;
-        }
-
-//        onmouseover
-//        鼠标移入的事件
-        oLi.onmouseover = function () {
-            this.className = &apos;bg3&apos;;
-        }
-//        鼠标移出的事件
-        oLi.onmouseout = function () {
-            var oldVal = this.name;
-            this.className = oldVal;
-        }
+    var str=&apos;zhangsan&apos;;
+    //console.log(str.charAt(0).toUpperCase()+str.slice(1))
+    /*console.log(str.charAt(0).toUpperCase()+str.substring(1))
+    console.log(str.charAt(0).toUpperCase()+str.substr(1))*/
+    str=str.replace(&apos;z&apos;,&apos;Z&apos;);
+    console.log(str)
 
 
-    }
-
-
+     var str=&apos;2015/1/6 11:20:30&apos;;
+        // 2015年1月6日 11点20分30秒
+     var ary=str.split(&apos; &apos;);//先用空格切成两个字符串的数组
+        var aryL=ary[0].split(&apos;/&apos;);//根据斜杠继续切
+        var aryR=ary[1].split(&apos;:&apos;);//根据冒号继续切
+     var str=aryL[0]+&apos;年&apos;+aryL[1]+&apos;月&apos;+aryL[2]+&apos;日 &apos;+aryR[0]+&apos;点&apos;+aryR[1]+&apos;分&apos;+aryR[2]+&apos;秒&apos;;//最后进行字符串拼接；
+     console.log(str)
 &lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -1097,11 +792,11 @@
 
 
   
-    <article id="[layout]-1-2.5隔行变色" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-3.1字符串常用方法" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/02/1-2.5隔行变色/" class="article-date">
-      <time datetime="2015-01-02T12:00:06.000Z" itemprop="datePublished">2015-01-02</time>
+      <a href="/2015/01/06/2-3.1字符串常用方法/" class="article-date">
+      <time datetime="2015-01-06T12:00:01.000Z" itemprop="datePublished">2015-01-06</time>
 </a>
     </div>
   
@@ -1114,7 +809,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.5隔行变色/">1-2.5隔行变色</a>
+      <a class="article-title" href="/2015/01/06/2-3.1字符串常用方法/">2-3.1字符串常用方法</a>
     </h1>
   
 
@@ -1125,335 +820,282 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        * {
-            margin: 0;
-            padding: 0;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    var str = &apos;张三&amp;&amp;javascript&amp;&amp;李四&apos;;
+    var str2 = &apos;abcdefg&apos;
+    // alert(str.charCodeAt(3))
+    //console.log(str.indexOf(&apos;张三&apos;))
+    // console.log(str.lastIndexOf(&apos;张&apos;))
+    //console.log(str.substring(2,5))
+    //console.log(str.slice(-4,-1))
+    //console.log(str.slice(-4))
+    /*var ary=str.split(&apos;&amp;&amp;&apos;);
+     console.log(ary)*/
+    // console.log(str2.toUpperCase().toLowerCase())
+    //console.log(str.replace(&apos;张三&apos;,&apos;李四&apos;))
+    // console.log(str.match(&apos;张三&apos;))
+    console.log(str.search(&apos;lala&apos;))
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-2.6循环绑定事件" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/05/2-2.6循环绑定事件/" class="article-date">
+      <time datetime="2015-01-05T12:00:06.000Z" itemprop="datePublished">2015-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/2-2.6循环绑定事件/">2-2.6循环绑定事件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type=&quot;button&quot; value=&quot;按钮1&quot;/&gt;
+&lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+&lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+&lt;input type=&quot;button&quot; value=&quot;按钮4&quot;/&gt;
+&lt;script&gt;
+    //循环绑定事件：点击每个按钮弹出对应的索引；
+    //自定义属性循环绑定事件；
+    var aBtn = document.getElementsByTagName(&apos;input&apos;);
+    /*for(var i=0; i&lt;aBtn.length; i++){
+     aBtn[i].index=i;
+     aBtn[i].onclick=function(){
+     //注意：私有的事件中，i值都会出问题；
+     alert(this.index)
+     }
+     }*/
+    for (var i = 0; i &lt; aBtn.length; i++) {//闭包实现循环绑定事件
+        //每个正确的i值，都被保存在闭包中的私有变量index上；
+        (function (index) {//形参：index
+            aBtn[index].onclick = function () {
+                alert(index);
+            }
+        })(i);//实参i;
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-2.5任意个参数求和" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/05/2-2.5任意个参数求和/" class="article-date">
+      <time datetime="2015-01-05T12:00:05.000Z" itemprop="datePublished">2015-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/2-2.5任意个参数求和/">2-2.5任意个参数求和</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--
+思路：add()
+参数：没有
+返回值：把所有参数求和后的结果
+1）遍历arguments；
+2）判断每个arguments是否为有效数字，如果是有效数字，进行累加；注意累加的时候，预防字符串拼接的问题；
+--&gt;
+&lt;script&gt;
+    function add() {
+        var total = 0;
+        //遍历每个arguments，判断每个arguments是否为有效数字
+        for (var i = 0; i &lt; arguments.length; i++) {
+            if (!isNaN(arguments[i])) {
+                total += Number(arguments[i]);//为了防止字符串拼接；
+            }
         }
+        return total;//最后把求和后的结果返回；
+    }
+    console.log(add(12, 32, 9, &apos;3&apos;, &apos;3px&apos;))
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
-        ul {
-            list-style: none;
-        }
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
 
-        ul {
-            width: 500px;
-            margin: 10px auto;
-            border-radius: 10px;
-            border: 1px solid yellow;
-            overflow: hidden;
-        }
 
-        li {
-            height: 30px;
-            line-height: 30px;
-        }
 
-        .bg1 {
-            background: plum;
-        }
 
-        .bg2 {
-            background: lawngreen;
-        }
 
-        .bg3 {
-            background: lavenderblush;
-        }
 
-        /*li:hover{*/
-        /*background: orange;*/
-        /*}*/
 
-    &lt;/style&gt;
+
+
+  
+    <article id="[layout]-2-2.4上一个哥哥元素节点" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/05/2-2.4上一个哥哥元素节点/" class="article-date">
+      <time datetime="2015-01-05T12:00:04.000Z" itemprop="datePublished">2015-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/2-2.4上一个哥哥元素节点/">2-2.4上一个哥哥元素节点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;ul&gt;
-    &lt;li&gt;韩娱之星光最闪耀 第二五八章 永恒 [VIP]&lt;/li&gt;
-    &lt;li&gt;君子岳大掌门 第一百四十六章 岳子&lt;/li&gt;
-    &lt;li&gt;十界主宰 第六百五十八章 扬威&lt;/li&gt;
-    &lt;li&gt;天外飞医 第700章 杀生屠戮&lt;/li&gt;
-    &lt;li&gt;超强保镖 第八百六十七章&lt;/li&gt;
-    &lt;li&gt;韩娱之星光最闪耀 第二五八章 永恒 [VIP]&lt;/li&gt;
-    &lt;li&gt;君子岳大掌门 第一百四十六章 岳子&lt;/li&gt;
-    &lt;li&gt;十界主宰 第六百五十八章 扬威&lt;/li&gt;
-    &lt;li&gt;天外飞医 第700章 杀生屠戮&lt;/li&gt;
-    &lt;li&gt;超强保镖 第八百六十七章&lt;/li&gt;
-    &lt;li&gt;韩娱之星光最闪耀 第二五八章 永恒 [VIP]&lt;/li&gt;
-    &lt;li&gt;君子岳大掌门 第一百四十六章 岳子&lt;/li&gt;
-    &lt;li&gt;十界主宰 第六百五十八章 扬威&lt;/li&gt;
-    &lt;li&gt;天外飞医 第700章 杀生屠戮&lt;/li&gt;
-    &lt;li&gt;超强保镖 第八百六十七章&lt;/li&gt;
+    &lt;li&gt;0&lt;/li&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
 &lt;/ul&gt;
 &lt;script&gt;
-    //分析思路：
-    //    第一行 class bg1  奇数行
-    //    第二行 class bg2  偶数行
-    //    1）获取要操作的元素，获取所有的li
-
-
-    //    document.getElementsByTagName(&apos;标签名&apos;);
-    //    div  p  span...
-    //    document  文档  上下文（范围）
-    //    Elements 多个元素
-    //    TagName 标签名
-    //    在上下文中，通过标签名获取一组元素
-
-
-    //    1)获取到要操作的元素
-    var oLis = document.getElementsByTagName(&apos;li&apos;);
-    //    2）给每一个li去添加一个class名
-
-    //    console.log(typeof oLis);//对象   类数组
-    //    console.log(oLis.length)
-    //    console.log(oLis);//把oLis叫做类数组
-    //    索引
-    //    索引是从0开始的
-    //    length :类数组的长度
-    //    oLis[索引值]
-    //    console.log(oLis[0]); 获取索引为0的li
-    console.log(oLis)
-    for (var i = 0; i &lt; oLis.length; i++) {
-//        console.log(oLis[i]);
-        var oLi = oLis[i];
-//        第一行  bg1   索引 0   偶数
-//        第二行  bg2   索引1    奇数
-        //索引为偶数还是奇数
-
-//      模 i%2  取余数  i除以2的余数
-//        9%2   1  奇数
-//        8%2   0  偶数
-
-//        i索引   .className 给元素加class值  class=&apos;bg1&apos;
-        console.log(typeof oLi);//object
-//        自定义属性  oLi.name
-        if (i % 2 == 0) {
-            oLi.className = &apos;bg1&apos;;
-            oLi.name = &apos;bg1&apos;;
-        } else {
-            oLi.className = &apos;bg2&apos;;
-            oLi.name = &apos;bg2&apos;
+    var aLi = document.getElementsByTagName(&apos;li&apos;);
+    //prev:找当前元素的上一个哥哥元素节点；
+    console.log(prev(aLi[2]).innerHTML)
+    function prev(curEle) {//curEle形参
+        //兼容高级浏览器；previousElementSibling：直接拿到上一个哥哥元素节点；
+        if (curEle.previousElementSibling) {
+            return curEle.previousElementSibling;
         }
-
-//        鼠标移入  onmouseover
-//        鼠标移出  onmouseout
-        oLi.onmouseover = function () {
-//            this 当前要操作的元素
-            this.className = &apos;bg3&apos;;
+        //处理低级浏览器的兼容问题
+        var pre = curEle.previousSibling;//获取上一个哥哥节点；
+        //上一个节点存在，并且不是元素节点；才会继续往上找；
+        while (pre &amp;&amp; pre.nodeType !== 1) {
+            pre = pre.previousSibling;
         }
-        oLi.onmouseout = function () {
-            var oldVal = this.name
-            this.className = oldVal;
-        }
-
-
+        return pre;
     }
-
-
 &lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-2.4for in" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/02/1-2.4for in/" class="article-date">
-      <time datetime="2015-01-02T12:00:05.000Z" itemprop="datePublished">2015-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.4for in/">1-2.4for in</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>    &lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //for in循环：一般用于对象的循环
-    //    对象由多组key:value  键值对组成
-    var person = {
-        name: &apos;张三&apos;,
-        age: 18,
-        height: &apos;180cm&apos;,
-        1: 100000,
-        2: 10086
-    };
-    console.log(person[1]);
-    //    person.name
-    //    person[&apos;name&apos;]
-    //    person[1]
-    //    key 代表的就是属性名
-    //    有多少组属性名和属性值，就循环多少次
-    for (var key in person) {
-//        console.log(key);//输出的是属性名
-        //输出属性值
-        console.log(person[key])
-
-    }
-    //    先输出属性名为数字的属性值，并且按照数字由小到大的顺序输出，然后按照代码书写顺序依次输出
-
-
-&lt;/script&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-2.3for循环" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/02/1-2.3for循环/" class="article-date">
-      <time datetime="2015-01-02T12:00:04.000Z" itemprop="datePublished">2015-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.3for循环/">1-2.3for循环</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;script&gt;
-    //for循环 四步曲
-
-    //1)设置一个初始值  var i=0;
-    //2)设置循环执行的条件  i&lt;5
-    //3）执行循环体中的内容；循环体就是{}包起来的部分
-    //4）执行i++的操作
-
-    // i++  在原有的基础上加1
-
-    for (var i = 0; i &lt; 5; i++) {
-//        console.log(i);
-    }
-    //    循环了5次
-
-    //    break,continue 在循环体中遇到这两个关键字，循环体中的内容就不再继续执行了，
-
-    //    break:在循环体中只要遇到break，break后面的代码就不再执行了，整个循环就不再执行了
-    //    continue：只是当前这一轮的循环体中（continue后面的代码）的代码不继续执行，会继续执行下一轮循环,会继续执行累加的操作
-    /*for(var i=0;i&lt;10;i++){
-     console.log(&apos;zs&apos;);
-     continue;
-     console.log(i);
-     }*/
-
-    /*for(var i=0;i&lt;10;i++){
-     if(i&lt;5){
-     i+=2;  //在原有的基础上加2  相当于i=i+2
-     continue;
-     console.log(i);
-     }
-     i+=3;
-     break;
-     console.log(i);
-     }
-     console.log(i)*/
-
-    for (var i = 0; i &lt; 10; i++) {
-
-    }
-    console.log(i);
-
-
-&lt;/script&gt;
-
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -1484,7 +1126,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

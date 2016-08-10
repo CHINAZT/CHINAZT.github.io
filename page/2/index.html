@@ -206,11 +206,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="[layout]-1-2.2开关灯效果2" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-2.3getChildren" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/02/1-2.2开关灯效果2/" class="article-date">
-      <time datetime="2015-01-02T12:00:03.000Z" itemprop="datePublished">2015-01-02</time>
+      <a href="/2015/01/05/2-2.3getChildren/" class="article-date">
+      <time datetime="2015-01-05T12:00:03.000Z" itemprop="datePublished">2015-01-05</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.2开关灯效果2/">1-2.2开关灯效果2</a>
+      <a class="article-title" href="/2015/01/05/2-2.3getChildren/">2-2.3getChildren</a>
     </h1>
   
 
@@ -234,38 +234,126 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    var oUl = document.getElementsByTagName(&apos;ul&apos;)[0];
+    var aLi = getChildren(oUl);
+    for (var i = 0; i &lt; aLi.length; i++) {
+        aLi[i].style.background = &apos;red&apos;;
+    }
+    //getChildren:获取当前元素下的所有子元素节点；
+    function getChildren(curEle) {
+        var ary = [];
+        //1.当前元素下所有的子节点
+        var aLis = curEle.childNodes;
+        //2.拿获取到的每个子节点.nodeType===1；就把这个子节点放到数组中；
+        for (var i = 0; i &lt; aLis.length; i++) {
+            var cur = aLis[i];
+            if (cur.nodeType === 1) {
+                ary.push(cur);
+            }
+        }
+        return ary;
+    }
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-2.2通过JS让元素居中显示" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/05/2-2.2通过JS让元素居中显示/" class="article-date">
+      <time datetime="2015-01-05T12:00:02.000Z" itemprop="datePublished">2015-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/2-2.2通过JS让元素居中显示/">2-2.2通过JS让元素居中显示</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
     &lt;style&gt;
-        html, body {
-            padding: 0;
+        * {
             margin: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
         }
     &lt;/style&gt;
 &lt;/head&gt;
-&lt;body id=&quot;oBody&quot; style=&quot;background-color: white&quot;&gt;
+&lt;body&gt;
+&lt;div&gt;&lt;/div&gt;
 &lt;script&gt;
-    var oBody = document.getElementById(&apos;oBody&apos;);
-    oBody.onclick = function () {
-        //点击的时候执行的代码
-        var bg = this.style.backgroundColor;
-        /*if(bg==&apos;white&apos;){
-         this.style.backgroundColor = &apos;black&apos;;
-         }else{
-         this.style.backgroundColor = &apos;white&apos;;
-         }*/
-        bg == &apos;white&apos; ? this.style.backgroundColor = &apos;black&apos; : this.style.backgroundColor = &apos;white&apos;;
-
-    }
-
-
+    var oDiv = document.getElementsByTagName(&apos;div&apos;)[0];
+    var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    var l = (clientWidth - 200) / 2;
+    var t = (clientHeight - 200) / 2;
+    //console.log(top123)
+    oDiv.style.left = l + &apos;px&apos;;
+    oDiv.style.top = t + &apos;px&apos;;
 &lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -294,11 +382,11 @@
 
 
   
-    <article id="[layout]-1-2.2开关灯效果" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-2.1DOM的元素获取副本" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/02/1-2.2开关灯效果/" class="article-date">
-      <time datetime="2015-01-02T12:00:02.000Z" itemprop="datePublished">2015-01-02</time>
+      <a href="/2015/01/05/2-2.1DOM的元素获取副本/" class="article-date">
+      <time datetime="2015-01-05T12:00:01.000Z" itemprop="datePublished">2015-01-05</time>
 </a>
     </div>
   
@@ -311,7 +399,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.2开关灯效果/">1-2.2开关灯效果</a>
+      <a class="article-title" href="/2015/01/05/2-2.1DOM的元素获取副本/">2-2.1DOM的元素获取</a>
     </h1>
   
 
@@ -322,246 +410,31 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;!--white白色--&gt;
-&lt;body id=&quot;oBody&quot; style=&quot;width: 100%;background: white&quot;&gt;
-&lt;script&gt;
-    //思路：
-    //    1）获取要操作的元素
-    //    2）给元素绑定一个点击的事件
-    //    3）执行换颜色的操作
-
-    document.getElementById(&apos;元素的Id值&apos;);
-    //    document  文档 （上下文，范围）
-    //    get  获取
-    //    Element 一个元素
-    //    By  通过
-    //    Id  元素的id值
-
-    //    在整个文档中，通过元素的id获取一个元素
-
-    //    1）获取要操作的元素
-    var oBody = document.getElementById(&apos;oBody&apos;);
-    //    2）给元素绑定一个点击的事件
-    //    元素.onclick = function(){
-    //        点击时执行的代码
-    //    }
-    oBody.onclick = function () {
-//        3）执行换颜色的操作
-        //获取当前的背景颜色
-//        只能获取行内样式的css属性
-//        background-color  ---&gt;backgroundColor
-//        margin-left  ----&gt;marginLeft
-//        alert(oBody.style.backgroundColor);
-        var bg = oBody.style.backgroundColor;
-        /* if(bg==&apos;white&apos;){
-         oBody.style.backgroundColor = &apos;black&apos;;
-         }else{
-         oBody.style.backgroundColor = &apos;white&apos;;
-         }*/
-
-//        bg==&apos;white&apos;?oBody.style.backgroundColor = &apos;black&apos;:oBody.style.backgroundColor = &apos;white&apos;;
-
-//this当前点击的元素 ，代表oBody
-        switch (bg) {
-            case &apos;white&apos;:
-                this.style.backgroundColor = &apos;red&apos;;
-                break;
-            case &apos;red&apos;:
-                this.style.backgroundColor = &apos;orange&apos;;
-                break;
-            case &apos;orange&apos;:
-                this.style.backgroundColor = &apos;yellow&apos;;
-                break;
-            case &apos;yellow&apos;:
-                this.style.backgroundColor = &apos;green&apos;;
-                break;
-            case &apos;green&apos;:
-                this.style.backgroundColor = &apos;blue&apos;;
-                break;
-            default :
-                this.style.backgroundColor = &apos;white&apos;;
-        }
-
-
-    }
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-2.1js中的判断" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/02/1-2.1js中的判断/" class="article-date">
-      <time datetime="2015-01-02T12:00:00.000Z" itemprop="datePublished">2015-01-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/1-2.1js中的判断/">1-2.1js中的判断</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>    &lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
+&lt;div id=&quot;div&quot; class=&quot;div&quot;&gt;&lt;/div&gt;
+&lt;input type=&quot;text&quot; name=&quot;t1&quot;/&gt;
+&lt;input type=&quot;text&quot; name=&quot;t1&quot; class=&quot;t2&quot;/&gt;
 &lt;script&gt;
-    //    if、else if、else
-    //    三元运算符（三目运算符）
-    //    switch case
-
-    //    if else
-    /*if(条件1){
-     执行条件1成立的代码
-     }else if(条件2){
-     执行条件2成立的代码
-     }else if(条件3){
-     执行条件3成立的代码
-     }....else{
-     以上条件都不成立执行的代码
-     }*/
-
-
-    //if的条件中可以写大于,小于，等于
-    //&amp;&amp;  并且 两边的条件必须全都成立 整体才为真
-    //||  或者 两边的小条件，只有一个为真，整体即为真
-    var a = 12;
-    if (a &lt; 0) {
-        console.log(&apos;我是一个负数&apos;)
-    } else if (a &gt;= 0 || a &lt;= 10) {
-        console.log(&apos;我是0到10之间的数&apos;)
-    } else {
-        console.log(&apos;我是大于10的数&apos;)
-    }
-
-    //    三元运算符:应用于简单的if else的形式  或者只有if的情况
-    var b = 10;
-    if (b &lt;= 0) {
-        console.log(&apos;负数或者0&apos;);
-    } else {
-        console.log(&apos;正数&apos;)
-    }
-
-    //    判断的条件?条件成立执行的代码:j条件不成立执行的代码
-    b &lt;= 0 ? console.log(&apos;负数或者0&apos;) : console.log(&apos;正数&apos;);
-
-    //if的条件中也可以有一个值得情况，直接判断这个值是真还是假
-    if (0) {
-        alert(&apos;张三&apos;);
-    }
-    //void 0  用来补位的，没有其他的意义
-    0 ? alert(&apos;张三&apos;) : void 0;
-
-    //    switch case：用于不同值的情况
-    /*switch (要判断的值){
-     case 值1:
-     条件成立执行的代码;
-     break;
-     case 值2:
-     条件成立执行的代码;
-     break;
-     ...
-     default:
-     以上条件都不成立执行的代码
-
-     }*/
-
-
-    var a = 1;
-    /*if(a==1){
-     console.log(&apos;今天星期一&apos;);
-     }else if(a==2){
-     console.log(&apos;今天星期二&apos;);
-     }else if(a==3){
-     console.log(&apos;今天星期三&apos;);
-     }else if(a==4){
-     console.log(&apos;今天星期四&apos;);
-     }else{
-     console.log(&apos;今天放假&apos;)
-     }*/
-    //每个case后面都要加break，如果不加break，不管后面的条件是否成立都会执行
-    //每个case的情况是===的比较，严格比较
-
-    switch (a) {
-        case 1:
-            console.log(&apos;今天星期一&apos;);
-            break;
-        case 2:
-            console.log(&apos;今天星期二&apos;);
-            break;
-        case 3:
-            console.log(&apos;今天星期三&apos;);
-            break;
-        case 4:
-            console.log(&apos;今天星期四&apos;);
-            break;
-        default :
-            console.log(&apos;今天放假&apos;);
-
-    }
-
-
+    // var oDiv=document.getElementById(&apos;div&apos;);
+    //var oDiv=document.getElementsByTagName(&apos;div&apos;)[0];
+    //var oDiv=document.getElementsByClassName(&apos;div&apos;)[0];
+    //var oTxt=document.getElementsByName(&apos;t1&apos;)[1];//主要用于表单元素，如果获取非表单元素，在IE下有兼容问题；
+    /*document.documentElement// document文档
+     document.body  //body*/
+    //可视区的宽和高
+    /*var clientWidth=document.documentElement.clientWidth||document.body.clientWidth;
+     var clientHeight=document.documentElement.clientHeight||document.body.clientHeight;*/
+    //querySelector()；querySelectorAll()  他们多用来开发移动端
+    // var oDiv=document.querySelector(&apos;#div&apos;);
+    // var oDiv=document.querySelector(&apos;.div&apos;);
+    var aInput = document.querySelectorAll(&apos;input&apos;)[1];
+    console.log(aInput)
 &lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -590,11 +463,11 @@
 
 
   
-    <article id="[layout]-1-1.11检测数据类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-2.1DOM的元素获取" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.11检测数据类型/" class="article-date">
-      <time datetime="2015-01-01T12:00:11.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/05/2-2.1DOM的元素获取/" class="article-date">
+      <time datetime="2015-01-05T12:00:01.000Z" itemprop="datePublished">2015-01-05</time>
 </a>
     </div>
   
@@ -607,7 +480,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.11检测数据类型/">1-1.11检测数据类型</a>
+      <a class="article-title" href="/2015/01/05/2-2.1DOM的元素获取/">2-2.1DOM的元素获取</a>
     </h1>
   
 
@@ -618,34 +491,31 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
+&lt;div id=&quot;div&quot; class=&quot;div&quot;&gt;&lt;/div&gt;
+&lt;input type=&quot;text&quot; name=&quot;t1&quot;/&gt;
+&lt;input type=&quot;text&quot; name=&quot;t1&quot; class=&quot;t2&quot;/&gt;
 &lt;script&gt;
-    //检测数据类型中的方法
-    //    1）typeof运算符
-    //    2）instanceof  运算符
-    //    3）Object.prototype.toString.call();
-    //    4)constructor
-
-    //typeof 要检测的内容：返回值是一个字符串类型的
-    //    typeof null   ==》&quot;object&quot;
-    //    typeof的返回值：&quot;number&quot;、&quot;string&quot;、&quot;boolean&quot;、&quot;undefined&quot;、&quot;object&quot;、&quot;function&quot;
-    console.log(typeof 123);
-
-    //typeof局限性：不可以检测对象数据类型的具体的细分
-
-    //    typeof (typof 123)  &quot;string&quot;
-    //    typeof (typeof( typeof (typeof (typeof []) )))
-
-
-    //&quot;string&quot;
-
+    // var oDiv=document.getElementById(&apos;div&apos;);
+    //var oDiv=document.getElementsByTagName(&apos;div&apos;)[0];
+    //var oDiv=document.getElementsByClassName(&apos;div&apos;)[0];
+    //var oTxt=document.getElementsByName(&apos;t1&apos;)[1];//主要用于表单元素，如果获取非表单元素，在IE下有兼容问题；
+    /*document.documentElement// document文档
+     document.body  //body*/
+    //可视区的宽和高
+    /*var clientWidth=document.documentElement.clientWidth||document.body.clientWidth;
+     var clientHeight=document.documentElement.clientHeight||document.body.clientHeight;*/
+    //querySelector()；querySelectorAll()  他们多用来开发移动端
+    // var oDiv=document.querySelector(&apos;#div&apos;);
+    // var oDiv=document.querySelector(&apos;.div&apos;);
+    var aInput = document.querySelectorAll(&apos;input&apos;)[1];
+    console.log(aInput)
 &lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -674,11 +544,11 @@
 
 
   
-    <article id="[layout]-1-1.10基本数据类型和引用数据类型的本质区别" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-2.1DOM的元素获取副本 7" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/" class="article-date">
-      <time datetime="2015-01-01T12:00:10.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/05/2-2.1DOM的元素获取副本 7/" class="article-date">
+      <time datetime="2015-01-05T12:00:01.000Z" itemprop="datePublished">2015-01-05</time>
 </a>
     </div>
   
@@ -691,7 +561,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/">1-1.10基本数据类型和引用数据类型的本质区别</a>
+      <a class="article-title" href="/2015/01/05/2-2.1DOM的元素获取副本 7/">2-2.1DOM的元素获取</a>
     </h1>
   
 
@@ -702,35 +572,31 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
+&lt;div id=&quot;div&quot; class=&quot;div&quot;&gt;&lt;/div&gt;
+&lt;input type=&quot;text&quot; name=&quot;t1&quot;/&gt;
+&lt;input type=&quot;text&quot; name=&quot;t1&quot; class=&quot;t2&quot;/&gt;
 &lt;script&gt;
-    var num1 = 12;
-    var num2 = num1;
-    num2++;//num2=num2+1  num2+=1 在原有基础上加1
-    console.log(num1);
-
-    var obj1 = {name: &apos;zhangsan&apos;};
-    var obj2 = obj1;
-    obj2.name = &apos;lisi&apos;;
-    console.log(obj1);
-    //    基本数据类型中  操作的是值
-    //    引用数据类型中 一个值改变了另一个值也跟着改变了
-
-
-    //    基本数据类型 ：操作的是值
-    //   你有一套房子，我也有一套房子，你的是你的，我的就是我的，没有任何关系
-
-    //    引用数据类型：操作的是地址
-    //    你有一套房子，你把房子的要是给了我，我把房子里面的东西搬走了，相当于你的房子空了，操作的同一个空间
-
-
+    // var oDiv=document.getElementById(&apos;div&apos;);
+    //var oDiv=document.getElementsByTagName(&apos;div&apos;)[0];
+    //var oDiv=document.getElementsByClassName(&apos;div&apos;)[0];
+    //var oTxt=document.getElementsByName(&apos;t1&apos;)[1];//主要用于表单元素，如果获取非表单元素，在IE下有兼容问题；
+    /*document.documentElement// document文档
+     document.body  //body*/
+    //可视区的宽和高
+    /*var clientWidth=document.documentElement.clientWidth||document.body.clientWidth;
+     var clientHeight=document.documentElement.clientHeight||document.body.clientHeight;*/
+    //querySelector()；querySelectorAll()  他们多用来开发移动端
+    // var oDiv=document.querySelector(&apos;#div&apos;);
+    // var oDiv=document.querySelector(&apos;.div&apos;);
+    var aInput = document.querySelectorAll(&apos;input&apos;)[1];
+    console.log(aInput)
 &lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -759,11 +625,11 @@
 
 
   
-    <article id="[layout]-1-1.9Object" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-1.8数组去重" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.9Object/" class="article-date">
-      <time datetime="2015-01-01T12:00:09.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/04/2-1.8数组去重/" class="article-date">
+      <time datetime="2015-01-04T12:00:08.000Z" itemprop="datePublished">2015-01-04</time>
 </a>
     </div>
   
@@ -776,7 +642,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.9Object/">1-1.9Object</a>
+      <a class="article-title" href="/2015/01/04/2-1.8数组去重/">2-1.8数组去重</a>
     </h1>
   
 
@@ -787,509 +653,381 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-
-    //对象由多组属性名和属性值组成，  多组键值对 key：value
-    /* var obj = {
-     name:&apos;张三&apos;,
-     age:18,
-     height:&apos;170cm&apos;
-     };*///name属性名 &apos;张三&apos;：属性值
-    var ary = [1, 2, 3]
-    var reg = /^$/
-
-    //    创建对象的方式
-    var obj = {name: &apos;张三&apos;};//字面量创建方式
-    var obj = new Object();  //实例创建方式
-
-    //    增加一组属性名和属性值
-    //    obj.属性名=属性值;
-    obj.age = 18;
-    obj[&apos;hobby&apos;] = &apos;敲代码&apos;;
-    console.log(obj);
-
-    //    修改属性值,在对象中，规定不能出现重复的属性名，如果之前没有就相当于增加，如果之前有这个属性名就是修改
-    obj.age = 16;
-    obj[&apos;age&apos;] = 16;
-    console.log(obj)
-
-
-    //    获取属性名的属性值
-    console.log(obj.age);
-    console.log(obj[&apos;age&apos;])
-
-
-    //    删除属性名和属性值
-    //    假删除
-    obj.age = null;
-    console.log(obj);
-    //    真删除
-    delete obj.age;
-    console.log(obj)
-
-    obj.age
-    obj[&apos;age&apos;]
-
-
-    //    js中的对象、类、实例的区别：js中万物皆对象，类是对对象的一个具体的细分，实例是类中的一个具体的实例
-    //    举例：在自然界中万物皆对象，自然界中所有的东西可以分为 人类、动物类、植物类、物体类..  比如一个人就是人类中的一个实例
-
-    //    对象数据类型也是具体的细分：
-    //    对象类(Object)、数组类(Array)、正则类（RegExp）、时间类（Date）、Math 数学函数...中的具体的&apos;实例&apos;
-    //    {name:&apos;zfpx&apos;}、[]、/^$\d/
-
-
-    var obj = {}
-    var ary = []
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-1.8boolean" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.8boolean/" class="article-date">
-      <time datetime="2015-01-01T12:00:08.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.8boolean/">1-1.8boolean</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //boolean  布尔数据类型：只有两个值 true false
-    //!  取反
-    console.log(!3);  //false
-    //    首先将3转换为boolean数据类型  执行Boolean(3)--》true的方法，然后再取反  --》false
-
-    //    !要检测的值  先默认将这个值转换boolean类型，然后再取反
-    //    如果一个值转换为布尔数据类型，只有0、NaN、&apos;&apos;、null、undefined是false，其余都是true
-
-    //    !! 先取反再取反，相当于直接转换为布尔数据类型
-    //    Boolean(要转换的内容)  将其他数据类型转换为布尔数据类型
-
-
-    //    Boolean(3)  --&gt;true
-    //    !3 ---&gt;false
-    //    !!3 ---&gt;true
-
-    //    = 赋值
-    //    == 比较
-    //
-    //    1==1  -- true
-    //    1==2   --false
-    //    &quot;zhang&quot;==&quot;zhangsan&quot;  --false
-    //    &quot;zs&quot;==&quot;zs&quot;   --true
-    //    相同数据类型的两个值直接比较是否相等
-
-    //    val1==val2
-    //    不同数据类型的两个值之间的比较，遵循以下规则
-    /*
-     转换为数字  默认调用Number()
-     转换为字符串  默认调用toString()
-     **布尔转换为数字 true 1   false 0
-
-     1）对象==对象  永远不相等
-     []==[]  false
-     {}=={}  false
-     2）对象==字符串  先将对象转换为字符串，然后再进行比较
-     []==&apos;&apos;
-     首先，[]转化为字符串，浏览器会默认执行toString()的方法 ==[].toString()  --&gt;&quot;&quot;  然后，&quot;&quot;==&apos;&apos;  比较，返回true
-
-     3）对象==布尔  对象先转换字符串，再转换为数字；布尔也转换为数字
-     []==false  --&gt;true
-     [].toString() ---&quot;&quot;   Number(&quot;&quot;) ---0
-     Number(false)  ---0
-
-     4)对象==数字    对象先转字符串，再转换为数字
-     []==0  --&gt;true
-     [].toString() ---&apos;&apos;   Number(&apos;&apos;)---0
-
-     5)布尔==字符串   都转还为数字
-     true==&apos;0&apos;  false
-     Number(true) ---1
-     Number(&apos;0&apos;) ---0
-     6)布尔==数字     布尔转化为数字
-     true==1 ---&gt;true   Number(true)  1
-     7)数字==字符串   字符串转化为数字
-     1==&apos;123&apos;
-     8)null==undefined  true
-     9)null或者undefined和其他任何数据类型的值比较，永远不相等
-
-
-     */
-
-    //    =赋值
-    //    ==比较
-    //    ===严格比较：数据类型和值必须全部都相等 返回true，如果数据类型不相等 返回false
-
-    //    null==undefined     --true
-    //    null===undefined    --false
-
-
-    //    Boolean 只有两个值：true false
-    //    !     取反
-    //    !!
-    //    Boolean()
-    //    0、NaN、&apos;&apos;、null、undefined  是false
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-1.7Number" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.7Number/" class="article-date">
-      <time datetime="2015-01-01T12:00:07.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.7Number/">1-1.7Number</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //数字
-    // number：正数、负数、小数、0、NaN
-
-//    NaN：not a number   不是一个数
-//    isNaN();   是不是一个数，判断一个值是不是有效数字，如果不是一个有效数字返回true，如果是一个有效数字返回false
-//    isNaN(要判断的值);  返回值：true false
-
-    console.log(isNaN(123));  //false
-    console.log(isNaN(&apos;zhangsan&apos;)); //true
-    console.log(isNaN(&apos;123&apos;));
-//    首先，将字符串（&apos;123&apos;）转化为数字---&gt;123
-//    然后，在进行isNaN(123)   ---&gt;false
-
-//    isNaN();  要检测值如果是字符串，浏览器默认的先将字符串转化为数字，再进行判断
-
-
-//    强制转换为number类型：Number();
-//    Number(); 将其他数据类型转换为number数据类型
-    console.log(Number(&apos;123&apos;));
-//    Number(&apos;123px&apos;);  --&gt;NaN
-//    Number(要转换的内容) 如果要转换的内容是字符串，字符串中必须全部都是数字，才可以转换，否则返回（结果）NaN
-
-//    非强制转换：parseInt  parseFloat
-
-    console.log(parseInt(&apos;12px&apos;)); //12
-//    parseInt(要转换的内容):从左到右依次查找，如果是数字 返回和数字，中途就如果遇到一个不是数字的字符，就不再继续查找了，直接返回之前的数字，如果要转换的内容第一个字符就不是数字，直接返回NaN
-
-    console.log(parseInt(&apos;px123z&apos;));//NaN
-
-//    parseFloat：和parseInt一样，只不过可以多识别一个点.
-    console.log(parseFloat(&apos;123.5px&apos;)); //123.5
-//    parseFloat(&apos;12.3.4asd&apos;)  --&gt;12.3
-
-//    =赋值
-//    ==比较
-//    1==1  true（真）  false（假）
-
-//    NaN==NaN  返回（结果）false
-//    Number(&apos;&apos;)   0
-//    Number(null)  0
-
-    var num = Number(&apos;12px&apos;);//num = NaN
-    if(num==12){
-        console.log(&apos;12&apos;);
-    }else if(num==NaN){
-        console.log(&apos;NaN&apos;);
-    }else{
-        console.log(&apos;以上都不成立&apos;)
-    }
-//    number：正数、负数、小数、0、NaN
-
-//    isNaN();  判断
-
-//    Number()
-//    parseInt()
-//    parseFloat()
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-1.6js中的数据类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.6js中的数据类型/" class="article-date">
-      <time datetime="2015-01-01T12:00:06.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.6js中的数据类型/">1-1.6js中的数据类型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //js中不区分双引号和单引号  &quot;&quot;  &apos;&apos;
-    var num = 123;
-    var str = &apos;zhangsan&apos;;
-    var str1 = &quot;张三&quot;;
-    var boo = true; //布尔boolean  只有两个值 true false
-    var nu = null;//空
-    var un = undefined;//未定义
-
-    var obj = {name:&apos;zhangsan&apos;};//对象 对象数据类型
-    var ary = [1,2,3]; //数组 也是对象数据类型
-    var reg = /^\d{11}\w$/;//正则 也是对象数据类型
-
-    var fn = function(){
-
-    }//函数数据类型
-
-    // js中的数据类型
-    //    1、基本数据类型：结构相对简单
-    //       数字（number）、字符串（string）、布尔（boolean）、null、undefined
-    //    2、引用数据类型：结构相对复杂一些
-    //      1）对象数据类型 （object）：{}、[]、/^$/...
-    //      2）函数数据类型 （function）
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-1.5js中的变量" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.5js中的变量/" class="article-date">
-      <time datetime="2015-01-01T12:00:05.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.5js中的变量/">1-1.5js中的变量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;script&gt;
-    //变量：可变的量
-    // 作用：用来存储值和代表值的
-    // 声明一个变量  var
-    // 定义一个变量 var（关键字）
-    //    var 变量名 = 变量值;
-    var name = &apos;张三&apos;; //name变量名 张三是name代表的值
-    console.log(name); //name变量所代表的值
+    var ary = [21, 32, 32, 4, 5, 61, 61, 21, 4, 5, 61];
+    //1.sort进行排序 2.拿当前项跟后一项进行比较
+    /*ary.sort(function(a,b){
+     return a-b;
+     });
+     for(var i=0; i&lt;ary.length; i++){
+     if(ary[i]===ary[i+1]){
+     ary.splice(i,1);
+     i--;
+     }
+     }*/
+    //2.双循环
+    /*for(var i=0; i&lt;ary.length; i++){
+     var cur=ary[i];
+     //那当前这一项跟后面每一项进行比较，如果重复，就删除；
+     for(var j=i+1;j&lt;ary.length; j++){
+     if(cur === ary[j]){
+     ary.splice(j,1);
+     j--;
+     }
+     }
+     }*/
+    //3.新数组
+    /*var newAry=[];
+     for(var i=0; i&lt;ary.length; i++){
+     if(newAry.indexOf(ary[i])===-1){
+     newAry[newAry.length]=ary[i];
+     }
+     }
+     console.log(newAry)*/
+    //4.如果对象中没有这一项，给对象添加属性和方法，如果对象中已经有了，说明是重复的，直接在数组中删除这一项；
+    /*var obj={};
+     for(var i=0; i&lt;ary.length; i++){
+     var cur=ary[i];
+     if(obj[cur]===cur){//说明重复了
+     ary.splice(i,1);
+     i--;
+     }
+     obj[cur]=cur;
+     }
+     console.log(ary);*/
+    //5.利用对象不重名的特性；
+    var obj = {};
+    for (var i = 0; i &lt; ary.length; i++) {
+        var cur = ary[i];
+        //统计每个数字出现的次数；
+        if (obj[cur]) {
+            obj[cur]++;
+        } else {
+            obj[cur] = 1;//如果给0；走if语句的时候；0是假，进不去if语句
+        }
 
-    //    = 赋值操作，等号左边是变量名 等号右边是变量值
-    var a = 123;
-    console.log(a);
-
-    var num = 123;
-    var str = &apos;123zhangsan&apos;;
-    var ary = [1, 2, 3];
-
-    //var定义任何类型的变量
-    var b = &apos;zhangsan&apos;
+    }
+    console.log(obj);
 
 
 &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-1.7数组的常用方法" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/04/2-1.7数组的常用方法/" class="article-date">
+      <time datetime="2015-01-04T12:00:07.000Z" itemprop="datePublished">2015-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/2-1.7数组的常用方法/">2-1.7数组的常用方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    var ary=[12,21,34,23,5];
+    var ary1=[56,8]
+    //var res=ary.push(&apos;zhangsan&apos;);
+    //var res=ary.pop();
+    /*var res=ary.unshift(&apos;zhangsan&apos;);
+    console.log(res);*/
+    //var res=ary.slice(1,3);
+    //var res=ary.concat(ary1);
+    //var res=ary.toString();
+    //var res=ary.join(&apos;+&apos;);
+    //var res=ary.reverse();
+    /*var res=ary.sort(function(a,b){
+       // return a-b;//实现从小到大排；
+        return b-a;//实现从大到小排；
+    });*/
+    /*var res=ary.forEach(function(){
+        //arguments是函数自带的参数机制；
+       // console.log(arguments)
+        return 123;
+    })*/
+    var res=ary.map(function(item,index,input){
+        //arguments是函数自带的参数机制；
+        //console.log(index)
+        return 123;
+    })
+    console.log(res);
+    console.log(ary);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-1.6冒泡排序" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/04/2-1.6冒泡排序/" class="article-date">
+      <time datetime="2015-01-04T12:00:06.000Z" itemprop="datePublished">2015-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/2-1.6冒泡排序/">2-1.6冒泡排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en"><br><head><br>    <meta charset="UTF-8"><br>    <title></title><br></head><br><body><br><script><br>    var ary = [21, 32, 2, 9, 4];<br>    var ary2 = [87, 2, 4, 56, 1]<br>    function bubbleSort(ary) {<br>        for (var i = 0; i &lt; ary.length; i++) {//循环的是轮数<br>            for (var j = 0; j &lt; ary.length - i - 1; j++) {<br>                //每次都是当前项跟后一项进行比较<br>                if (ary[j] &gt; ary[j + 1]) {<br>                    var tmp = ary[j + 1];<br>                    ary[j + 1] = ary[j];<br>                    ary[j] = tmp;<br>                }<br>            }<br>        }<br>        return ary;<br>    }<br>    console.log(bubbleSort(ary2));<br></script><br></body><br></html>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-1.5插入排序" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/04/2-1.5插入排序/" class="article-date">
+      <time datetime="2015-01-04T12:00:05.000Z" itemprop="datePublished">2015-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/2-1.5插入排序/">2-1.5插入排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    var ary = [21, 8, 4, 32, 5];
+    /*
+     * 1.left=[4，5，8，21,32]
+     * 2.拿数组中的每一项，跟左手中的每一项，从后往前的进行比较：
+     *   1）如果比左手中的牌大，应该放在左手这张牌的后面（放在这张牌的下一张牌的前面）
+     *   2）如果比左手中的牌小，,继续往左边比较，比较到索引===-1；还是小的话，插入到left最前面；
+     *  return  left;
+     * */
+    console.log(insertSort(ary));
+    function insertSort(ary) {
+        //1.先给左手一张牌，这个牌数组中
+        var left = ary.splice(0, 1);
+        //2.拿数组中的每一项跟左手中的每一项进行比较（从后往前的比较）
+        for (var i = 0; i &lt; ary.length; i++) {//数组
+            var cur = ary[i];//数组中的每一项；
+            for (var j = left.length - 1; j &gt;= 0;) {//4  左手
+                var nex = left[j];//代表左手中的每一项；
+                if (cur &lt; nex) {//数组中的某一项，比左手牌小；
+                    j--;
+                    if (j === -1) {//说明已经比到左手第一张牌了，而且还比他小,应该插入左手第一张牌的最前面；
+                        left.unshift(cur);
+                    }
+                } else {
+                    left.splice(j + 1, 0, cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-1.4concat" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/04/2-1.4concat/" class="article-date">
+      <time datetime="2015-01-04T12:00:04.000Z" itemprop="datePublished">2015-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/2-1.4concat/">2-1.4concat</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    var ary1=[3,4,5];
+    var ary2=[4,5,6];
+    var ary3=[8,9];
+    var ary4=[8,9];
+    //console.log(ary1.concat(ary2,ary3,ary4))
+    var ary5=ary1.concat();//concat可以实现克隆，克隆的时候concat不需要传参；
+    console.log(ary5);
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -1320,7 +1058,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -206,11 +206,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="[layout]-1-1.4js的命名规范" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-1.3快速排序" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.4js的命名规范/" class="article-date">
-      <time datetime="2015-01-01T12:00:04.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/04/2-1.3快速排序/" class="article-date">
+      <time datetime="2015-01-04T12:00:03.000Z" itemprop="datePublished">2015-01-04</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.4js的命名规范/">1-1.4js的命名规范</a>
+      <a class="article-title" href="/2015/01/04/2-1.3快速排序/">2-1.3快速排序</a>
     </h1>
   
 
@@ -234,108 +234,54 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    /*
-    * 1、在js中严格区分大小写
-    * test Test object  Object  string  String number
-    * 2、遵循驼峰命名法：（匈牙利命名法）
-    *    1）首字母小写，其余每个有意义的单词首字母大写
-    *    oDiv  studentInfo  studentInfo  xueshengInfo
-    *    2）由数字、字母、下划线_、$组成，不能数字作为开头
-    *       123zhufeng （错误的）
-    *       $jquery  $num
-    *
-    * 3、不能使用关键字和保留字
-           关键字：js中有特殊意义的
-    *      保留字：js中未来可能会用到的
-    *
-    */
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-1.3js的组成" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.3js的组成/" class="article-date">
-      <time datetime="2015-01-01T12:00:03.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.3js的组成/">1-1.3js的组成</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
+&lt;script&gt;
+    var ary = [21, 8, 4, 32, 5];
+    //需求：从小到大的排序
+    /*
+     * 1)先从这个数组中取出中间一项的位置；var num=Math.floor(ary.length/2)
+     * 2)取到这个中间位置对应的值；
+     * var numValue=ary[num];
+     * var numValue=ary.splice(num,1)[0]; center;
+     * 3)拿数组中的每一项，跟中间值进行比较；如果比他小，放左边的数组； 如果比他大，就放右边的数组；
+     * center [4]
+     * var left=[]; var right=[];
+     * left:[] ; right[21,8,32,5];-&gt;left.concat(center,right) [4,21,8,32,5]
+     * center[8]
+     * left[4,5] right[21,32] =&gt;[4,5,8,21,32];
+     * 4)什么时候停止切分： 数组的长度&lt;=1;
+     * */
 
-&lt;!--
-浏览器 window --》  文档 document --》 html --》head、body    
---&gt;
-&lt;!--js的组成
-1、ECMAscript(5): 规定了js的命名规范、变量、数据类型、基本语法、操作语句等最核心的东西
-2、DOM：document object model  文档对象模型
-3、BOM：browser object model  浏览器对象模型
---&gt;
-
-&lt;!--
-html  css文件放在head标签里，然后写html代码，js的代码写在body标签最后面
-js是用来操作html结构的，要先加载html代码 再去加载js代码
-
---&gt;
+    function quickSort(ary) {
+        //1.判断是否符合切割条件，如果不符合，直接返回；
+        if (ary.length &lt;= 1) {
+            return ary;
+        }
+        //2.符合切割条件
+        //1）取中间位置；
+        var num = Math.floor(ary.length / 2);
+        //2）取中间值并且要对原数组造成影响
+        var numValue = ary.splice(num, 1)[0];//这里是一个数字
+        //3）拿数组中的每一项跟中间值numValue进行比较，比他小，放left数组，反之，放right数组；
+        var left = [];
+        var right = [];
+        for (var i = 0; i &lt; ary.length; i++) {
+            var cur = ary[i];
+            if (cur &lt; numValue) {
+                left.push(cur);
+            } else {
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat([numValue], quickSort(right));
+    }
+    console.log(quickSort(ary))
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -364,11 +310,11 @@ js是用来操作html结构的，要先加载html代码 再去加载js代码
 
 
   
-    <article id="[layout]-1-1.2js的输出方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-2-1.2求0-61之间的4个不重复的随机整数" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.2js的输出方式/" class="article-date">
-      <time datetime="2015-01-01T12:00:02.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/04/2-1.2求0-61之间的4个不重复的随机整数/" class="article-date">
+      <time datetime="2015-01-04T12:00:02.000Z" itemprop="datePublished">2015-01-04</time>
 </a>
     </div>
   
@@ -381,7 +327,7 @@ js是用来操作html结构的，要先加载html代码 再去加载js代码
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.2js的输出方式/">1-1.2js的输出方式</a>
+      <a class="article-title" href="/2015/01/04/2-1.2求0-61之间的4个不重复的随机整数/">2-1.2求0-61之间的4个不重复的随机整数</a>
     </h1>
   
 
@@ -392,35 +338,136 @@ js是用来操作html结构的，要先加载html代码 再去加载js代码
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-size: 100px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    //求0-61之间4个不重复的随机整数；
+    //给四次机会，去拿4个不重复的数字，如果重复了，此次不算，继续开始拿。
+    //var ary=[23,21,20];
+    /*ary.push(123);//给数组末尾添加一项，push
+     ary.pop();//删除数组最后一项；
+     // ary.shift();//移出数组第一项；
+     ary.unshift(&apos;789&apos;)*/
+    //方法：就是用来做事情的；
+    //var res=ary.splice(0,2);//ary.splice(n,m):从索引n开始，删除m个;
+    // console.log(res);//[23,21]:splice会影响原有数组，被删除的内容，以一个新数组的形式返回；
+    //var res=ary.splice(1,0,&apos;zhang&apos;,&apos;san&apos;);//[23,&apos;zhufeng&apos;,&apos;peixun&apos;,21,20]
+    //splice(n,0,x):从索引n开始，删除0个，把新内容x添加到索引n的前面；添加阶段，splice的返回值是空数组；
+    // var res=ary.splice(1,2,&apos;zhang&apos;,&apos;san&apos;);
+    //ary.splice(n,m,x):从索引n开始，删除m个，替换为x的新内容；返回值：被删除的内容，以一个新数组的形式返回；
+    /*console.log(res)
+     console.log(ary)//[20]*/
+
+    //alert(ary.indexOf(&apos;lilili&apos;))
+    //思路1：for循环
+    /*var ary=[];
+     for(var i=0; i&lt;4; i++){//0
+     // 求0-61之间的随机整数，包含0，和 61；
+     var rnd=Math.round(Math.random()*61);
+     //说明数组中已经存在这个数字，重复了；
+     if(ary.indexOf(rnd) !==-1){//重复
+     i--;//只要重复，此次就不算，下次继续走；
+     }else{//不重复
+     ary.push(rnd);
+     }
+     }*/
+    //思路2：while循环
+    var ary = [];
+    //当ary.length==4就不进while循环；
+    while (ary.length &lt; 4) {
+        var rnd = Math.round(Math.random() * 61);
+        if (ary.indexOf(rnd) === -1) {//数组中没有的这个数字的时候，才给数组里放；
+            ary.push(rnd);
+        }
+    }
+    document.write(ary);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-2-1.1Math" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/04/2-1.1Math/" class="article-date">
+      <time datetime="2015-01-04T12:00:01.000Z" itemprop="datePublished">2015-01-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/2-1.1Math/">2-1.1Math</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;script&gt;
-    //js的注释  ctrl+/  注释一行
-    //    ctrl+shift+/  注释多行
-    /*
+    var num = -23.156;
+    // alert(Math.round(num));
+    //alert(Math.floor(num));//向下取整
+    // alert(Math.ceil(num));//向上取整；
+    // alert(Math.abs(num));//取绝对值
+    //alert(Math.pow(2,3))//幂
+    //alert(Math.sqrt(16))//开平方
+    /*alert(Math.max(23,10,8,4,58));//求最大值
+     alert(Math.max(&apos;23&apos;,&apos;10&apos;,&apos;8&apos;,&apos;4&apos;,&apos;58&apos;));*/
+    // alert(Math.min(23,10,8,4,58))
+    // alert(Math.random()*(200-100)+100); //获取0-1之间的随机小数；包含0，但不包含1；
+    //如果想求n-m之间的随机数整数，包含n和m;
+    Math.round(Math.random() * (m - n) + n);
 
-    js的输出方式
-    1、alert(要输出的内容);   直接在页面中弹出一个层
-    2、console.log(要输出的内容);  按f12（fn+f12）在控制台中定位console页卡中显示  通常用于调试
-
-        Elements： 调试静态的页面 显示html代码  css属性
-        Sources: 网页的源代码
-        NetWork：用于调试接口
-        Timeline：网络的请求事件
-        Resources：网站的源代码 cookies  本地存储
-    3、document.write(要输出的内容);  直接显示在页面上 相当于不停的在页面中写内容
-    4、innerHTML、innerText 向指定元素中添加内容
-
-
-    */
-    alert(&apos;你好&apos;);
-    console.log(&apos;张三&apos;,&apos;1002321&apos;);
-    console.log(123);
-    document.write(&apos;李四&apos;);
 
 &lt;/script&gt;
 &lt;/body&gt;
@@ -451,11 +498,11 @@ js是用来操作html结构的，要先加载html代码 再去加载js代码
 
 
   
-    <article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-1-3.5九九乘法表" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
-      <time datetime="2015-01-01T12:00:01.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/03/1-3.5九九乘法表/" class="article-date">
+      <time datetime="2015-01-03T12:00:07.000Z" itemprop="datePublished">2015-01-03</time>
 </a>
     </div>
   
@@ -468,7 +515,7 @@ js是用来操作html结构的，要先加载html代码 再去加载js代码
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.1js、css的引入方式/">1-1.1js、css的引入方式</a>
+      <a class="article-title" href="/2015/01/03/1-3.5九九乘法表/">1-3.5九九乘法表</a>
     </h1>
   
 
@@ -479,57 +526,306 @@ js是用来操作html结构的，要先加载html代码 再去加载js代码
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 900px;
+            height: 270px;
+            border: 1px solid orange;
+            border-radius: 10px;
+            position: absolute;
+            /*top: 50%;
+            left: 50%;
+            margin-top: -135px;
+            margin-left: -450px;*/
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        li {
+            height: 30px;
+        }
+
+        li span {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .bg1 {
+            background: lawngreen;
+        }
+
+        .bg2 {
+            background: papayawhip;
+        }
+
+        .bg3 {
+            background: orange;
+        }
+
+        .bg4 {
+            background: yellow;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;box&quot;&gt;
+    &lt;!--&lt;ul&gt;
+        &lt;li class=&quot;bg1&quot;&gt;
+            &lt;span&gt;1  * 1 = 1&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;bg2&quot;&gt;
+            &lt;span&gt;1 * 2 = 2&lt;/span&gt;
+            &lt;span&gt;2 * 2 = 4&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;bg3&quot;&gt;
+            &lt;span&gt;1 * 3 = 3&lt;/span&gt;
+            &lt;span&gt;2 * 3 = 6&lt;/span&gt;
+            &lt;span&gt;3 * 3 = 9&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+--&gt;
+
+&lt;/div&gt;
+&lt;script&gt;
+    //拼接字符串
+    var box = document.getElementById(&apos;box&apos;);
+    var str = &apos;&apos;;
+    str += &apos;&lt;ul&gt;&apos;;
+    //li代表的是每一行  一共有9行
+    for (var i = 1; i &lt;= 9; i++) {
+        str += &apos;&lt;li&gt;&apos;;
+        for (var j = 1; j &lt;= i; j++) {
+            str += &apos;&lt;span&gt;&apos;;
+            //j  列
+            //i  行
+            str += j + &apos; * &apos; + i + &apos; = &apos; + (j * i);
+            str += &apos;&lt;/span&gt;&apos;;
+        }
+        str += &apos;&lt;/li&gt;&apos;;
+    }
+    str += &apos;&lt;/ul&gt;&apos;;
+    //    console.log(str)
+    //    2*3  2/3 13%3
+    box.innerHTML = str;
+    //innerText 不能识别html标签
+
+    var lis = box.getElementsByTagName(&apos;li&apos;);
+    for (var i = 0; i &lt; lis.length; i++) {
+        var li = lis[i];
+        /*if(i%3==0){
+         li.className = &apos;bg1&apos;;
+         }else if(i%3==1){
+         li.className = &apos;bg2&apos;;
+         }else{
+         li.className = &apos;bg3&apos;;
+         }*/
+//        i%2==0?li.className = &apos;bg1&apos;:li.className = &apos;bg2&apos;;
+
+        /*switch (i%3){
+         case 0:
+         li.className = &apos;bg1&apos;;
+         break;
+         case 1:
+         li.className = &apos;bg2&apos;;
+         break;
+         default:
+         li.className = &apos;bg3&apos;;
+         }*/
+        li.className = &apos;bg&apos; + (i % 3 + 1);//bg1
+
+        li.name = &apos;bg&apos; + (i % 3 + 1);
+
+        //鼠标移入
+        //this当前操作的元素
+        li.onmouseover = function () {
+            this.className = &apos;bg4&apos;;
+        }
+        //鼠标移出
+        li.onmouseout = function () {
+//            console.log(i);//9
+            this.className = this.name;
+        }
+
+
+    }
+
+
+&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-3.4选项卡的封装" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/1-3.4选项卡的封装/" class="article-date">
+      <time datetime="2015-01-03T12:00:06.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/1-3.4选项卡的封装/">1-3.4选项卡的封装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
     &lt;style&gt;
         *{
-            margin: 0;
-            padding: 0;
+            margin:0;
+            padding:0;
+            list-style: none;
         }
-        div{
-            border-radius: 50%;
+        li{
+            width: 450px;
+            height: 200px;
+            font-size: 50px;
+            margin:10px;
+            float: left;
         }
-    &lt;/style&gt;
-    &lt;!-- 最常用--&gt;
-    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
-    &lt;style&gt;
-        @import url(style.css);
+        li input{
+            width: 150px;
+            float: left;
+            height: 40px;
+        }
+        li input.on{
+            background: lightblue;
+        }
+        li div{
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: lightblue;
+        }
+        li div.show{
+            display: block;
+        }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;!--css引入方式--&gt;
-&lt;!--
-1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
-2、内嵌式:写在style标签里
-3、外链式：通过link标签引入css文件
-4、导入式：通过@import 引入css 文件
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
 
---&gt;
-&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
-&lt;!--js的引入方式--&gt;
-&lt;!--
-1、行内引入：直接写到标签内部  安全性低，几乎不用
-2、内嵌式：写到script标签里
-3、外链式:通过script标签的src属性  常用
-document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
---&gt;
+        &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+        &lt;div&gt;内容2&lt;/div&gt;
+        &lt;div&gt;内容3&lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li style=&quot;width: 300px&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+
+        &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+        &lt;div&gt;内容2&lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+
+        &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+        &lt;div&gt;内容2&lt;/div&gt;
+        &lt;div&gt;内容3&lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li style=&quot;width: 600px&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+        &lt;input type=&quot;button&quot; value=&quot;按钮4&quot;/&gt;
+
+        &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+        &lt;div&gt;内容2&lt;/div&gt;
+        &lt;div&gt;内容3&lt;/div&gt;
+        &lt;div&gt;内容4&lt;/div&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
 &lt;script&gt;
-    alert(&quot;哈哈&quot;)
+    var aLi=document.getElementsByTagName(&apos;li&apos;);
+    for(var i=0; i&lt;aLi.length; i++){
+        tab(aLi[i]);
+    }
+    function tab(oBox){
+        var aBtn=oBox.getElementsByTagName(&apos;input&apos;);
+        var aDiv=oBox.getElementsByTagName(&apos;div&apos;);
+        for(var i=0; i&lt;aBtn.length; i++){
+            (function (index){//每一个形参都是私有变量；
+                aBtn[index].onclick=function(){
+                    for(var i=0; i&lt;aBtn.length; i++){
+                        aBtn[i].className=&apos;&apos;;
+                        aDiv[i].className=&apos;&apos;;
+                    }
+                    this.className=&apos;on&apos;;
+                    aDiv[index].className=&apos;show&apos;;
+                }
+            })(i)
+        }
+    }
+
 &lt;/script&gt;
-
-
-相对路径  ../  上一级目录
-         ./   当前目录
-
-&lt;script src=&quot;./1.js&quot;&gt;
-    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
-&lt;/script&gt;
-
-
 &lt;/body&gt;
-&lt;/html&gt; 
+&lt;/html&gt;
 </code></pre>
       
     </div>
@@ -556,11 +852,11 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
 
 
   
-    <article id="[layout]-开启新篇章" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-1-3.4选项卡2" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/开启新篇章/" class="article-date">
-      <time datetime="2015-01-01T00:00:00.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/03/1-3.4选项卡2/" class="article-date">
+      <time datetime="2015-01-03T12:00:05.000Z" itemprop="datePublished">2015-01-03</time>
 </a>
     </div>
   
@@ -573,7 +869,7 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/开启新篇章/">开启新篇章</a>
+      <a class="article-title" href="/2015/01/03/1-3.4选项卡2/">1-3.4选项卡2</a>
     </h1>
   
 
@@ -583,8 +879,565 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>我在这里记录我的JavaScript学习！</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 306px;
+            margin: 0 auto;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid orange;
+            cursor: pointer;
+        }
+
+        li.on {
+            background: -webkit-linear-gradient(top, #ff6600, yellow);
+            border-bottom: none;
+        }
+
+        .box div {
+            display: none;
+            width: 304px;
+            height: 200px;
+            font-size: 30px;
+            border: 1px solid lawngreen;
+        }
+
+        .box div.on {
+            display: block;
+            margin-top: -1px;
+            border-top: none;
+        }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;on&quot;&gt;篮球&lt;/li&gt;
+        &lt;li&gt;足球&lt;/li&gt;
+        &lt;li&gt;乒乓球&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;on&quot;&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    //    document.getElementById()
+    var box = document.getElementById(&apos;box&apos;);
+    var lis = box.getElementsByTagName(&apos;li&apos;);
+    var divs = box.getElementsByTagName(&apos;div&apos;);
+    //    console.log(lis[0]);
+    //    lis[索引]
+    //    console.log(lis.item(0));  //索引
+    for (var i = 0; i &lt; lis.length; i++) {
+//        console.log(typeof lis[i]);
+        lis[i].zhufeng = i;
+        lis[i].onmouseover = function () {
+            for (var j = 0; j &lt; lis.length; j++) {
+                lis[j].className = &apos;&apos;;//class类名设置为空
+                divs[j].className = &apos;&apos;;
+            }
+            this.className = &apos;on&apos;;
+            divs[this.zhufeng].className = &apos;on&apos;;
+        }
+    }
+
+
+&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-3.4选项卡" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/1-3.4选项卡/" class="article-date">
+      <time datetime="2015-01-03T12:00:04.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/1-3.4选项卡/">1-3.4选项卡</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 306px;
+            margin: 0 auto;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid orange;
+        }
+
+        li.on {
+            background: -webkit-linear-gradient(top, #ff6600, yellow);
+            border-bottom: none;
+        }
+
+        .box div {
+            display: none;
+            width: 304px;
+            height: 200px;
+            font-size: 30px;
+            border: 1px solid lawngreen;
+        }
+
+        .box div.on {
+            display: block;
+            margin-top: -1px;
+            border-top: none;
+        }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;&quot;&gt;篮球&lt;/li&gt;
+        &lt;li&gt;足球&lt;/li&gt;
+        &lt;li&gt;乒乓球&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;on&quot;&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    //选项卡
+    //1）要操作谁就先获取谁
+    var box = document.getElementById(&apos;box&apos;);
+    var lis = box.getElementsByTagName(&apos;li&apos;);
+    var divs = box.getElementsByTagName(&apos;div&apos;);
+    //    console.log(lis)
+    //    lis[0]  lis[索引]
+    //2)执行操作
+    for (var i = 0; i &lt; lis.length; i++) {
+        //自定义属性
+        //console.log(typeof lis[i]);
+        lis[i].zfpx = i;
+        //鼠标移入
+        lis[i].onmouseover = function () {
+            //将所有的li和div的类名on 去掉（将class类名设置为&apos;&apos;），然后再将当前li和对应的div加上class 为on的这个类名
+            for (var j = 0; j &lt; lis.length; j++) {
+                lis[j].className = &apos;&apos;;
+                divs[j].className = &apos;&apos;;
+            }
+            this.className = &apos;on&apos;;
+//            console.log(i);//3
+            //this 当前操作的元素
+            divs[this.zfpx].className = &apos;on&apos;;
+
+        }
+    }
+
+
+&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-3.3.3闭包" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/1-3.3.3闭包/" class="article-date">
+      <time datetime="2015-01-03T12:00:03.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/1-3.3.3闭包/">1-3.3.3闭包</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width: 450px;
+            height: 200px;
+        }
+        .box input{
+            width: 150px;
+            float: left;
+            height: 40px;
+        }
+        .box input.on{
+            background: lightblue;
+        }
+        .box div{
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: lightblue;
+        }
+        .box div.show{
+            display: block;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+
+    &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+    &lt;div&gt;内容2&lt;/div&gt;
+    &lt;div&gt;内容3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;box&quot; id=&quot;box2&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+
+    &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+    &lt;div&gt;内容2&lt;/div&gt;
+    &lt;div&gt;内容3&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    tab(&apos;box&apos;);
+    tab(&apos;box2&apos;);
+    function tab(id){
+        var oBox=document.getElementById(id);
+        var aBtn=oBox.getElementsByTagName(&apos;input&apos;);
+        var aDiv=oBox.getElementsByTagName(&apos;div&apos;);
+        //思路1：自定义属性解除循环绑定事件的问题；
+        /*for(var i=0; i&lt;aBtn.length; i++){
+         aBtn[i].index=i;
+         //当每一个按钮发生点击的时候，让所有的按钮都变灭，让当前这个按钮点亮；
+         aBtn[i].onclick=function(){
+         for(var i=0; i&lt;aBtn.length; i++){
+         aBtn[i].className=&apos;&apos;;
+         aDiv[i].className=&apos;&apos;;
+         }
+         this.className=&apos;on&apos;;
+         aDiv[this.index].className=&apos;show&apos;;
+         };
+         //同时，让所有的div都隐藏，让当前这个按钮对应的div显示；
+         }*/
+        //思路2：闭包解除循环绑定事件的问题；
+        for(var i=0; i&lt;aBtn.length; i++){
+            (function (index){//每一个形参都是私有变量；
+                aBtn[index].onclick=function(){
+                    for(var i=0; i&lt;aBtn.length; i++){
+                        aBtn[i].className=&apos;&apos;;
+                        aDiv[i].className=&apos;&apos;;
+                    }
+                    this.className=&apos;on&apos;;
+                    aDiv[index].className=&apos;show&apos;;
+                }
+            })(i)
+        }
+    }
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-3.3.2函数的传参" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/1-3.3.2函数的传参/" class="article-date">
+      <time datetime="2015-01-03T12:00:03.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/1-3.3.2函数的传参/">1-3.3.2函数的传参</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    /*var obj={
+     name:&apos;zhangsan&apos;,
+     age:8
+     };
+     function fn(n){//n:函数在定义阶段，里面的参数属于形参；
+     //alert(n)
+     //console.log(n.name)
+     n();//undefined();
+     }
+     function aa(){
+     alert(456)
+     }
+     fn(aa)//当把函数表达式做为值传给另一个函数的参数的时候，就叫做回调函数；*/
+    //为什么要进行封装：对于相同的功能；只需要封装1次，以后需要的时候，直接调用即可；
+    /*function add(a,b,c,d){
+     alert(a+b+c+d);
+     }
+     add(1,2);*/
+    //当不确定有多少个参数的时候，不需要写形参；
+    //add功能：任意个参数的求和；
+    function add() {
+        var total = 0;
+        //函数自带的参数机制：arguments；arguments是一个类数组；
+        for (var i = 0; i &lt; arguments.length; i++) {
+            if (!isNaN(arguments[i])) {//过滤有效数字；
+                total += Number(arguments[i]);//防止字符串拼接
+            }
+        }
+        return total;
+    }
+    console.log(add(1, 2, &apos;3&apos;, &apos;3px&apos;, &apos;zhangsan&apos;, 7))
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-3.3.1函数中的返回值" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/1-3.3.1函数中的返回值/" class="article-date">
+      <time datetime="2015-01-03T12:00:03.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/1-3.3.1函数中的返回值/">1-3.3函数中的返回值</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    function sum() {
+        var total = null;
+        total = 1 + 1;
+//        return total;//return后面的代码不会执行
+//        alert(123)
+    }
+
+    console.log(sum());
+    //没有返回值，输出undefined
+    console.log(sum);
+
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
       
     </div>
     
@@ -612,7 +1465,7 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
