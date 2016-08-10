@@ -1133,223 +1133,11 @@
 
 
   
-    <article id="[layout]-1-1.7Number" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.7Number/" class="article-date">
-      <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.7Number/">1-1.7Number</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //数字
-    // number：正数、负数、小数、0、NaN
-
-//    NaN：not a number   不是一个数
-//    isNaN();   是不是一个数，判断一个值是不是有效数字，如果不是一个有效数字返回true，如果是一个有效数字返回false
-//    isNaN(要判断的值);  返回值：true false
-
-    console.log(isNaN(123));  //false
-    console.log(isNaN(&apos;zhangsan&apos;)); //true
-    console.log(isNaN(&apos;123&apos;));
-//    首先，将字符串（&apos;123&apos;）转化为数字---&gt;123
-//    然后，在进行isNaN(123)   ---&gt;false
-
-//    isNaN();  要检测值如果是字符串，浏览器默认的先将字符串转化为数字，再进行判断
-
-
-//    强制转换为number类型：Number();
-//    Number(); 将其他数据类型转换为number数据类型
-    console.log(Number(&apos;123&apos;));
-//    Number(&apos;123px&apos;);  --&gt;NaN
-//    Number(要转换的内容) 如果要转换的内容是字符串，字符串中必须全部都是数字，才可以转换，否则返回（结果）NaN
-
-//    非强制转换：parseInt  parseFloat
-
-    console.log(parseInt(&apos;12px&apos;)); //12
-//    parseInt(要转换的内容):从左到右依次查找，如果是数字 返回和数字，中途就如果遇到一个不是数字的字符，就不再继续查找了，直接返回之前的数字，如果要转换的内容第一个字符就不是数字，直接返回NaN
-
-    console.log(parseInt(&apos;px123z&apos;));//NaN
-
-//    parseFloat：和parseInt一样，只不过可以多识别一个点.
-    console.log(parseFloat(&apos;123.5px&apos;)); //123.5
-//    parseFloat(&apos;12.3.4asd&apos;)  --&gt;12.3
-
-//    =赋值
-//    ==比较
-//    1==1  true（真）  false（假）
-
-//    NaN==NaN  返回（结果）false
-//    Number(&apos;&apos;)   0
-//    Number(null)  0
-
-    var num = Number(&apos;12px&apos;);//num = NaN
-    if(num==12){
-        console.log(&apos;12&apos;);
-    }else if(num==NaN){
-        console.log(&apos;NaN&apos;);
-    }else{
-        console.log(&apos;以上都不成立&apos;)
-    }
-//    number：正数、负数、小数、0、NaN
-
-//    isNaN();  判断
-
-//    Number()
-//    parseInt()
-//    parseFloat()
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-1-1.6js中的数据类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/01/1-1.6js中的数据类型/" class="article-date">
-      <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.6js中的数据类型/">1-1.6js中的数据类型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>    &lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //js中不区分双引号和单引号  &quot;&quot;  &apos;&apos;
-    var num = 123;
-    var str = &apos;zhangsan&apos;;
-    var str1 = &quot;张三&quot;;
-    var boo = true; //布尔boolean  只有两个值 true false
-    var nu = null;//空
-    var un = undefined;//未定义
-
-    var obj = {name:&apos;zhangsan&apos;};//对象 对象数据类型
-    var ary = [1,2,3]; //数组 也是对象数据类型
-    var reg = /^\d{11}\w$/;//正则 也是对象数据类型
-
-    var fn = function(){
-
-    }//函数数据类型
-
-    // js中的数据类型
-    //    1、基本数据类型：结构相对简单
-    //       数字（number）、字符串（string）、布尔（boolean）、null、undefined
-    //    2、引用数据类型：结构相对复杂一些
-    //      1）对象数据类型 （object）：{}、[]、/^$/...
-    //      2）函数数据类型 （function）
-
-
-&lt;/script&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="[layout]-1-1.11检测数据类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/01/01/1-1.11检测数据类型/" class="article-date">
-      <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
+      <time datetime="2015-01-01T12:00:11.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
     </div>
   
@@ -1372,7 +1160,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>    &lt;!DOCTYPE html&gt;
+        <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1398,6 +1186,211 @@
 
 
     //&quot;string&quot;
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-1.10基本数据类型和引用数据类型的本质区别" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/" class="article-date">
+      <time datetime="2015-01-01T12:00:10.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/">1-1.10基本数据类型和引用数据类型的本质区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+    var num1 = 12;
+    var num2 = num1;
+    num2++;//num2=num2+1  num2+=1 在原有基础上加1
+    console.log(num1);
+
+    var obj1 = {name: &apos;zhangsan&apos;};
+    var obj2 = obj1;
+    obj2.name = &apos;lisi&apos;;
+    console.log(obj1);
+    //    基本数据类型中  操作的是值
+    //    引用数据类型中 一个值改变了另一个值也跟着改变了
+
+
+    //    基本数据类型 ：操作的是值
+    //   你有一套房子，我也有一套房子，你的是你的，我的就是我的，没有任何关系
+
+    //    引用数据类型：操作的是地址
+    //    你有一套房子，你把房子的要是给了我，我把房子里面的东西搬走了，相当于你的房子空了，操作的同一个空间
+
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-1.9Object" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/1-1.9Object/" class="article-date">
+      <time datetime="2015-01-01T12:00:09.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/1-1.9Object/">1-1.9Object</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;
+
+    //对象由多组属性名和属性值组成，  多组键值对 key：value
+    /* var obj = {
+     name:&apos;张三&apos;,
+     age:18,
+     height:&apos;170cm&apos;
+     };*///name属性名 &apos;张三&apos;：属性值
+    var ary = [1, 2, 3]
+    var reg = /^$/
+
+    //    创建对象的方式
+    var obj = {name: &apos;张三&apos;};//字面量创建方式
+    var obj = new Object();  //实例创建方式
+
+    //    增加一组属性名和属性值
+    //    obj.属性名=属性值;
+    obj.age = 18;
+    obj[&apos;hobby&apos;] = &apos;敲代码&apos;;
+    console.log(obj);
+
+    //    修改属性值,在对象中，规定不能出现重复的属性名，如果之前没有就相当于增加，如果之前有这个属性名就是修改
+    obj.age = 16;
+    obj[&apos;age&apos;] = 16;
+    console.log(obj)
+
+
+    //    获取属性名的属性值
+    console.log(obj.age);
+    console.log(obj[&apos;age&apos;])
+
+
+    //    删除属性名和属性值
+    //    假删除
+    obj.age = null;
+    console.log(obj);
+    //    真删除
+    delete obj.age;
+    console.log(obj)
+
+    obj.age
+    obj[&apos;age&apos;]
+
+
+    //    js中的对象、类、实例的区别：js中万物皆对象，类是对对象的一个具体的细分，实例是类中的一个具体的实例
+    //    举例：在自然界中万物皆对象，自然界中所有的东西可以分为 人类、动物类、植物类、物体类..  比如一个人就是人类中的一个实例
+
+    //    对象数据类型也是具体的细分：
+    //    对象类(Object)、数组类(Array)、正则类（RegExp）、时间类（Date）、Math 数学函数...中的具体的&apos;实例&apos;
+    //    {name:&apos;zfpx&apos;}、[]、/^$\d/
+
+
+    var obj = {}
+    var ary = []
+
 
 &lt;/script&gt;
 
