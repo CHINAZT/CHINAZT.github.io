@@ -3,39 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>1-1.1js、css的引入方式 | 冰箱里的水</title>
+  <title>1-1.9Object | 冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
     &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        *{
-            margin: 0;">
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;script&amp;gt;
+
+    //对象由多组属性名">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1-1.1js、css的引入方式">
-<meta property="og:url" content="http://yoursite.com/2015/01/01/1-1.1js、css的引入方式/index.html">
+<meta property="og:title" content="1-1.9Object">
+<meta property="og:url" content="http://yoursite.com/2015/01/01/1-1.9Object/index.html">
 <meta property="og:site_name" content="冰箱里的水">
 <meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
     &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        *{
-            margin: 0;">
-<meta property="og:updated_time" content="2016-08-08T14:41:58.000Z">
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;script&amp;gt;
+
+    //对象由多组属性名">
+<meta property="og:updated_time" content="2016-08-10T14:31:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-1.1js、css的引入方式">
+<meta name="twitter:title" content="1-1.9Object">
 <meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
     &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        *{
-            margin: 0;">
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;script&amp;gt;
+
+    //对象由多组属性名">
   
     <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
   
@@ -224,10 +230,10 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="[layout]-1-1.9Object" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
+      <a href="/2015/01/01/1-1.9Object/" class="article-date">
       <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
     </div>
@@ -241,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      1-1.1js、css的引入方式
+      1-1.9Object
     </h1>
   
 
@@ -263,53 +269,68 @@
 &lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        div{
-            border-radius: 50%;
-        }
-    &lt;/style&gt;
-    &lt;!-- 最常用--&gt;
-    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
-    &lt;style&gt;
-        @import url(style.css);
-    &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;!--css引入方式--&gt;
-&lt;!--
-1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
-2、内嵌式:写在style标签里
-3、外链式：通过link标签引入css文件
-4、导入式：通过@import 引入css 文件
-
---&gt;
-&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
-&lt;!--js的引入方式--&gt;
-&lt;!--
-1、行内引入：直接写到标签内部  安全性低，几乎不用
-2、内嵌式：写到script标签里
-3、外链式:通过script标签的src属性  常用
-document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
---&gt;
 &lt;script&gt;
-    alert(&quot;哈哈&quot;)
+
+    //对象由多组属性名和属性值组成，  多组键值对 key：value
+    /* var obj = {
+     name:&apos;张三&apos;,
+     age:18,
+     height:&apos;170cm&apos;
+     };*///name属性名 &apos;张三&apos;：属性值
+    var ary = [1, 2, 3]
+    var reg = /^$/
+
+    //    创建对象的方式
+    var obj = {name: &apos;张三&apos;};//字面量创建方式
+    var obj = new Object();  //实例创建方式
+
+    //    增加一组属性名和属性值
+    //    obj.属性名=属性值;
+    obj.age = 18;
+    obj[&apos;hobby&apos;] = &apos;敲代码&apos;;
+    console.log(obj);
+
+    //    修改属性值,在对象中，规定不能出现重复的属性名，如果之前没有就相当于增加，如果之前有这个属性名就是修改
+    obj.age = 16;
+    obj[&apos;age&apos;] = 16;
+    console.log(obj)
+
+
+    //    获取属性名的属性值
+    console.log(obj.age);
+    console.log(obj[&apos;age&apos;])
+
+
+    //    删除属性名和属性值
+    //    假删除
+    obj.age = null;
+    console.log(obj);
+    //    真删除
+    delete obj.age;
+    console.log(obj)
+
+    obj.age
+    obj[&apos;age&apos;]
+
+
+    //    js中的对象、类、实例的区别：js中万物皆对象，类是对对象的一个具体的细分，实例是类中的一个具体的实例
+    //    举例：在自然界中万物皆对象，自然界中所有的东西可以分为 人类、动物类、植物类、物体类..  比如一个人就是人类中的一个实例
+
+    //    对象数据类型也是具体的细分：
+    //    对象类(Object)、数组类(Array)、正则类（RegExp）、时间类（Date）、Math 数学函数...中的具体的&apos;实例&apos;
+    //    {name:&apos;zfpx&apos;}、[]、/^$\d/
+
+
+    var obj = {}
+    var ary = []
+
+
 &lt;/script&gt;
-
-
-相对路径  ../  上一级目录
-         ./   当前目录
-
-&lt;script src=&quot;./1.js&quot;&gt;
-    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
-&lt;/script&gt;
-
 
 &lt;/body&gt;
-&lt;/html&gt; 
+&lt;/html&gt;
 </code></pre>
       
     </div>
@@ -322,15 +343,15 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/01/01/1-1.2js的输出方式/">
-                    1-1.2js的输出方式
+                <a href="/2015/01/01/1-1.6js中的数据类型/">
+                    1-1.6js中的数据类型
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/01/01/1-1.3js的组成/">
-                    1-1.3js的组成
+                <a href="/2015/01/01/1-1.8boolean/">
+                    1-1.8boolean
                 </a>
             </div>
         
@@ -398,7 +419,7 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"1-1.1js、css的引入方式　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"1-1.9Object　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -414,7 +435,7 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/01/01/1-1.1js、css的引入方式/" data-title="1-1.1js、css的引入方式" data-url="http://yoursite.com/2015/01/01/1-1.1js、css的引入方式/"></div>
+    <div class="ds-thread" data-thread-key="2015/01/01/1-1.9Object/" data-title="1-1.9Object" data-url="http://yoursite.com/2015/01/01/1-1.9Object/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -438,7 +459,7 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/01/01/1-1.2js的输出方式/" title="上一篇: 1-1.2js的输出方式">
+            <a href="/2015/01/01/1-1.6js中的数据类型/" title="上一篇: 1-1.6js中的数据类型">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -446,7 +467,7 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/01/01/1-1.3js的组成/" title="下一篇: 1-1.3js的组成">
+            <a href="/2015/01/01/1-1.8boolean/" title="下一篇: 1-1.8boolean">
                 <i class="fa fa-angle-right"></i>
             </a>
         

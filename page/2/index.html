@@ -3,39 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>1-1.1js、css的引入方式 | 冰箱里的水</title>
+  <title>冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        *{
-            margin: 0;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="1-1.1js、css的引入方式">
-<meta property="og:url" content="http://yoursite.com/2015/01/01/1-1.1js、css的引入方式/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="冰箱里的水">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="冰箱里的水">
-<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        *{
-            margin: 0;">
-<meta property="og:updated_time" content="2016-08-08T14:41:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-1.1js、css的引入方式">
-<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-    &amp;lt;style&amp;gt;
-        *{
-            margin: 0;">
+<meta name="twitter:title" content="冰箱里的水">
   
     <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
   
@@ -52,8 +27,13 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+      <style> .article { opacity: 0;} </style>
+  
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
   
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -63,8 +43,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: false,
-          isPost: true,
+          isHome: true,
+          isPost: false,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -224,10 +204,12 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="[layout]-1-1.7Number" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
+      <a href="/2015/01/01/1-1.7Number/" class="article-date">
       <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
     </div>
@@ -240,19 +222,12 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      1-1.1js、css的引入方式
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/1-1.7Number/">1-1.7Number</a>
     </h1>
   
 
       </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -263,147 +238,88 @@
 &lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        div{
-            border-radius: 50%;
-        }
-    &lt;/style&gt;
-    &lt;!-- 最常用--&gt;
-    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
-    &lt;style&gt;
-        @import url(style.css);
-    &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;!--css引入方式--&gt;
-&lt;!--
-1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
-2、内嵌式:写在style标签里
-3、外链式：通过link标签引入css文件
-4、导入式：通过@import 引入css 文件
-
---&gt;
-&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
-&lt;!--js的引入方式--&gt;
-&lt;!--
-1、行内引入：直接写到标签内部  安全性低，几乎不用
-2、内嵌式：写到script标签里
-3、外链式:通过script标签的src属性  常用
-document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
---&gt;
 &lt;script&gt;
-    alert(&quot;哈哈&quot;)
+    //数字
+    // number：正数、负数、小数、0、NaN
+
+//    NaN：not a number   不是一个数
+//    isNaN();   是不是一个数，判断一个值是不是有效数字，如果不是一个有效数字返回true，如果是一个有效数字返回false
+//    isNaN(要判断的值);  返回值：true false
+
+    console.log(isNaN(123));  //false
+    console.log(isNaN(&apos;zhangsan&apos;)); //true
+    console.log(isNaN(&apos;123&apos;));
+//    首先，将字符串（&apos;123&apos;）转化为数字---&gt;123
+//    然后，在进行isNaN(123)   ---&gt;false
+
+//    isNaN();  要检测值如果是字符串，浏览器默认的先将字符串转化为数字，再进行判断
+
+
+//    强制转换为number类型：Number();
+//    Number(); 将其他数据类型转换为number数据类型
+    console.log(Number(&apos;123&apos;));
+//    Number(&apos;123px&apos;);  --&gt;NaN
+//    Number(要转换的内容) 如果要转换的内容是字符串，字符串中必须全部都是数字，才可以转换，否则返回（结果）NaN
+
+//    非强制转换：parseInt  parseFloat
+
+    console.log(parseInt(&apos;12px&apos;)); //12
+//    parseInt(要转换的内容):从左到右依次查找，如果是数字 返回和数字，中途就如果遇到一个不是数字的字符，就不再继续查找了，直接返回之前的数字，如果要转换的内容第一个字符就不是数字，直接返回NaN
+
+    console.log(parseInt(&apos;px123z&apos;));//NaN
+
+//    parseFloat：和parseInt一样，只不过可以多识别一个点.
+    console.log(parseFloat(&apos;123.5px&apos;)); //123.5
+//    parseFloat(&apos;12.3.4asd&apos;)  --&gt;12.3
+
+//    =赋值
+//    ==比较
+//    1==1  true（真）  false（假）
+
+//    NaN==NaN  返回（结果）false
+//    Number(&apos;&apos;)   0
+//    Number(null)  0
+
+    var num = Number(&apos;12px&apos;);//num = NaN
+    if(num==12){
+        console.log(&apos;12&apos;);
+    }else if(num==NaN){
+        console.log(&apos;NaN&apos;);
+    }else{
+        console.log(&apos;以上都不成立&apos;)
+    }
+//    number：正数、负数、小数、0、NaN
+
+//    isNaN();  判断
+
+//    Number()
+//    parseInt()
+//    parseFloat()
+
+
 &lt;/script&gt;
-
-
-相对路径  ../  上一级目录
-         ./   当前目录
-
-&lt;script src=&quot;./1.js&quot;&gt;
-    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
-&lt;/script&gt;
-
 
 &lt;/body&gt;
-&lt;/html&gt; 
+&lt;/html&gt;
 </code></pre>
       
     </div>
     
-  </div>
-  
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
     
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/01/01/1-1.2js的输出方式/">
-                    1-1.2js的输出方式
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/01/01/1-1.3js的组成/">
-                    1-1.3js的组成
-                </a>
-            </div>
-        
-    </nav>
-
+  </div>
   
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <li id="bds_twi"><a href="#" class="bds_twi" data-cmd="twi" title="分享到推特"></a></li>
-            <li id="bds_tsina"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
-            <li id="bds_sqq"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a></li>
-            <li id="bds_copy"><a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a></li>
-            <li id="bds_mail"><a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a></li>
-            <li id="bds_weixin"><a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a></li>
-            <li id="bds_more"><a href="#" class="bds_more" data-cmd="more"></i></a></li>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"1-1.1js、css的引入方式　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
 
 
 
@@ -411,55 +327,67 @@ document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script
 
 
 
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/01/01/1-1.1js、css的引入方式/" data-title="1-1.1js、css的引入方式" data-url="http://yoursite.com/2015/01/01/1-1.1js、css的引入方式/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chinazt"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
-</div>
 
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2015/01/01/1-1.2js的输出方式/" title="上一篇: 1-1.2js的输出方式">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2015/01/01/1-1.3js的组成/" title="下一篇: 1-1.3js的组成">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
+  
+    <article id="[layout]-开启新篇章" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/01/开启新篇章/" class="article-date">
+      <time datetime="2015-01-01T00:00:00.000Z" itemprop="datePublished">2015-01-01</time>
+</a>
     </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.5js中的变量/">1-1.5js中的变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/">1-1.10基本数据类型和引用数据类型的本质区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.2js的输出方式/">1-1.2js的输出方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.1js、css的引入方式/">1-1.1js、css的引入方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.3js的组成/">1-1.3js的组成</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.4js的命名规范/">1-1.4js的命名规范</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.11检测数据类型/">1-1.11检测数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.6js中的数据类型/">1-1.6js中的数据类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.9Object/">1-1.9Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.8boolean/">1-1.8boolean</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/1-1.7Number/">1-1.7Number</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/01/01/开启新篇章/">开启新篇章</a></li></ul>
-
-
-
-
-    <script>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-    </script>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/01/开启新篇章/">开启新篇章</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>我在这里记录我的JavaScript学习！</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
