@@ -3,42 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>1-1.8boolean | 冰箱里的水</title>
+  <title>1-2.2开关灯效果 | 冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
     &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script&amp;gt;
-    //boole">
+    &amp;lt;style&amp;gt;
+        html, body {
+            margin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1-1.8boolean">
-<meta property="og:url" content="http://yoursite.com/2015/01/01/1-1.8boolean/index.html">
+<meta property="og:title" content="1-2.2开关灯效果">
+<meta property="og:url" content="http://yoursite.com/2015/01/02/1-2.2开关灯效果/index.html">
 <meta property="og:site_name" content="冰箱里的水">
 <meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
     &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script&amp;gt;
-    //boole">
-<meta property="og:updated_time" content="2016-08-10T14:29:36.000Z">
+    &amp;lt;style&amp;gt;
+        html, body {
+            margin">
+<meta property="og:updated_time" content="2016-08-10T15:09:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-1.8boolean">
+<meta name="twitter:title" content="1-2.2开关灯效果">
 <meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
     &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
     &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script&amp;gt;
-    //boole">
+    &amp;lt;style&amp;gt;
+        html, body {
+            margin">
   
     <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
   
@@ -227,11 +224,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="[layout]-1-1.8boolean" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="[layout]-1-2.2开关灯效果" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.8boolean/" class="article-date">
-      <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/02/1-2.2开关灯效果/" class="article-date">
+      <time datetime="2015-01-02T12:00:02.000Z" itemprop="datePublished">2015-01-02</time>
 </a>
     </div>
   
@@ -244,7 +241,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      1-1.8boolean
+      1-2.2开关灯效果
     </h1>
   
 
@@ -261,89 +258,83 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>    &lt;!DOCTYPE html&gt;
+        <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    &lt;/style&gt;
 &lt;/head&gt;
-&lt;body&gt;
+&lt;!--white白色--&gt;
+&lt;body id=&quot;oBody&quot; style=&quot;width: 100%;background: white&quot;&gt;
 &lt;script&gt;
-    //boolean  布尔数据类型：只有两个值 true false
-    //!  取反
-    console.log(!3);  //false
-    //    首先将3转换为boolean数据类型  执行Boolean(3)--》true的方法，然后再取反  --》false
+    //思路：
+    //    1）获取要操作的元素
+    //    2）给元素绑定一个点击的事件
+    //    3）执行换颜色的操作
 
-    //    !要检测的值  先默认将这个值转换boolean类型，然后再取反
-    //    如果一个值转换为布尔数据类型，只有0、NaN、&apos;&apos;、null、undefined是false，其余都是true
+    document.getElementById(&apos;元素的Id值&apos;);
+    //    document  文档 （上下文，范围）
+    //    get  获取
+    //    Element 一个元素
+    //    By  通过
+    //    Id  元素的id值
 
-    //    !! 先取反再取反，相当于直接转换为布尔数据类型
-    //    Boolean(要转换的内容)  将其他数据类型转换为布尔数据类型
+    //    在整个文档中，通过元素的id获取一个元素
 
+    //    1）获取要操作的元素
+    var oBody = document.getElementById(&apos;oBody&apos;);
+    //    2）给元素绑定一个点击的事件
+    //    元素.onclick = function(){
+    //        点击时执行的代码
+    //    }
+    oBody.onclick = function () {
+//        3）执行换颜色的操作
+        //获取当前的背景颜色
+//        只能获取行内样式的css属性
+//        background-color  ---&gt;backgroundColor
+//        margin-left  ----&gt;marginLeft
+//        alert(oBody.style.backgroundColor);
+        var bg = oBody.style.backgroundColor;
+        /* if(bg==&apos;white&apos;){
+         oBody.style.backgroundColor = &apos;black&apos;;
+         }else{
+         oBody.style.backgroundColor = &apos;white&apos;;
+         }*/
 
-    //    Boolean(3)  --&gt;true
-    //    !3 ---&gt;false
-    //    !!3 ---&gt;true
+//        bg==&apos;white&apos;?oBody.style.backgroundColor = &apos;black&apos;:oBody.style.backgroundColor = &apos;white&apos;;
 
-    //    = 赋值
-    //    == 比较
-    //
-    //    1==1  -- true
-    //    1==2   --false
-    //    &quot;zhang&quot;==&quot;zhangsan&quot;  --false
-    //    &quot;zs&quot;==&quot;zs&quot;   --true
-    //    相同数据类型的两个值直接比较是否相等
-
-    //    val1==val2
-    //    不同数据类型的两个值之间的比较，遵循以下规则
-    /*
-     转换为数字  默认调用Number()
-     转换为字符串  默认调用toString()
-     **布尔转换为数字 true 1   false 0
-
-     1）对象==对象  永远不相等
-     []==[]  false
-     {}=={}  false
-     2）对象==字符串  先将对象转换为字符串，然后再进行比较
-     []==&apos;&apos;
-     首先，[]转化为字符串，浏览器会默认执行toString()的方法 ==[].toString()  --&gt;&quot;&quot;  然后，&quot;&quot;==&apos;&apos;  比较，返回true
-
-     3）对象==布尔  对象先转换字符串，再转换为数字；布尔也转换为数字
-     []==false  --&gt;true
-     [].toString() ---&quot;&quot;   Number(&quot;&quot;) ---0
-     Number(false)  ---0
-
-     4)对象==数字    对象先转字符串，再转换为数字
-     []==0  --&gt;true
-     [].toString() ---&apos;&apos;   Number(&apos;&apos;)---0
-
-     5)布尔==字符串   都转还为数字
-     true==&apos;0&apos;  false
-     Number(true) ---1
-     Number(&apos;0&apos;) ---0
-     6)布尔==数字     布尔转化为数字
-     true==1 ---&gt;true   Number(true)  1
-     7)数字==字符串   字符串转化为数字
-     1==&apos;123&apos;
-     8)null==undefined  true
-     9)null或者undefined和其他任何数据类型的值比较，永远不相等
+//this当前点击的元素 ，代表oBody
+        switch (bg) {
+            case &apos;white&apos;:
+                this.style.backgroundColor = &apos;red&apos;;
+                break;
+            case &apos;red&apos;:
+                this.style.backgroundColor = &apos;orange&apos;;
+                break;
+            case &apos;orange&apos;:
+                this.style.backgroundColor = &apos;yellow&apos;;
+                break;
+            case &apos;yellow&apos;:
+                this.style.backgroundColor = &apos;green&apos;;
+                break;
+            case &apos;green&apos;:
+                this.style.backgroundColor = &apos;blue&apos;;
+                break;
+            default :
+                this.style.backgroundColor = &apos;white&apos;;
+        }
 
 
-     */
-
-    //    =赋值
-    //    ==比较
-    //    ===严格比较：数据类型和值必须全部都相等 返回true，如果数据类型不相等 返回false
-
-    //    null==undefined     --true
-    //    null===undefined    --false
-
-
-    //    Boolean 只有两个值：true false
-    //    !     取反
-    //    !!
-    //    Boolean()
-    //    0、NaN、&apos;&apos;、null、undefined  是false
+    }
 
 
 &lt;/script&gt;
@@ -362,15 +353,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/">
-                    1-1.10基本数据类型和引用数据类型的本质区别
+                <a href="/2015/01/02/1-2.2开关灯效果2/">
+                    1-2.2开关灯效果2
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/01/01/1-1.1js、css的引入方式/">
-                    1-1.1js、css的引入方式
+                <a href="/2015/01/02/1-2.1js中的判断/">
+                    1-2.1js中的判断
                 </a>
             </div>
         
@@ -438,7 +429,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"1-1.8boolean　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"1-2.2开关灯效果　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -454,7 +445,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/01/01/1-1.8boolean/" data-title="1-1.8boolean" data-url="http://yoursite.com/2015/01/01/1-1.8boolean/"></div>
+    <div class="ds-thread" data-thread-key="2015/01/02/1-2.2开关灯效果/" data-title="1-2.2开关灯效果" data-url="http://yoursite.com/2015/01/02/1-2.2开关灯效果/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -478,7 +469,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/" title="上一篇: 1-1.10基本数据类型和引用数据类型的本质区别">
+            <a href="/2015/01/02/1-2.2开关灯效果2/" title="上一篇: 1-2.2开关灯效果2">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -486,7 +477,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/01/01/1-1.1js、css的引入方式/" title="下一篇: 1-1.1js、css的引入方式">
+            <a href="/2015/01/02/1-2.1js中的判断/" title="下一篇: 1-2.1js中的判断">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>1-1.8boolean | 冰箱里的水</title>
+  <title>1-2.4for in | 冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
@@ -13,10 +13,10 @@
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
 &amp;lt;script&amp;gt;
-    //boole">
+    //for i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1-1.8boolean">
-<meta property="og:url" content="http://yoursite.com/2015/01/01/1-1.8boolean/index.html">
+<meta property="og:title" content="1-2.4for in">
+<meta property="og:url" content="http://yoursite.com/2015/01/02/1-2.4for in/index.html">
 <meta property="og:site_name" content="冰箱里的水">
 <meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
@@ -26,10 +26,10 @@
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
 &amp;lt;script&amp;gt;
-    //boole">
-<meta property="og:updated_time" content="2016-08-10T14:29:36.000Z">
+    //for i">
+<meta property="og:updated_time" content="2016-08-10T15:13:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1-1.8boolean">
+<meta name="twitter:title" content="1-2.4for in">
 <meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
 &amp;lt;head lang=&amp;quot;en&amp;quot;&amp;gt;
@@ -38,7 +38,7 @@
 &amp;lt;/head&amp;gt;
 &amp;lt;body&amp;gt;
 &amp;lt;script&amp;gt;
-    //boole">
+    //for i">
   
     <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
   
@@ -227,11 +227,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="[layout]-1-1.8boolean" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="[layout]-1-2.4for in" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.8boolean/" class="article-date">
-      <time datetime="2015-01-01T12:00:00.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2015/01/02/1-2.4for in/" class="article-date">
+      <time datetime="2015-01-02T12:00:05.000Z" itemprop="datePublished">2015-01-02</time>
 </a>
     </div>
   
@@ -244,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      1-1.8boolean
+      1-2.4for in
     </h1>
   
 
@@ -269,84 +269,32 @@
 &lt;/head&gt;
 &lt;body&gt;
 &lt;script&gt;
-    //boolean  布尔数据类型：只有两个值 true false
-    //!  取反
-    console.log(!3);  //false
-    //    首先将3转换为boolean数据类型  执行Boolean(3)--》true的方法，然后再取反  --》false
+    //for in循环：一般用于对象的循环
+    //    对象由多组key:value  键值对组成
+    var person = {
+        name: &apos;张三&apos;,
+        age: 18,
+        height: &apos;180cm&apos;,
+        1: 100000,
+        2: 10086
+    };
+    console.log(person[1]);
+    //    person.name
+    //    person[&apos;name&apos;]
+    //    person[1]
+    //    key 代表的就是属性名
+    //    有多少组属性名和属性值，就循环多少次
+    for (var key in person) {
+//        console.log(key);//输出的是属性名
+        //输出属性值
+        console.log(person[key])
 
-    //    !要检测的值  先默认将这个值转换boolean类型，然后再取反
-    //    如果一个值转换为布尔数据类型，只有0、NaN、&apos;&apos;、null、undefined是false，其余都是true
-
-    //    !! 先取反再取反，相当于直接转换为布尔数据类型
-    //    Boolean(要转换的内容)  将其他数据类型转换为布尔数据类型
-
-
-    //    Boolean(3)  --&gt;true
-    //    !3 ---&gt;false
-    //    !!3 ---&gt;true
-
-    //    = 赋值
-    //    == 比较
-    //
-    //    1==1  -- true
-    //    1==2   --false
-    //    &quot;zhang&quot;==&quot;zhangsan&quot;  --false
-    //    &quot;zs&quot;==&quot;zs&quot;   --true
-    //    相同数据类型的两个值直接比较是否相等
-
-    //    val1==val2
-    //    不同数据类型的两个值之间的比较，遵循以下规则
-    /*
-     转换为数字  默认调用Number()
-     转换为字符串  默认调用toString()
-     **布尔转换为数字 true 1   false 0
-
-     1）对象==对象  永远不相等
-     []==[]  false
-     {}=={}  false
-     2）对象==字符串  先将对象转换为字符串，然后再进行比较
-     []==&apos;&apos;
-     首先，[]转化为字符串，浏览器会默认执行toString()的方法 ==[].toString()  --&gt;&quot;&quot;  然后，&quot;&quot;==&apos;&apos;  比较，返回true
-
-     3）对象==布尔  对象先转换字符串，再转换为数字；布尔也转换为数字
-     []==false  --&gt;true
-     [].toString() ---&quot;&quot;   Number(&quot;&quot;) ---0
-     Number(false)  ---0
-
-     4)对象==数字    对象先转字符串，再转换为数字
-     []==0  --&gt;true
-     [].toString() ---&apos;&apos;   Number(&apos;&apos;)---0
-
-     5)布尔==字符串   都转还为数字
-     true==&apos;0&apos;  false
-     Number(true) ---1
-     Number(&apos;0&apos;) ---0
-     6)布尔==数字     布尔转化为数字
-     true==1 ---&gt;true   Number(true)  1
-     7)数字==字符串   字符串转化为数字
-     1==&apos;123&apos;
-     8)null==undefined  true
-     9)null或者undefined和其他任何数据类型的值比较，永远不相等
-
-
-     */
-
-    //    =赋值
-    //    ==比较
-    //    ===严格比较：数据类型和值必须全部都相等 返回true，如果数据类型不相等 返回false
-
-    //    null==undefined     --true
-    //    null===undefined    --false
-
-
-    //    Boolean 只有两个值：true false
-    //    !     取反
-    //    !!
-    //    Boolean()
-    //    0、NaN、&apos;&apos;、null、undefined  是false
+    }
+    //    先输出属性名为数字的属性值，并且按照数字由小到大的顺序输出，然后按照代码书写顺序依次输出
 
 
 &lt;/script&gt;
+
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -362,15 +310,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/">
-                    1-1.10基本数据类型和引用数据类型的本质区别
+                <a href="/2015/01/02/1-2.5隔行变色/">
+                    1-2.5隔行变色
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/01/01/1-1.1js、css的引入方式/">
-                    1-1.1js、css的引入方式
+                <a href="/2015/01/02/1-2.3for循环/">
+                    1-2.3for循环
                 </a>
             </div>
         
@@ -438,7 +386,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"1-1.8boolean　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"1-2.4for in　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -454,7 +402,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2015/01/01/1-1.8boolean/" data-title="1-1.8boolean" data-url="http://yoursite.com/2015/01/01/1-1.8boolean/"></div>
+    <div class="ds-thread" data-thread-key="2015/01/02/1-2.4for in/" data-title="1-2.4for in" data-url="http://yoursite.com/2015/01/02/1-2.4for in/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -478,7 +426,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/01/01/1-1.10基本数据类型和引用数据类型的本质区别/" title="上一篇: 1-1.10基本数据类型和引用数据类型的本质区别">
+            <a href="/2015/01/02/1-2.5隔行变色/" title="上一篇: 1-2.5隔行变色">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -486,7 +434,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/01/01/1-1.1js、css的引入方式/" title="下一篇: 1-1.1js、css的引入方式">
+            <a href="/2015/01/02/1-2.3for循环/" title="下一篇: 1-2.3for循环">
                 <i class="fa fa-angle-right"></i>
             </a>
         
