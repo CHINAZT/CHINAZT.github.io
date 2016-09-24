@@ -1146,150 +1146,6 @@
 
 
   
-    <article id="[layout]-1-3.3.3闭包" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/03/1-3.3.3闭包/" class="article-date">
-      <time datetime="2015-01-03T12:00:03.000Z" itemprop="datePublished">2015-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/1-3.3.3闭包/">1-3.3.3闭包</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        *{
-            margin:0;
-            padding:0;
-        }
-        .box{
-            width: 450px;
-            height: 200px;
-        }
-        .box input{
-            width: 150px;
-            float: left;
-            height: 40px;
-        }
-        .box input.on{
-            background: lightblue;
-        }
-        .box div{
-            width: 100%;
-            height: 100%;
-            display: none;
-            background: lightblue;
-        }
-        .box div.show{
-            display: block;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
-    &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
-
-    &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
-    &lt;div&gt;内容2&lt;/div&gt;
-    &lt;div&gt;内容3&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;box&quot; id=&quot;box2&quot;&gt;
-    &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
-    &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
-
-    &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
-    &lt;div&gt;内容2&lt;/div&gt;
-    &lt;div&gt;内容3&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    tab(&apos;box&apos;);
-    tab(&apos;box2&apos;);
-    function tab(id){
-        var oBox=document.getElementById(id);
-        var aBtn=oBox.getElementsByTagName(&apos;input&apos;);
-        var aDiv=oBox.getElementsByTagName(&apos;div&apos;);
-        //思路1：自定义属性解除循环绑定事件的问题；
-        /*for(var i=0; i&lt;aBtn.length; i++){
-         aBtn[i].index=i;
-         //当每一个按钮发生点击的时候，让所有的按钮都变灭，让当前这个按钮点亮；
-         aBtn[i].onclick=function(){
-         for(var i=0; i&lt;aBtn.length; i++){
-         aBtn[i].className=&apos;&apos;;
-         aDiv[i].className=&apos;&apos;;
-         }
-         this.className=&apos;on&apos;;
-         aDiv[this.index].className=&apos;show&apos;;
-         };
-         //同时，让所有的div都隐藏，让当前这个按钮对应的div显示；
-         }*/
-        //思路2：闭包解除循环绑定事件的问题；
-        for(var i=0; i&lt;aBtn.length; i++){
-            (function (index){//每一个形参都是私有变量；
-                aBtn[index].onclick=function(){
-                    for(var i=0; i&lt;aBtn.length; i++){
-                        aBtn[i].className=&apos;&apos;;
-                        aDiv[i].className=&apos;&apos;;
-                    }
-                    this.className=&apos;on&apos;;
-                    aDiv[index].className=&apos;show&apos;;
-                }
-            })(i)
-        }
-    }
-
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="[layout]-1-3.3.2函数的传参" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1435,6 +1291,150 @@
 
 &lt;/script&gt;
 
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-1-3.3.3闭包" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/1-3.3.3闭包/" class="article-date">
+      <time datetime="2015-01-03T12:00:03.000Z" itemprop="datePublished">2015-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/1-3.3.3闭包/">1-3.3.3闭包</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width: 450px;
+            height: 200px;
+        }
+        .box input{
+            width: 150px;
+            float: left;
+            height: 40px;
+        }
+        .box input.on{
+            background: lightblue;
+        }
+        .box div{
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: lightblue;
+        }
+        .box div.show{
+            display: block;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;box&quot; id=&quot;box&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+
+    &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+    &lt;div&gt;内容2&lt;/div&gt;
+    &lt;div&gt;内容3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;box&quot; id=&quot;box2&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮1&quot; class=&quot;on&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
+    &lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
+
+    &lt;div class=&quot;show&quot;&gt;内容1&lt;/div&gt;
+    &lt;div&gt;内容2&lt;/div&gt;
+    &lt;div&gt;内容3&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    tab(&apos;box&apos;);
+    tab(&apos;box2&apos;);
+    function tab(id){
+        var oBox=document.getElementById(id);
+        var aBtn=oBox.getElementsByTagName(&apos;input&apos;);
+        var aDiv=oBox.getElementsByTagName(&apos;div&apos;);
+        //思路1：自定义属性解除循环绑定事件的问题；
+        /*for(var i=0; i&lt;aBtn.length; i++){
+         aBtn[i].index=i;
+         //当每一个按钮发生点击的时候，让所有的按钮都变灭，让当前这个按钮点亮；
+         aBtn[i].onclick=function(){
+         for(var i=0; i&lt;aBtn.length; i++){
+         aBtn[i].className=&apos;&apos;;
+         aDiv[i].className=&apos;&apos;;
+         }
+         this.className=&apos;on&apos;;
+         aDiv[this.index].className=&apos;show&apos;;
+         };
+         //同时，让所有的div都隐藏，让当前这个按钮对应的div显示；
+         }*/
+        //思路2：闭包解除循环绑定事件的问题；
+        for(var i=0; i&lt;aBtn.length; i++){
+            (function (index){//每一个形参都是私有变量；
+                aBtn[index].onclick=function(){
+                    for(var i=0; i&lt;aBtn.length; i++){
+                        aBtn[i].className=&apos;&apos;;
+                        aDiv[i].className=&apos;&apos;;
+                    }
+                    this.className=&apos;on&apos;;
+                    aDiv[index].className=&apos;show&apos;;
+                }
+            })(i)
+        }
+    }
+
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
