@@ -133,9 +133,9 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/CHINAZT" title="GitHub"></a></li>
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/newzt" title="GitHub"></a></li>
                             
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:564706690@qq.com" title="Email"></a></li>
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:js_zhangtong@163.com" title="Email"></a></li>
                             
                         </ul>
                     </nav>
@@ -195,9 +195,9 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/CHINAZT" title="GitHub"></a></li>
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/newzt" title="GitHub"></a></li>
                             
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:564706690@qq.com" title="Email"></a></li>
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:js_zhangtong@163.com" title="Email"></a></li>
                             
                         </ul>
             </nav>
@@ -206,11 +206,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="[layout]-2-3.7点击自增" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/06/2-3.7点击自增/" class="article-date">
-      <time datetime="2015-01-06T12:00:07.000Z" itemprop="datePublished">2015-01-06</time>
+      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
+      <time datetime="2015-01-01T12:00:01.000Z" itemprop="datePublished">2015-01-01</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.7点击自增/">2-3.7点击自增</a>
+      <a class="article-title" href="/2015/01/01/1-1.1js、css的引入方式/">1-1.1js、css的引入方式</a>
     </h1>
   
 
@@ -234,784 +234,57 @@
       
           
         <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;&lt;/title&gt;
     &lt;style&gt;
-        body{
-            font-size: 100px;
+        *{
+            margin: 0;
+            padding: 0;
         }
-        #box{
-            width: 200px;
-            margin: 50px auto;
+        div{
+            border-radius: 50%;
         }
     &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div id=&quot;box&quot;&gt;
-    &lt;input type=&quot;button&quot; value=&quot;点击我吧&quot;/&gt;
-    &lt;div id=&quot;num&quot;&gt;0&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    var oBtn=document.getElementsByTagName(&apos;input&apos;)[0];
-    var oDiv=document.getElementById(&apos;num&apos;);
-    var bOk=true;
-    var timer=null;
-    var num=0;
-    oBtn.onclick=function(){
-        //当点击按钮的时候，如果bOk为true，开启一个定时器，不断累加num,并把累加的值，放到oDiv.innerHTML;让bOk=false;
-        if(bOk){
-            timer=setInterval(function(){
-                num++;
-                oDiv.innerHTML=num;
-            },500)
-        }else{
-            clearInterval(timer);
-        }
-        bOk=!bOk;
-    }
-
-
-
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-3.6获取随机验证码" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/06/2-3.6获取随机验证码/" class="article-date">
-      <time datetime="2015-01-06T12:00:06.000Z" itemprop="datePublished">2015-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.6获取随机验证码/">2-3.6获取随机验证码</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
+    &lt;!-- 最常用--&gt;
+    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
     &lt;style&gt;
-        body{
-            font-size: 100px;
-        }
+        @import url(style.css);
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;script&gt;
-    //rnd功能：求[n-m]之间的随机整数 &apos;3&apos; &apos;19px&apos;
-    function rnd(n,m){
-        n=Number(n);//首先把n转成数字
-        m=Number(m);//把m转成数字
-        //先判断参数传错的情况
-        if(isNaN(n) || isNaN(m)){
-            return Math.random(); //如果用户调用rnd，拿到的是0-1之间的随机小数，说明他传参传错了；
-        }
-        if(n&gt;m){//判断n&gt;m的情况
-            var tmp=m;
-            m=n;
-            n=tmp;
-        }
-        return Math.round(Math.random()*(m-n)+n);
-
-    }
-    var strCode=&apos;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&apos;;
-    var str=&apos;&apos;;
-    //var ary=[];
-    /*for(var i=0; i&lt;4; i++){
-        var rnd=Math.round(Math.random()*61);
-        if(ary.indexOf(rnd) !== -1){//重复
-            i--;
-        }else{
-            ary.push(rnd);//用数组解决索引这个数字的重复问题
-            str+=strCode.charAt(rnd);//通过不重复的数字，把它作为索引找到字符串对应的内容；
-        }
-    }*/
-    /*while(ary.length&lt;4){
-        var rnd=Math.round(Math.random()*61);
-        if(ary.indexOf(rnd)===-1){
-            ary.push(rnd);
-            str+=strCode.charAt(rnd);
-        }
-    }*/
-    //判断只要str.length&lt;4; 一样取随机整数，判断如果字符串中没有 rnd对应的字符；才给字符串添加这个字符；
-    while(str.length&lt;4){
-        var rnd=rnd(0,61);
-        //当字符串不存在rnd对应的字符；才给字符串添加这个字符；
-        if(str.indexOf(strCode.charAt(rnd)) === -1){
-            str+=strCode.charAt(rnd);
-        }
-    }
-    document.write(str)
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-3.5倒计时" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/06/2-3.5倒计时/" class="article-date">
-      <time datetime="2015-01-06T12:00:05.000Z" itemprop="datePublished">2015-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.5倒计时/">2-3.5倒计时</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        div {
-            font-size: 50px;
-        }
-
-        div span {
-            font-weight: bold;
-            color: red;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div&gt;距离下课还有 &lt;span&gt;00天00:00:00&lt;/span&gt;&lt;/div&gt;
-&lt;script&gt;
-    var oSpan = document.getElementsByTagName(&apos;span&apos;)[0];
-    function toDou(n) {
-        return n &gt;= 0 &amp;&amp; n &lt; 10 ? &apos;0&apos; + n : &apos;&apos; + n;
-    }
-    function getDate() {
-        /*//1.获取日期对象
-         var oDate = new Date();
-         oDate.getTime() //getTime()现在距离1970年1月1日  00:00:00的毫秒数； 格林尼治时间
-         new Date(&apos;2015/1/6 18:00:00&apos;).getTime()//未来时间距离1970年1月1日 00:00:00的毫秒数
-         //求 未来时间距离现在的毫秒数
-         new Date(&apos;2015/1/6 18:00:00&apos;).getTime() - oDate.getTime()*/
-        //1.获取日期对象
-        var oDate = new Date();
-        var oldTime = oDate.getTime();//现在距离1970年的毫秒数
-        var newDate = new Date(&apos;2015/1/6 18:00:00&apos;);
-        var newTime = newDate.getTime();//未来时间距离1970年的毫秒数
-        var s = Math.floor((newTime - oldTime) / 1000);//未来时间距离现在的秒数
-        //求出一天有多少秒 24*60*60=86400；
-        var d = Math.floor(s / 86400);//整数部分代表的是天；
-        s = s % 86400;//余数代表 剩下的秒数；
-        var h = Math.floor(s / 3600);//整数部分代表小时；
-        s %= 3600; //余数代表 剩下的秒数；
-        var m = Math.floor(s / 60);
-        s %= 60;
-        var str = toDou(d) + &apos;天&apos; + toDou(h) + &apos;:&apos; + toDou(m) + &apos;:&apos; + toDou(s);
-        oSpan.innerHTML = str;
-    }
-    getDate();
-    setInterval(getDate, 1000);
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-3.4定时器" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/06/2-3.4定时器/" class="article-date">
-      <time datetime="2015-01-06T12:00:04.000Z" itemprop="datePublished">2015-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.4定时器/">2-3.4定时器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //setInterval有两个参数：1）回调函数 2）毫秒数
-    //setInterval：每隔一段时间走一次；只要不关闭页面或关闭定时器，他会一直走下去；
-    //手动关闭：clearInterval()
-    var n = 0;
-    /*var timer=setInterval(function(){
-     n++;
-     alert(n)
-     if(n==5){
-     clearInterval(timer);//关闭定时器，必须关闭有名字的定时器；
-     }
-     },1000)*/
-    //setTimeout：一段时间后只走一次；
-    // clearTimeout(定时器的名字)
-    var timer = setTimeout(function () {
-        alert(n);
-    }, 1000)
-
-
-
-
-
-    //用setTimeout实现setInterval
-     //递归：函数自己调用自己
-var n=0;
-function fn(){
-    n++;//1 2 3....
-    alert(n)
-    if(n===5){//当n===5的时候，结束定时器，同时，阻断程序执行；
-       // console.log(n);
-        clearTimeout(timer);//结束定时器
-        return;//阻断程序执行；
-    }
-    var timer=setTimeout(fn,1000);//开启定时器；
-}
-fn();
-
-
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-3.3日期对象" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/06/2-3.3日期对象/" class="article-date">
-      <time datetime="2015-01-06T12:00:03.000Z" itemprop="datePublished">2015-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.3日期对象/">2-3.3日期对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        body {
-            font-size: 100px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    //toDou:实现两位数
-    function toDou(n) {
-        /*if(n&gt;=0 &amp;&amp; n&lt;10){
-         return &apos;0&apos;+n;
-         }else{
-         return &apos;&apos;+n;
-         }*/
-        return n &gt;= 0 &amp;&amp; n &lt; 10 ? &apos;0&apos; + n : &apos;&apos; + n;
-    }
-    function getDate() {
-        var oDate = new Date();//获取日期对象
-        var y = oDate.getFullYear();//获取年份
-        var m = oDate.getMonth() + 1;//获取月份的时候，必须+1；
-        var d = oDate.getDate();//获取日
-        var w = oDate.getDay();//获取星期 0123456   0：代表星期日；
-        var h = oDate.getHours();//获取小时
-        var min = oDate.getMinutes();//获取分钟
-        var s = oDate.getSeconds();//获取秒
-        var str = toDou(h) + &apos;:&apos; + toDou(min) + &apos;:&apos; + toDou(s)//字符串拼接
-        document.body.innerHTML = str;
-    }
-    getDate();//这里手动调用一次，是为了防止1秒后才执行，页面出现空白的情况
-    var timer = setInterval(getDate, 1000)//每 隔一秒获取一次最新的日期对象；
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-3.2字符串方法的运用" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/06/2-3.2字符串方法的运用/" class="article-date">
-      <time datetime="2015-01-06T12:00:02.000Z" itemprop="datePublished">2015-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.2字符串方法的运用/">2-3.2字符串方法的运用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    var str=&apos;zhangsan&apos;;
-    //console.log(str.charAt(0).toUpperCase()+str.slice(1))
-    /*console.log(str.charAt(0).toUpperCase()+str.substring(1))
-    console.log(str.charAt(0).toUpperCase()+str.substr(1))*/
-    str=str.replace(&apos;z&apos;,&apos;Z&apos;);
-    console.log(str)
-
-
-     var str=&apos;2015/1/6 11:20:30&apos;;
-        // 2015年1月6日 11点20分30秒
-     var ary=str.split(&apos; &apos;);//先用空格切成两个字符串的数组
-        var aryL=ary[0].split(&apos;/&apos;);//根据斜杠继续切
-        var aryR=ary[1].split(&apos;:&apos;);//根据冒号继续切
-     var str=aryL[0]+&apos;年&apos;+aryL[1]+&apos;月&apos;+aryL[2]+&apos;日 &apos;+aryR[0]+&apos;点&apos;+aryR[1]+&apos;分&apos;+aryR[2]+&apos;秒&apos;;//最后进行字符串拼接；
-     console.log(str)
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-3.1字符串常用方法" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/06/2-3.1字符串常用方法/" class="article-date">
-      <time datetime="2015-01-06T12:00:01.000Z" itemprop="datePublished">2015-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/2-3.1字符串常用方法/">2-3.1字符串常用方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script&gt;
-    var str = &apos;张三&amp;&amp;javascript&amp;&amp;李四&apos;;
-    var str2 = &apos;abcdefg&apos;
-    // alert(str.charCodeAt(3))
-    //console.log(str.indexOf(&apos;张三&apos;))
-    // console.log(str.lastIndexOf(&apos;张&apos;))
-    //console.log(str.substring(2,5))
-    //console.log(str.slice(-4,-1))
-    //console.log(str.slice(-4))
-    /*var ary=str.split(&apos;&amp;&amp;&apos;);
-     console.log(ary)*/
-    // console.log(str2.toUpperCase().toLowerCase())
-    //console.log(str.replace(&apos;张三&apos;,&apos;李四&apos;))
-    // console.log(str.match(&apos;张三&apos;))
-    console.log(str.search(&apos;lala&apos;))
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-2.6循环绑定事件" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/05/2-2.6循环绑定事件/" class="article-date">
-      <time datetime="2015-01-05T12:00:06.000Z" itemprop="datePublished">2015-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/05/2-2.6循环绑定事件/">2-2.6循环绑定事件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;input type=&quot;button&quot; value=&quot;按钮1&quot;/&gt;
-&lt;input type=&quot;button&quot; value=&quot;按钮2&quot;/&gt;
-&lt;input type=&quot;button&quot; value=&quot;按钮3&quot;/&gt;
-&lt;input type=&quot;button&quot; value=&quot;按钮4&quot;/&gt;
-&lt;script&gt;
-    //循环绑定事件：点击每个按钮弹出对应的索引；
-    //自定义属性循环绑定事件；
-    var aBtn = document.getElementsByTagName(&apos;input&apos;);
-    /*for(var i=0; i&lt;aBtn.length; i++){
-     aBtn[i].index=i;
-     aBtn[i].onclick=function(){
-     //注意：私有的事件中，i值都会出问题；
-     alert(this.index)
-     }
-     }*/
-    for (var i = 0; i &lt; aBtn.length; i++) {//闭包实现循环绑定事件
-        //每个正确的i值，都被保存在闭包中的私有变量index上；
-        (function (index) {//形参：index
-            aBtn[index].onclick = function () {
-                alert(index);
-            }
-        })(i);//实参i;
-    }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-2-2.5任意个参数求和" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/05/2-2.5任意个参数求和/" class="article-date">
-      <time datetime="2015-01-05T12:00:05.000Z" itemprop="datePublished">2015-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/05/2-2.5任意个参数求和/">2-2.5任意个参数求和</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+&lt;!--css引入方式--&gt;
 &lt;!--
-思路：add()
-参数：没有
-返回值：把所有参数求和后的结果
-1）遍历arguments；
-2）判断每个arguments是否为有效数字，如果是有效数字，进行累加；注意累加的时候，预防字符串拼接的问题；
+1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
+2、内嵌式:写在style标签里
+3、外链式：通过link标签引入css文件
+4、导入式：通过@import 引入css 文件
+
+--&gt;
+&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
+&lt;!--js的引入方式--&gt;
+&lt;!--
+1、行内引入：直接写到标签内部  安全性低，几乎不用
+2、内嵌式：写到script标签里
+3、外链式:通过script标签的src属性  常用
+document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
 --&gt;
 &lt;script&gt;
-    function add() {
-        var total = 0;
-        //遍历每个arguments，判断每个arguments是否为有效数字
-        for (var i = 0; i &lt; arguments.length; i++) {
-            if (!isNaN(arguments[i])) {
-                total += Number(arguments[i]);//为了防止字符串拼接；
-            }
-        }
-        return total;//最后把求和后的结果返回；
-    }
-    console.log(add(12, 32, 9, &apos;3&apos;, &apos;3px&apos;))
+    alert(&quot;哈哈&quot;)
 &lt;/script&gt;
+
+
+相对路径  ../  上一级目录
+         ./   当前目录
+
+&lt;script src=&quot;./1.js&quot;&gt;
+    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
+&lt;/script&gt;
+
+
 &lt;/body&gt;
-&lt;/html&gt;
+&lt;/html&gt; 
 </code></pre>
       
     </div>
@@ -1038,96 +311,6 @@ fn();
 
 
   
-    <article id="[layout]-2-2.4上一个哥哥元素节点" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/05/2-2.4上一个哥哥元素节点/" class="article-date">
-      <time datetime="2015-01-05T12:00:04.000Z" itemprop="datePublished">2015-01-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/05/2-2.4上一个哥哥元素节点/">2-2.4上一个哥哥元素节点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;ul&gt;
-    &lt;li&gt;0&lt;/li&gt;
-    &lt;li&gt;1&lt;/li&gt;
-    &lt;li&gt;2&lt;/li&gt;
-    &lt;li&gt;3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
-    var aLi = document.getElementsByTagName(&apos;li&apos;);
-    //prev:找当前元素的上一个哥哥元素节点；
-    console.log(prev(aLi[2]).innerHTML)
-    function prev(curEle) {//curEle形参
-        //兼容高级浏览器；previousElementSibling：直接拿到上一个哥哥元素节点；
-        if (curEle.previousElementSibling) {
-            return curEle.previousElementSibling;
-        }
-        //处理低级浏览器的兼容问题
-        var pre = curEle.previousSibling;//获取上一个哥哥节点；
-        //上一个节点存在，并且不是元素节点；才会继续往上找；
-        while (pre &amp;&amp; pre.nodeType !== 1) {
-            pre = pre.previousSibling;
-        }
-        return pre;
-    }
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
   
 </div>
       <footer id="footer">
