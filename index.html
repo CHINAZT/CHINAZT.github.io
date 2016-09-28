@@ -206,6 +206,93 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="[layout]-检测浏览器的类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/检测浏览器的类型/" class="article-date">
+      <time datetime="2016-03-16T12:00:02.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/检测浏览器的类型/">检测浏览器的类型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>在移动端响应式布局开发过程中，我们经常会遇到：一套项目既要在PC端浏览器上访问，也要在移动端设备的浏览器上访问。目前处理这样的需求有两套解决方案：</p>
+<p>1、PC端和移动端共用一套项目</p>
+<p>这样的解决方案目前也经常出现，但是前提条件是页面的布局结构相对来说比较的简单，这样即使移动端屏幕比较的窄，我们可以通过类似于把PC端的三列布局改为一列布局的方案或者是宽高自适应缩放等，实现响应式布局的开发。例如：华为官网、猎豹移动都是这样实现的。</p>
+<p>2、PC端和移动端使用不同两套项目</p>
+<p>第一种解决方案虽然解决了我们的需求，但是一旦页面的结构相对来说复杂一些，我们在进行HTML的排版布局调整，一方面会加大工作量，另外一方面最终排版完成的页面也不方便用户的阅读使用。所以，目前大部分的公司都是PC端单独按照一套排版来做，移动端也会单独的设计一套更符合用户阅读的排版。例如：京东、QQ新闻、淘宝等都是这样处理的。</p>
+<p>但是不管是那一套方案，很多时候都需要我们检测出当前页面运行的环境是PC端的浏览器还是移动端的浏览器，尤其是第二套方案，我们要避免用户在PC端打开移动端项目地址，也要避免用户在移动端打开PC端的项目地址，所以检测到底是什么平台环境下的浏览器至关重要。</p>
+<p>下面给大家分享的这段代码来自于腾讯新闻部门，他们的团队自己用多台手机进行测试，最终总结出一套相对比较完善的检测代码：</p>
+<p>假设PC端项目地址：<a href="http://www.nihao.com/" target="_blank" rel="external">http://www.nihao.com/</a> 移动端项目地址：<a href="http://phone.nihao.com/" target="_blank" rel="external">http://phone.nihao.com/</a></p>
+<pre><code>     ~function () {
+    var reg1 = /AppleWebKit.*Mobile/i, reg2 = /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/;
+//-&gt;条件成立说明当前页面是运行在移动端设备中的         
+    if (reg1.test(navigator.userAgent) || reg2.test(navigator.userAgent)) {              //-&gt;如果当前页面的URL是PC端项目的地址:我们需要跳转到移动端项目             
+        if (window.location.href.indexOf(&quot;www.nihao.com&quot;) &gt;= 0) {
+            window.location.href = &quot;http://phone.zhufengpeixun.cn/&quot;;
+        }
+        return;
+    }
+    //-&gt;反之则说明当前的页面是运行在PC端设备中的,如果访问的URL地址是移动端的,我们需要跳转到PC端地址上         
+    if (window.location.href.indexOf(&quot;phone.nihao.com&quot;) &gt;= 0) {
+        window.location.href = &quot;http://www.zhufengpeixun.cn/&quot;;
+    }
+}(); 
+</code></pre><p>还可以在上述代码的移动端设备中具体的在细分是手机还是PAD，根据需求可以自己选择增加。</p>
+<pre><code> ~function () {
+var reg1 = /AppleWebKit.*Mobile/i, reg2 = /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/;
+if (reg1.test(navigator.userAgent) || reg2.test(navigator.userAgent)) {
+    if (/iPad/i.test(navigator.userAgent)) {
+        //-&gt;说明是PAD            
+    } else {
+        // -&gt;说明是手机            
+    }
+}
+}(); 
+</code></pre><p>注:以上JS代码应该在JS一加载就开始检测，所以放在头部的HEAD区域。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="[layout]-移动端横竖屏检测" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -266,6 +353,189 @@
     }, false);
 }();
 </code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-flexbox理解" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/09/flexbox理解/" class="article-date">
+      <time datetime="2016-03-09T12:00:02.000Z" itemprop="datePublished">2016-03-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/09/flexbox理解/">flexbox理解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>flexbox的优势</p>
+<p>随着移动设备的普及,各种响应式用户界面的流行,Web 应用一般都要求适配不同的设备尺寸和浏览器分辨率,这无疑使布局的逻辑变得更加复杂.<br>我们需要根据窗口尺寸来调整布局，从而改变组件的尺寸和位置，以达到最佳的显示效果</p>
+<p>CSS3 规范中引入的新布局模型：弹性盒模型（flex box）。弹性盒模型可以用简单的方式满足很多常见的复杂的布局需求,它能以更加高效的方式来对容器中的盒子进行布局、对齐和分配空间,即使盒子尺寸未知或动态时也能工作</p>
+<p>flexbox的属性</p>
+<p>通过flexbox来布局可以轻松实现各种负责的布局,并且提供的属性不是很多,学习难度一般,归纳下,主要有如下几个属性(以下写的都是2012版提供的标准写法,):</p>
+<p>在这之前如果你对主轴与交叉轴的概念或者对每个属性有哪些值还不是很清楚,请看上一篇文章flexbox基础知识入门</p>
+<pre><code> display:flex;
+ flex-direcition 确定主轴的方向
+ flex-wrap 当子容器超出父容器时如何排列
+ flex-flow 是flex-direction和flex-wrap的复合属性
+ order 作用在子容器上,用来改变子容器的排列顺序,值越小,排列越靠前
+ justify-content 在主轴的排列方式
+ align-items 在交叉轴的排列方式
+ align-content  在交叉轴方向上的空白处理,但如果又只有单行时,该属性不起作用
+ align-self 设置子容器覆盖父容器指定的对齐方式,如果子容器margin值设为auto,则不起作用
+
+最后三个是比较重要的,也是弹性盒模型的核心之处,弹性的处理盒子的尺寸
+细分属性:flex-grow   flex-shrink flex-basis
+上者三个的复合属性:flex
+
+flex-grow 有多余空间时,该值起作用
+flex-shrink 有溢出空间时,该值起作用
+flex-basis 子容器被调整之前的初始值  
+</code></pre><p>flex组合写法的总结</p>
+<pre><code>flex:atuo -&gt;flex:1 1 atuo
+flex:none -&gt; flex:0 0 auto
+flex:1 -&gt; flex:1 1 0%
+flex:0% -&gt; flex:1 1 0%
+flex: 2 100px -&gt;flex: 2 1 100px 
+</code></pre><p>flexbox的实例</p>
+<p>1.网格布局 就是平均分布。在容器里面平均分配空间 ,但需要项目自动缩放,自动缩放这点是把flex-basis设置成了auto来实现的,当前也可以对部分元素设置百分比,其他的子容器平均分配多余的空间</p>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;item&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;item&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;style type=&quot;text/css&quot;&gt; 
+.container{
+  display: flex;
+}
+
+.item {
+  flex: 1;
+}
+&lt;/style&gt;
+</code></pre><p>2.常见的三栏布局</p>
+<pre><code>html部分:
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;header class=&quot;header&quot;&gt;Header&lt;/header&gt;
+    &lt;article class=&quot;main&quot;&gt;
+        &lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;aside class=&quot;aside aside-1&quot;&gt;Aside 1&lt;/aside&gt;
+    &lt;aside class=&quot;aside aside-2&quot;&gt;Aside 2&lt;/aside&gt;
+    &lt;footer class=&quot;footer&quot;&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+
+ css部分:
+     &lt;style type=&quot;text/css&quot;&gt;
+        .wrapper {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .wrapper &gt; * {
+            padding: 10px;
+            flex:1 100%;
+
+        }
+
+        .header {
+            background: tomato;
+        }
+
+        .footer {
+            background: lightgreen;
+        }
+
+        .main {
+            text-align: left;
+            background: deepskyblue;
+        }
+
+        .aside-1 {
+            background: gold;
+        }
+
+        .aside-2 {
+            background: hotpink;
+        }
+
+        @media all and (min-width: 800px) {
+        .main    { flex: 3 0%; }
+
+        .aside-1 { order: 1; }
+        .main    { order: 2; }
+        .aside-2 { order: 3; }
+        .footer  { order: 4; }
+        }
+
+        @media all and (min-width: 600px) {
+            .aside { flex: 1 auto;}
+        }
+
+    &lt;/style&gt;
+</code></pre><p>3.输入框的布局<br>我们常常需要在输入框的前方添加提示，后方添加按钮。</p>
+<pre><code>html部分:
+
+&lt;div class=&quot;InputBox&quot;&gt;
+  &lt;span class=&quot;InputBox-item&quot;&gt;...&lt;/span&gt;
+  &lt;input class=&quot;InputBox-field&quot;&gt;
+  &lt;button class=&quot;InputBox-item&quot;&gt;...&lt;/button&gt;
+&lt;/div&gt;
+
+css部分:
+.InputBox{
+  display: flex;
+}
+
+.InputBox-field {
+  flex: 1;
+}
+</code></pre><p>4.流式布局或或垂直居中等</p>
+
       
     </div>
     

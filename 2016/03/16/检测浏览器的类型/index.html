@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>了解LESS和编译LESS | 冰箱里的水</title>
+  <title>检测浏览器的类型 | 冰箱里的水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们大家都知道HTML和CSS不属于编程语言而是属于标记语言，所以很难像JS一样定义变量、编写方法、实现模块化开发等。而目前的CSS编写模式中，都是定义一些公共的样式类名，哪一块的HTML需要这个样式，就去增加对应的样式类名，所以我们经常看到一个标签上存在很多样式类名，在这种模式中我们要时常关注CSS的优先级，避免样式的重叠覆盖…
-为了解决CSS的这一困境，CSS预处理预编译的思想脱颖而出，">
+  <meta name="description" content="在移动端响应式布局开发过程中，我们经常会遇到：一套项目既要在PC端浏览器上访问，也要在移动端设备的浏览器上访问。目前处理这样的需求有两套解决方案：
+1、PC端和移动端共用一套项目
+这样的解决方案目前也经常出现，但是前提条件是页面的布局结构相对来说比较的简单，这样即使移动端屏幕比较的窄，我们可以通过类似于把PC端的三列布局改为一列布局的方案或者是宽高自适应缩放等，实现响应式布局的开发。例如：华为官网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="了解LESS和编译LESS">
-<meta property="og:url" content="http://yoursite.com/2016/03/01/了解LESS和编译LESS/index.html">
+<meta property="og:title" content="检测浏览器的类型">
+<meta property="og:url" content="http://yoursite.com/2016/03/16/检测浏览器的类型/index.html">
 <meta property="og:site_name" content="冰箱里的水">
-<meta property="og:description" content="我们大家都知道HTML和CSS不属于编程语言而是属于标记语言，所以很难像JS一样定义变量、编写方法、实现模块化开发等。而目前的CSS编写模式中，都是定义一些公共的样式类名，哪一块的HTML需要这个样式，就去增加对应的样式类名，所以我们经常看到一个标签上存在很多样式类名，在这种模式中我们要时常关注CSS的优先级，避免样式的重叠覆盖…
-为了解决CSS的这一困境，CSS预处理预编译的思想脱颖而出，">
-<meta property="og:updated_time" content="2016-09-28T01:15:07.000Z">
+<meta property="og:description" content="在移动端响应式布局开发过程中，我们经常会遇到：一套项目既要在PC端浏览器上访问，也要在移动端设备的浏览器上访问。目前处理这样的需求有两套解决方案：
+1、PC端和移动端共用一套项目
+这样的解决方案目前也经常出现，但是前提条件是页面的布局结构相对来说比较的简单，这样即使移动端屏幕比较的窄，我们可以通过类似于把PC端的三列布局改为一列布局的方案或者是宽高自适应缩放等，实现响应式布局的开发。例如：华为官网">
+<meta property="og:updated_time" content="2016-09-28T01:34:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="了解LESS和编译LESS">
-<meta name="twitter:description" content="我们大家都知道HTML和CSS不属于编程语言而是属于标记语言，所以很难像JS一样定义变量、编写方法、实现模块化开发等。而目前的CSS编写模式中，都是定义一些公共的样式类名，哪一块的HTML需要这个样式，就去增加对应的样式类名，所以我们经常看到一个标签上存在很多样式类名，在这种模式中我们要时常关注CSS的优先级，避免样式的重叠覆盖…
-为了解决CSS的这一困境，CSS预处理预编译的思想脱颖而出，">
+<meta name="twitter:title" content="检测浏览器的类型">
+<meta name="twitter:description" content="在移动端响应式布局开发过程中，我们经常会遇到：一套项目既要在PC端浏览器上访问，也要在移动端设备的浏览器上访问。目前处理这样的需求有两套解决方案：
+1、PC端和移动端共用一套项目
+这样的解决方案目前也经常出现，但是前提条件是页面的布局结构相对来说比较的简单，这样即使移动端屏幕比较的窄，我们可以通过类似于把PC端的三列布局改为一列布局的方案或者是宽高自适应缩放等，实现响应式布局的开发。例如：华为官网">
   
     <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
   
@@ -206,11 +209,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="[layout]-了解LESS和编译LESS" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="[layout]-检测浏览器的类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/01/了解LESS和编译LESS/" class="article-date">
-      <time datetime="2016-03-01T12:00:01.000Z" itemprop="datePublished">2016-03-01</time>
+      <a href="/2016/03/16/检测浏览器的类型/" class="article-date">
+      <time datetime="2016-03-16T12:00:02.000Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -223,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      了解LESS和编译LESS
+      检测浏览器的类型
     </h1>
   
 
@@ -240,170 +243,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>   我们大家都知道HTML和CSS不属于编程语言而是属于标记语言，所以很难像JS一样定义变量、编写方法、实现模块化开发等。而目前的CSS编写模式中，都是定义一些公共的样式类名，哪一块的HTML需要这个样式，就去增加对应的样式类名，所以我们经常看到一个标签上存在很多样式类名，在这种模式中我们要时常关注CSS的优先级，避免样式的重叠覆盖…</p>
-<p>为了解决CSS的这一困境，CSS预处理预编译的思想脱颖而出，比较具有代表性的有LESS、SASS、Stylus。它们在传统的CSS基础上增加了大量的新的语法，编写方式，常用的函数等，可以让我们的CSS像JS一样成为一门编程语言。基于LESS我么可以把一些经常用到的样式定义成变量或者函数，以后需要直接的调取使用即可，这样不仅有利于增加我们的开发速度，也有利于项目的后期维护与可复用性。</p>
-<p>LESS</p>
-<p>在这篇文章以及后续的文章中，我将带领去了解LESS，学会使用LESS进行项目的实战开发。LESS是一门CSS预处理语言，它扩展了CSS语言，增加了变量、Mixin、函数等特性，使CSS更易维护和扩展。使用LESS基本上按照这样的步骤：编写LESS代码，使用NODE、JS或者是其他的工具把编写的LESS代码编译成我们平时看到的CSS代码(因为浏览器是无法解析LESS的语法的，所以编写完成的LESS代码需要进行编译)。</p>
-<p>[先看一个简单的案例]</p>
-<p>在传统的CSS编写中，我们事先为一个盒子.box编写了一套样式，当鼠标滑过的时候，让盒子在原有样式的部分颜色值上发生改变，里面的DIV标签的阴影颜色变重，这样的话我们需要把之前的样式拿过来写一遍，只是调整一下透明度或者颜色值而已，页面中的冗余代码比较的多，也不方便后期的维护。</p>
-<pre><code>.box {
-    color: #f938ab;
-    border-color: #fdcdea;
-}
-
-.box1 div {
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-//-&gt;在:hover触发的时候需要把上述的样式copy一份,在原来的基础上改变部分颜色值和透明度
-.box:hover {
-    color: #fe33ac;
-}
-
-.box:hover div {
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-</code></pre><p>如果我们使用的是LESS，那么我们可以节省很多的工作，也可以实现可扩展性和通用性，看下面的LESS代码：</p>
-<pre><code>//-&gt;定义变量存储颜色值
-@color: #f938ab;
-
-//-&gt;你可以把它理解为JS中的一个函数
-.box-shadow(@style, @alpha:50%) {
-    -webkit-box-shadow: @style rgba(0, 0, 0, @alpha);
-    -moz-box-shadow: @style rgba(0, 0, 0, @alpha);
-    -ms-box-shadow: @style rgba(0, 0, 0, @alpha);
-    -o-box-shadow: @style rgba(0, 0, 0, @alpha);
-    box-shadow: @style rgba(0, 0, 0, @alpha);
-}
-
-.box {
-    color: @color;
-    border-color: #fdcdea;
-
-    //-&gt;嵌套:代表是 .box div
-    div {
-        .box-shadow(0 0 5px, 30%)
-    }
-
-    //-&gt;代表的是 .box:hover
-    &amp;:hover {
-        //-&gt;saturate:LESS提供的颜色处理方法(还有很多其它的方法),用来调整颜色的饱和度变化
-        color: saturate(@color, 5%);
-
-        //-&gt;嵌套:代表是 .box:hover div
-        div {
-            .box-shadow(0 0 5px)
+        <p>在移动端响应式布局开发过程中，我们经常会遇到：一套项目既要在PC端浏览器上访问，也要在移动端设备的浏览器上访问。目前处理这样的需求有两套解决方案：</p>
+<p>1、PC端和移动端共用一套项目</p>
+<p>这样的解决方案目前也经常出现，但是前提条件是页面的布局结构相对来说比较的简单，这样即使移动端屏幕比较的窄，我们可以通过类似于把PC端的三列布局改为一列布局的方案或者是宽高自适应缩放等，实现响应式布局的开发。例如：华为官网、猎豹移动都是这样实现的。</p>
+<p>2、PC端和移动端使用不同两套项目</p>
+<p>第一种解决方案虽然解决了我们的需求，但是一旦页面的结构相对来说复杂一些，我们在进行HTML的排版布局调整，一方面会加大工作量，另外一方面最终排版完成的页面也不方便用户的阅读使用。所以，目前大部分的公司都是PC端单独按照一套排版来做，移动端也会单独的设计一套更符合用户阅读的排版。例如：京东、QQ新闻、淘宝等都是这样处理的。</p>
+<p>但是不管是那一套方案，很多时候都需要我们检测出当前页面运行的环境是PC端的浏览器还是移动端的浏览器，尤其是第二套方案，我们要避免用户在PC端打开移动端项目地址，也要避免用户在移动端打开PC端的项目地址，所以检测到底是什么平台环境下的浏览器至关重要。</p>
+<p>下面给大家分享的这段代码来自于腾讯新闻部门，他们的团队自己用多台手机进行测试，最终总结出一套相对比较完善的检测代码：</p>
+<p>假设PC端项目地址：<a href="http://www.nihao.com/" target="_blank" rel="external">http://www.nihao.com/</a> 移动端项目地址：<a href="http://phone.nihao.com/" target="_blank" rel="external">http://phone.nihao.com/</a></p>
+<pre><code>     ~function () {
+    var reg1 = /AppleWebKit.*Mobile/i, reg2 = /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/;
+//-&gt;条件成立说明当前页面是运行在移动端设备中的         
+    if (reg1.test(navigator.userAgent) || reg2.test(navigator.userAgent)) {              //-&gt;如果当前页面的URL是PC端项目的地址:我们需要跳转到移动端项目             
+        if (window.location.href.indexOf(&quot;www.nihao.com&quot;) &gt;= 0) {
+            window.location.href = &quot;http://phone.zhufengpeixun.cn/&quot;;
         }
+        return;
+    }
+    //-&gt;反之则说明当前的页面是运行在PC端设备中的,如果访问的URL地址是移动端的,我们需要跳转到PC端地址上         
+    if (window.location.href.indexOf(&quot;phone.nihao.com&quot;) &gt;= 0) {
+        window.location.href = &quot;http://www.zhufengpeixun.cn/&quot;;
+    }
+}(); 
+</code></pre><p>还可以在上述代码的移动端设备中具体的在细分是手机还是PAD，根据需求可以自己选择增加。</p>
+<pre><code> ~function () {
+var reg1 = /AppleWebKit.*Mobile/i, reg2 = /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/;
+if (reg1.test(navigator.userAgent) || reg2.test(navigator.userAgent)) {
+    if (/iPad/i.test(navigator.userAgent)) {
+        //-&gt;说明是PAD            
+    } else {
+        // -&gt;说明是手机            
     }
 }
-</code></pre><p>通过NODE编译后的结果为：</p>
-<pre><code>.box {
-    color: #f938ab;
-    border-color: #fdcdea;
-}
-
-.box div {
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-.box:hover {
-    color: #fe33ac;
-}
-
-.box:hover div {
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-</code></pre><p>大家感受一下，是不是感觉LESS很强大，一方面不仅仅让我们少些了很多的代码，而且我们定义的变量或者“函数”具有很强的公用性，以后其他的结构需要这样的样式，我们直接的调取就好了。既然认识到了LESS的强大，那么我们接下来就一步步的学会LESS的使用。</p>
-<p>LESS的编译</p>
-<p>上述我们提到，编写完成的LESS代码是不能直接在浏览器中运行的，需要编译成正常的CSS代码。那么我们首先就来学习一下常用的LESS编译方式。</p>
-<p>1、在浏览器中调用LESS.JS</p>
-<p>LESS只支持在现代浏览器中运行（最新版本的Chrome, Firefox, Safari 和 IE）。我们不建议在生产环境中使用LESS客户端，因为在将LESS编译成CSS的时候，用户会看到加载延迟的现象，即便在浏览器中有不足一秒的加载延迟，但也会降低性能。</p>
-<p>首先引入我们设置样式的LESS文件，注意：这里的rel=’stylesheet/less’</p>
-<pre><code>&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet/less&quot; href=&quot;1.less&quot;/&gt;
-</code></pre><p>其次为了方便开发过程中的调试(上线后我们也可以配置一些必要的参数)，我们可以在引入LESS.JS之前设置一些配置的参数。我们一般都把所有的配置参数放在全局变量less中。</p>
-<pre><code>//-&gt;在引入LESS之前设置一个全局的变量less,配置一些参数值(根据情况自行选择需要配置的项)
-var less = {
-    //-&gt;evn:设置运行的环境(生产模式还是开发模式)
-    //production:编译后的CSS缓存到本地localStorage中
-    //development:没有把编译后的CSS缓存到本地,在URL不是标准的格式下(例如:file://...),自动设置为development
-    env: &quot;development&quot;,
-
-    //-&gt;logLevel:javascript控制台日志量
-    logLevel: 2,
-
-    //-&gt;async:同步或者异步导入文件,默认是false代表同步
-    async: false,
-
-    //-&gt;fileAsync:使用文件协议访问页面时异步加载导入的文件,默认是false,如有需要设置为true
-    fileAsync: false,
-
-    //-&gt;poll:在监视模式下，每两次请求之间的时间间隔(ms)
-    poll: 1000,
-
-    //-&gt;dumpLineNumbers:当设置dumpLineNumbers直接输出源行信息到编译好的CSS的文件中时，有利于你调试指定行。comments参数用于输出用户可以理解的内容，而mediaQuery使用Firefox一个扩展来解析CSS和抽取信息。
-    dumpLineNumbers: &quot;comments&quot;,
-
-    //-&gt;relativeUrls：是否调整相对路径。如果为false，则url已经是相对于入口的LESS文件。
-    relativeUrls: false
-};
-//-&gt;还有其它的参数,自己下去后可以再进行扩展
-</code></pre><p>然后引入我们的less.js</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;less.js&quot;&gt; &lt;/script&gt;
-</code></pre><p>最后开启监视模式后,只要我们的LESS改变，在一定时间内，浏览器就会重新的编译，我们可以看到想要的效果</p>
-<pre><code>//-&gt;启用监视模式(env必须要设置成development)
-less.watch();
-</code></pre><p>2、使用NODE命令编译LESS</p>
-<p>这种方式是目前项目中最常用的方式，也是我推荐大家使用的方式，它是把我们的LESS文件编译成CSS文件，我们项目中直接的引入CSS文件即可，基本步骤：安装-&gt;编译/压缩编译-&gt;或者使用NODE代码实现批量编译等</p>
-<p>把LESS模块安装到全局NODE环境中</p>
-<pre><code>npm install less -g
-</code></pre><p>使用命令进行编译</p>
-<pre><code>//-&gt;把styles.less文件编译成styles.css文件(如果没有这个CSS文件自己会创建)
-lessc styles.less styles.css
-
-//-&gt;编译完成的CSS文件是经过压缩的
-lessc styles.less styles.min.css -x或者--compress
-</code></pre><p>如果你想要更牛X的压缩,还可以自己单独的设定,下面我们使用–clean-css。这个需要提前的安装less-plugin-clean-css模块才可以。</p>
-<pre><code>//-&gt;安装less-plugin-clean-css
-npm install -g less-plugin-clean-css
-
-//-&gt;安装成功后就可以使用它压缩了
-lessc --clean-css styles.less styles.min.css
-</code></pre><p>3、在NODE环境中编写批量编译的代码</p>
-<p>我们在上述用NODE命令编译的时候，一次只能编译一个文件，这样，如果页面中有多个LESS，每一次编译都是比较耗费时间的，所以我们结合NODE的FS文件读写操作，可以写一套批量编译的代码。</p>
-<pre><code>//-&gt;定义编译文件目录和目标导出目录
-var dirPath = &quot;./less/&quot;, tarPath = &quot;./css/&quot;;
-
-//-&gt;导入NODE中需要使用的模块
-var fs = require(&quot;fs&quot;),
-    less = require(&quot;less&quot;);
-
-//-&gt;读取dirPath中的所有文件,检查文件的类型,只有LESS文件我们才进行存储
-var ary = [],
-    files = fs.readdirSync(dirPath);
-files.forEach(function (file, index) {
-    /\.(LESS)/i.test(file) ? ary.push(file) : null;
-});
-
-//-&gt;把目录下的所有文件进行编译,把编译完成的结果保存在指定的目录中
-ary.forEach(function (file) {
-    var newFile = file.replace(&quot;.less&quot;, &quot;.css&quot;),
-        conFile = fs.readFileSync(dirPath + file, &quot;utf-8&quot;);
-    less.render(conFile, {compress: true}, function (error, output) {
-        fs.writeFileSync(tarPath + newFile, output.css, &quot;utf-8&quot;);
-    });
-});
-</code></pre><p>4、使用工具编译LESS</p>
-<p>目前常用的编译工具有：Koala(据说目前最流行的)、在线编译(<a href="http://tool.oschina.net/less)、SimpLESS等。关于工具的使用，自己下去下载研究即可，非常的简单，本篇文章不做过多的说明。" target="_blank" rel="external">http://tool.oschina.net/less)、SimpLESS等。关于工具的使用，自己下去下载研究即可，非常的简单，本篇文章不做过多的说明。</a></p>
+}(); 
+</code></pre><p>注:以上JS代码应该在JS一加载就开始检测，所以放在头部的HEAD区域。</p>
 
       
     </div>
@@ -415,12 +288,12 @@ ary.forEach(function (file) {
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/01/LESS基础语法/">
-                    LESS基础语法
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/16/移动端横竖屏检测/">
+                    移动端横竖屏检测
                 </a>
             </div>
-        
         
     </nav>
 
@@ -486,7 +359,7 @@ ary.forEach(function (file) {
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"了解LESS和编译LESS　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"检测浏览器的类型　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -502,7 +375,7 @@ ary.forEach(function (file) {
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/01/了解LESS和编译LESS/" data-title="了解LESS和编译LESS" data-url="http://yoursite.com/2016/03/01/了解LESS和编译LESS/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/16/检测浏览器的类型/" data-title="检测浏览器的类型" data-url="http://yoursite.com/2016/03/16/检测浏览器的类型/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -526,15 +399,15 @@ ary.forEach(function (file) {
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/01/LESS基础语法/" title="上一篇: LESS基础语法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/03/16/移动端横竖屏检测/" title="下一篇: 移动端横竖屏检测">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
