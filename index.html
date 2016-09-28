@@ -206,11 +206,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="[layout]-1-1.1js、css的引入方式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-移动端横竖屏检测" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/01/1-1.1js、css的引入方式/" class="article-date">
-      <time datetime="2015-01-01T12:00:01.000Z" itemprop="datePublished">2015-01-01</time>
+      <a href="/2016/03/16/移动端横竖屏检测/" class="article-date">
+      <time datetime="2016-03-16T12:00:00.000Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -223,7 +223,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/1-1.1js、css的引入方式/">1-1.1js、css的引入方式</a>
+      <a class="article-title" href="/2016/03/16/移动端横竖屏检测/">移动端横竖屏检测</a>
     </h1>
   
 
@@ -233,59 +233,1391 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head lang=&quot;en&quot;&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        div{
-            border-radius: 50%;
-        }
-    &lt;/style&gt;
-    &lt;!-- 最常用--&gt;
-    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件的路径&quot;/&gt;--&gt;
-    &lt;style&gt;
-        @import url(style.css);
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;!--css引入方式--&gt;
-&lt;!--
-1、行内式:直接写在标签内部 通过style这个标签属性 写入css代码
-2、内嵌式:写在style标签里
-3、外链式：通过link标签引入css文件
-4、导入式：通过@import 引入css 文件
+        <p>移动端-横竖屏检测</p>
+<p>在移动设备上访问我们的HTML页面，我们很多时候需要根据用户的横竖屏状态做一些操作，例如：我们做了一个H5页面，我们是按照竖屏开发的，当用户切换为横屏幕的时候，宽度变大，高度变小，页面的展示效果不好，此时我们需要进行样式的调整；在例如我们做了一个H5的小游戏，只能让用户横屏玩，当用户切换为竖屏幕的时候我们要给与相关的提示等…</p>
+<p>只能检测不能控制</p>
+<p>由于我们的HTML5页面是运行在手机浏览器或者Native App的web view中的(详情看Hybrid模式)，而横竖屏切换是手机内部的感应操作，HTML5无法直接的去调取系统级别的API，如果浏览器实现了这个功能，那么H5可以调取，但是目前大部分的浏览器都不支持；而且横竖屏的操控本身也有诸多的限制，比如用户禁止了横竖屏的切换，那么还是无法进行切换的…</p>
+<p>所以要记住，HTML5可以检测出用户当前是横屏还是竖屏，但是不能禁止横竖屏的切换（如果浏览器提供了相关的功能，我们可以控制，例如：QQ和UC就实现了这个功能，我们可以通过设置META来控制横竖屏）</p>
+<pre><code>//-&gt;QQ X5内核
+&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait|landscape&quot;/&gt;
 
---&gt;
-&lt;div style=&quot;width: 100px;height: 100px;background: plum&quot; onclick=&quot;alert(&apos;大家好！&apos;)&quot;&gt;&lt;/div&gt;//行内引入
-&lt;!--js的引入方式--&gt;
-&lt;!--
-1、行内引入：直接写到标签内部  安全性低，几乎不用
-2、内嵌式：写到script标签里
-3、外链式:通过script标签的src属性  常用
-document.write(&apos;&lt;script src=&quot;js文件的路径&quot;&gt;&lt;/script&gt;&apos;)
---&gt;
-&lt;script&gt;
-    alert(&quot;哈哈&quot;)
-&lt;/script&gt;
+//-&gt;UC浏览器
+&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait|landscape&quot;/&gt;
+</code></pre><p>点击查看更多的移动端META标签使用<br>在CSS3中检测</p>
+<p>在CSS3中我们使用@MEDIA媒体查询进行检测，检测出来后可以进行样式的调整。</p>
+<pre><code>@media all and (orientation: landscape) {
+    /*横屏*/
+    body {
+        background: blue;
+    }
+}
 
-
-相对路径  ../  上一级目录
-         ./   当前目录
-
-&lt;script src=&quot;./1.js&quot;&gt;
-    alert(&apos;123&apos;);//外链式中的script标签中不可以写js代码，写了肯定不会执行
-&lt;/script&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt; 
+@media all and (orientation: portrait) {
+    /*竖屏*/
+    body {
+        background: green;
+    }
+}
+</code></pre><p>在JS中检测</p>
+<p>在JS代码中我们可以使用orientationchange事件进行检测，检测出来后可以在JS中给予相关的提示。(在安卓机器上当切换完成后需要等待一段时间才能反应过来)</p>
+<pre><code>~function () {
+    window.addEventListener(&quot;orientationchange&quot;, function (ev) {
+        console.log(ev.orientation);
+    }, false);
+}();
 </code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-LESS语言特性" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/01/LESS语言特性/" class="article-date">
+      <time datetime="2016-03-01T12:00:03.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/01/LESS语言特性/">LESS语言特性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>概述</p>
+<p>作为一种 CSS 扩展, Less 不仅向后兼容 CSS, 它还使用现有的 CSS 语法新增了额外的特性. 这使得学习 Less 更轻松, 一旦有任何问题，可以随时退回使用标准的 CSS.</p>
+<p>Variables (变量)</p>
+<p>管理重复值</p>
+<pre><code>@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+#header {
+color: @light-blue;
+}
+</code></pre><p>除了使用变量管理值,还可以用在其他地方,例如选择器,属性名,url,@import语句中</p>
+<pre><code>//选择器
+@mySelector : banner;
+.@{mySelector}{
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0 auto;
+}
+//url
+@images: &quot;../img&quot;;
+
+//属性
+@property:color;
+.widget{
+    @{property}:#0ee;
+    background-@{property}:#999
+}
+//使用变量定义变量名
+@fnord:&quot;I am fnord&quot;;
+@var :&quot;fnord&quot;;
+content:@@var;
+
+//变量不一定要提前申明
+.lazy-eval{
+    width:@var;
+}
+@var :@a;
+@a:9%
+
+//变量先在当前作用域查找,没有再去往上一级查找
+@var:0;
+.class{
+   @var: 1;
+  .brass {
+    @var: 2;
+    three: @var;
+    @var: 3;
+  }
+  one: @var;
+}
+//编译为
+.class {
+    one:1;
+}
+.class .brass{
+    three:3;
+}
+</code></pre><p>Extend (扩展)</p>
+<p>不同选择器公用相同的样式,避免添加基础类<br>    nav ul {<br>      &amp;:extend(.inline);<br>      background: blue;<br>    }<br>    //编译为<br>    nav ul {<br>      background: blue;<br>    }<br>    .inline,<br>    nav ul {<br>      color: red;<br>    }</p>
+<p>规则集内的扩展</p>
+<pre><code>pre:hover,
+.some-class {
+  &amp;:extend(div pre);
+}
+//与下面的写法相同
+pre:hover:extend(div pre),
+.some-class:extend(div pre) {}
+</code></pre><p>扩展多个类,使用逗号分割</p>
+<pre><code>.e:extend(.f) {}
+.e:extend(.g) {}
+//上面的代码与下面做的事情一样
+.e:extend(.f, .g) {}
+</code></pre><p>编写在media声明内的extend也应该只匹配同一media声明内的选择器</p>
+<pre><code>@media print {
+  .screenClass:extend(.selector) {} // media内的extend
+  .selector { // 这个会匹配到-因为在同一的media内
+    color: black;
+  }
+}
+.selector { // 定义样式表中的规则 - extend会忽略它
+  color: red;
+}
+@media screen {
+  .selector {  // 另一个media声明内的规则 - extend也会忽略它
+    color: blue;
+  }
+}
+</code></pre><p>编写在media声明内的extend不会匹配嵌套声明内的选择器</p>
+<pre><code>@media screen{
+    .screenClass:extend(.selector){}
+    @media (min-width:1023px){
+        .selector{color:blue};//嵌套media内的规则-extend会忽视它
+    }
+}
+</code></pre><p>顶级extend匹配一切，包括media嵌套内的选择器</p>
+<pre><code>@media screen {
+  .selector {  /* media嵌套内的规则 - 顶级extend正常工作 */
+    color: blue;
+  }
+  @media (min-width: 1023px) {
+    .selector {  /* media嵌套内的规则 - 顶级extend正常工作 */
+      color: blue;
+    }
+  }
+}
+
+.topLevel:extend(.selector) {} /* 顶级extend匹配一切 */
+</code></pre><p>Mixins (混合)</p>
+<p>不同的选择器之间可以相互调用,调用时,括号可加可不加</p>
+<pre><code>.a, #b {
+  color: red;
+}
+.mixin-class {
+  .a();
+}
+.mixin-id {
+  #b();
+}
+</code></pre><p>混合集不仅可以包含各种属性,还可以包括各种选择器</p>
+<pre><code>.my-hover-mixin() {
+  &amp;:hover {
+    border: 1px solid red;
+  }
+}
+button {
+  .my-hover-mixin();
+}
+</code></pre><p>(命名空间 ) 可以将属性嵌套到比较复杂的选择器中,可以嵌套id或class</p>
+<pre><code> #outer {
+  .inner {
+    color: red;
+  }
+}
+
+.c {
+  #outer &gt; .inner; //调用时建议使用这种方式,当然&gt;是可选的
+}
+// 下面四种写法效果是一样的
+#outer &gt; .inner;
+#outer &gt; .inner();
+#outer.inner;
+#outer.inner();
+//把混合集放到一个id选择器里面，这样可以确保它（这个混合集）不会跟其他的库冲突。
+</code></pre><p>调用的混合集后面追加 !important 关键字，可以使混合集里面的所有属性都继承 !important：</p>
+<pre><code>.foo{
+    color:#333;
+    background:#555
+}
+.important{
+    .foo() !important ;
+}
+//结果为:
+.important {
+  background: #555 !important;
+  color: #333 !important;
+}
+</code></pre><p>带参数的混合</p>
+<pre><code>.border-radius(@radius:5px) {//可以给参数设置初始值
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+//设置初始值后就可以像这样调用它
+#header{
+    .border-radius  
+}
+</code></pre><p>可以使用不接受参数的混合 ,如果想在输出的CSS中隐藏规则集,但又想使用规则集中的属性,则这个特性很有用</p>
+<pre><code>.wrap() {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre { .wrap }
+//输出
+pre {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+</code></pre><p>带多个参数的mixins</p>
+<pre><code>.mixin(@color; @padding; @margin: 2) {
+  color-3: @color;
+  padding-3: @padding;
+  margin: @margin @margin @margin @margin;
+}
+.some .selector div {
+  .mixin(#008000);
+}
+//注:任何参数都已通过它的名称来引用，这样就不必按照任意特定的顺序来使用参数
+</code></pre><p>多个参数统一设置还可以使用@arguments 变量</p>
+<pre><code> .transition(@property:all,@duration;@timing-function;@delay){
+
+ -webkit-transition:@property @duration @timing-function @delay;
+    -moz-transition:@property @duration @timing-function @delay;
+     -ms-transition:@property @duration @timing-function @delay;
+      -o-transition:@property @duration @timing-function @delay;
+         transition:@property @duration @timing-function @delay;
+}
+
+//上面可以简写成如下
+.transition(@property:all,@duration;@timing-function;@delay){   
+    -webkit-transition:@arguments;
+       -moz-transition:@arguments;
+        -ms-transition:@arguments;
+         -o-transition:@arguments;
+            transition:@arguments;
+}
+</code></pre><p>接收数量不定的参数 ,可以使用 … ,在变量名后面使用它,它会将这些参数分配给变量</p>
+<pre><code> .mixin(...) {        // matches 0-N arguments
+.mixin() {           // matches exactly 0 arguments
+.mixin(@a: 1) {      // matches 0-1 arguments
+.mixin(@a: 1; ...) { // matches 0-N arguments
+.mixin(@a; ...) {    // matches 1-N arguments
+
+//此外
+.mixin(@a; @rest...) {
+   // @rest is bound to arguments after @a
+   // @arguments is bound to all arguments
+}
+</code></pre><p>匹配模式<br>根据不同的参数,设定不同的行为</p>
+<pre><code>@switch:light
+.mixin(dark,@color){
+    color : darken(@color:10%);
+}
+.mixin(light,@color){
+    color : lighten(@color:10%);
+}
+.mixin(@_,@color){ //匹配任意值,但要注意@color必须写
+    display:block;
+}
+.a{
+    .mixin(@switch,#333);
+}   
+注:也可以基于参数个人来匹配
+</code></pre><p>作为函数使用的混合<br>在类似函数的mixin中,变量会充当它的返回值</p>
+<pre><code> .mixin() {
+  @width:  100%;
+  @height: 200px;
+}
+
+.caller {
+  .mixin(); //先运行
+  width:  @width; //调用返回值
+  height: @height;
+}
+//结果:
+.caller{
+    width:100%;
+    height:200%;
+}
+</code></pre><p>带参数的函数混合</p>
+<pre><code> .average(@x, @y) {
+  @average: ((@x + @y) / 2);
+}
+
+div {
+  .average(16px, 50px); // &quot;call&quot; the mixin
+  padding: @average;    // use its &quot;return&quot; value
+}
+</code></pre><p>定义在mixin中的mixin同样可以作为返回值</p>
+<pre><code>.unlock(@value) { // 外层的 mixin
+  .doSomething() { // 被嵌套的 mixin
+    declaration: @value;
+  }
+}
+
+#namespace {
+  .unlock(5); // unlock doSomething mixin
+  .doSomething(); //嵌套混入被复制到这里，并可用
+}
+#namespace {
+  declaration: 5;
+}
+</code></pre><p>在mixin中定义包装的CSS代码块</p>
+<pre><code>// 声明 detached 规则集合
+@detached-ruleset: { background: red; };
+
+// 使用 detached 规则集合
+.top {
+    @detached-ruleset();  //()这个括号是必须写的
+}
+//结果为:
+.top {
+  background: red;
+}
+</code></pre><p>导入规则</p>
+<pre><code>从其他样式表中导入样式。
+
+在标准的CSS中，@import必须在所有其他类型的规则之前。但是Less.js不在乎你把@import语句放在什么位置。
+</code></pre><p>File extensions （文件扩展名）</p>
+<pre><code>如果文件有一个.css扩展名，则将它作为CSS对象,其他的则作为Less文件导入进来
+</code></pre><p>Import (导入选项)</p>
+<pre><code>语法：@import (keyword) “filename”;
+
+reference：使用Less文件但不输出 
+inline：在输出中包含源文件但不加工它 
+less：将文件作为Less文件对象，无论是什么文件扩展名 
+css：将文件作为CSS文件对象，无论是什么文件扩展名 
+once：只包含文件一次（默认行为） 
+multiple：包含文件多次
+</code></pre><p>Mixin Guards (带条件的mixins)</p>
+<pre><code>.mixin (@a) when (lightness(@a) &gt;= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) &lt; 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+.class1 { .mixin(#ddd) }
+.class2 { .mixin(#555) }
+
+//输出
+.class1 {
+  background-color: black;
+  color: #ddd;
+}
+.class2 {
+  background-color: white;
+  color: #555;
+}
+</code></pre><p>Guard中的比较运算符 (&gt;,&gt;=,=, =&lt;,&lt;) ,此外,关键字true,是让两个mixins等价的唯一真值</p>
+<pre><code>.truth (@a) when (@a) { ... }
+.truth (@a) when (@a = true) { ... }//除了关键字true，其他任何值都是假值：
+</code></pre><p>注意，你也可以比较其他每个参数或者不使用参数</p>
+<pre><code>@media: mobile;
+.mixin (@a) when (@media = mobile) { ... }
+.mixin (@a) when (@media = desktop) { ... }
+
+.max (@a; @b) when (@a &gt; @b) { width: @a }
+.max (@a; @b) when (@a &lt; @b) { width: @b }
+</code></pre><p>Guard逻辑运算符<br>您可以在guards之间使用逻辑运算符。语法是基于CSS媒体查询。<br>使用and关键字来组合guards：</p>
+<pre><code>.mixin (@a) when (isnumber(@a)) and (@a &gt; 0) { ... }
+</code></pre><p>你可以通过用逗号 , 分隔guards来模仿 or 运算符。如果任何 guards 为 true，那么它认为是匹配的：</p>
+<pre><code>.mixin (@a) when (@a &gt; 10), (@a &lt; -10) { ... }
+</code></pre><p>使用 not 关键字来否定条件：</p>
+<pre><code>.mixin (@b) when not (@b &gt; 0) { ... }
+</code></pre><p>类型检查函数<br>基本的类型检查函数<br>iscolor<br>isnumber<br>isstring<br>iskeyword<br>isurl<br>你想检查一个值除了数字是否是一个特定的单位，你可以使用下列方法之一<br>ispixel<br>ispercentage<br>isem<br>isunit<br>你还可以通过与&amp;特性结合实现’if’类型的语句，从而允许组合多个约束。</p>
+<pre><code>&amp; when (@my-option = true) {
+  button {
+    color: white;
+  }
+  a {
+    color: blue;
+  }
+}
+</code></pre><p>Loops （循环）</p>
+<p>使用递归循环最常见的情况就是生成栅格系统的CSS：</p>
+<pre><code>.loop(@counter) when (@counter &gt; 0) {
+  .loop((@counter - 1));    // 递归调用自身
+  width: (10px * @counter); // 每次调用时产生的样式代码
+}
+
+div {
+  .loop(5); // 调用循环
+}
+
+//结果
+div {
+  width: 10px;
+  width: 20px;
+  width: 30px;
+  width: 40px;
+  width: 50px;
+}
+</code></pre><p>使用递归循环最常见的情况就是生成栅格系统的CSS：</p>
+<pre><code>.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =&lt; @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+输出:
+.column-1 {
+  width: 25%;
+}
+.column-2 {
+  width: 50%;
+}
+.column-3 {
+  width: 75%;
+}
+.column-4 {
+  width: 100%;
+}
+</code></pre><p>Merge (合并)</p>
+<p>从多个属性中将值集合到一个单一属性之下的逗号或空格分割属性列表中。对于诸如background和transform之类的属性来说，merge非常有用。</p>
+<pre><code>.mixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+.myclass {
+  .mixin();
+  box-shadow+: 0 0 20px black;
+}
+//输出
+.myclass {
+  box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+
+.mixin() {
+  transform+_: scale(2);
+}
+.myclass {
+  .mixin();
+  transform+_: rotate(15deg);
+}
+
+//输出
+.myclass {
+  transform: scale(2) rotate(15deg);
+}
+</code></pre><p>为避免任何非有意的添加，merge需要在每个待加入的声明中显示的设置一个+或者+_标记</p>
+<p>Parent Selectors （父级选择器)</p>
+<p>&amp; 运算符表示一个 嵌套规则 的父选择器，它在应用修改类或者应用伪类给现有选择器时最常用：</p>
+<pre><code>a {
+  color: blue;
+  &amp;:hover {
+    color: green;
+  }
+}
+
+//输出
+a {
+  color: blue;
+}
+
+a:hover {
+  color: green;
+}
+
+
+.link {
+  &amp; + &amp; {
+    color: red;
+  }
+
+  &amp; &amp; {
+    color: green;
+  }
+
+  &amp;&amp; {
+    color: blue;
+  }
+
+  &amp;, &amp;ish {
+    color: cyan;
+  }
+}
+//输出
+
+.link + .link {
+  color: red;
+}
+.link .link {
+  color: green;
+}
+.link.link {
+  color: blue;
+}
+.link, .linkish {
+  color: cyan;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-LESS基础语法" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/01/LESS基础语法/" class="article-date">
+      <time datetime="2016-03-01T12:00:02.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/01/LESS基础语法/">LESS基础语法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>LESS基础语法</p>
+<p>我们一起来学习一下LESS的基础语法，LESS的基础语法基本上分为以下几个方面：变量、混合(Mixins)、嵌套规则、运算、函数、作用域等。这些基础语法需要我们先牢牢的掌握住，然后才可以灵活的在项目中进行实战。</p>
+<p>变量</p>
+<p>和JS中的变量一样，只是LESS的变量定义不是使用VAR而是使用@。</p>
+<pre><code>//-&gt;LESS代码
+@link-color: #428bca;
+@link-color-hover: darken(@link-color, 10%);
+
+a {
+    color: @link-color;
+    &amp;:hover {
+        color: @link-color-hover;
+    }
+}
+
+.box {
+    color: @link-color;
+}
+
+//-&gt;编译为CSS的结果
+a {
+    color: #428bca;
+}
+
+a:hover {
+    color: #3071a9;
+}
+
+.box {
+    color: #428bca;
+}
+</code></pre><p>除了上述用变量存储公用的属性值，我们还可以用变量存储公用的URL、选择器等等</p>
+<pre><code>//-&gt;LESS代码
+.@{selector} {
+    width: 100px;
+    height: 100px;
+    @{property}: #000;
+    background: url(&quot;@{bgImg}/test.png&quot;);
+
+    &amp;:after {
+        display: block;
+        content: @@var;
+    }
+}
+@selector: box;
+@bgImg: &quot;../img&quot;;
+@property: color;
+@name: &quot;珠峰培训&quot;;
+@var: &quot;name&quot;;
+
+//-&gt;编译为CSS的结果
+.box {
+    width: 100px;
+    height: 100px;
+    color: #000;
+    background: url(&quot;../img/test.png&quot;);
+}
+
+.box:after {
+    display: block;
+    content: &quot;珠峰培训&quot;;
+}
+</code></pre><p>在上述的代码中我们发现，变量存储的值可以作为选择器，也可以作为样式属性名，同样也可以像类似于JS中字符串拼接的方式把变量值的和另外一个字符串进行拼接，而且@@var是把var变量存储的值作为另外一个变量的名从而获取对应的值。还有一点值的我们注意的是，变量可以定在使用代码的下面，这个有点类似于JS中的预解释，不管写在上面还是下面，都是相当于全局的变量，并且都可以把存储值获取到(但是建议大家把变量都统一在最上面定义)。</p>
+<p>Mixin混合</p>
+<p>1、基本使用</p>
+<p>从字面意思上理解，所谓的混合其实应该是把很多的样式混合在一起，这样理解不准确，个人的理解，所谓的混合其实是把某个选择器中的样式拿过来使用，我们看下面的代码。</p>
+<pre><code>//-&gt;LESS代码
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    .public;
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    width: 100px;
+    height: 100px;
+    list-style: none;
+}
+</code></pre><p>观察上述的代码，我们发现其实nav ul是把public中设定的样式属性值copy了一份到自己的样式中。如果你想在编译完成的结果中不输出public这个样式的结果，只需要按照下述的代码编写即可：</p>
+<pre><code>//-&gt;LESS代码
+.public() {//-&gt;在选择器后面加上()就可以不编译这个样式了
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    .public;
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果
+nav ul {
+    width: 100px;
+    height: 100px;
+    list-style: none;
+}
+</code></pre><p>2、Extend</p>
+<p>虽然在上述的案例中，nav ul把public中的样式继承了过来，但是原理却是把代码copy一份过来，这样编译后的CSS中依然会存留大量的冗余CSS代码，为了避免这一点，我们可以使用extend伪类来实现样式的继承使用。</p>
+<pre><code>//-&gt;LESS代码
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    &amp;:extend(.public);
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果
+.public, nav ul {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    list-style: none;
+}
+</code></pre><p>或者：</p>
+<pre><code>//-&gt;LESS代码
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul:extend(.public) {
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果和第一种写法一样
+</code></pre><p>3、命名空间和作用域</p>
+<p>在LESS的语法中，我们可以指定命名空间，实现在一个盒子中层级嵌套式的编写。下面案例中，.box就是命名空间，里面的img、.gray都是这个空间下的样式，调取的话需要.box &gt; .gray。</p>
+<pre><code>//-&gt;LESS代码
+.box {
+    width: 100px;
+    height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .gray {
+        color: #eee;
+    }
+    &amp;:hover {
+        background: green;
+    }
+}
+
+#nav {
+    .box;
+}
+
+#header {
+    .box &gt; .gray;
+}
+
+//-&gt;编译为CSS的结果
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+}
+
+.box .gray {
+    color: #eee;
+}
+
+.box:hover {
+    background: green;
+}
+
+#nav {
+    width: 100px;
+    height: 100px;
+}
+
+#nav img {
+    width: 100%;
+    height: 100%;
+}
+
+#nav .gray {
+    color: #eee;
+}
+
+#nav:hover {
+    background: green;
+}
+
+#header {
+    color: #eee;
+}
+</code></pre><p>在LESS中定义了命名空间就创建了一个私有的作用域，在这个私有作用域中使用的变量都是先看一下自己作用域中有没有，没有的话，在向上一级查找（类似于JS的作用域链）。</p>
+<pre><code>//-&gt;LESS代码
+@color: #ccc;
+.box {
+    @color: #eee;
+    .gray {
+        color: @color;
+    }
+}
+
+.box2 {
+    .gray {
+        color: @color;
+    }
+}
+
+//-&gt;编译为CSS的结果
+.box .gray {
+    color: #eee;
+}
+
+.box2 .gray {
+    color: #ccc;
+}
+</code></pre><p>4、!important</p>
+<p>在调用的混合集后面追加 !important 关键字，可以使混合集里面的所有属性都继承 !important:</p>
+<pre><code>//-&gt;LESS代码
+@color: #ccc;
+.box {
+  @color: #eee;
+  .gray {
+    color: @color;
+  }
+}
+
+nav ul {
+  .box !important;
+}
+
+//-&gt;编译为CSS的结果
+.box .gray {
+    color: #eee;
+}
+
+nav ul .gray {
+    color: #eee !important;
+}
+</code></pre><p>5、Parametric Mixins</p>
+<p>如同JS一样，LESS也可以向函数一样设定形参数，这个技巧在我们的项目中会被经常的使用到，例如：处理CSS3的兼容问题</p>
+<pre><code>//-&gt;LESS代码
+.transition(@property:all;@duration:1s;@function:linear;@delay:0s;) {
+  -webkit-transition: @property @duration @function @delay;
+  -moz-transition: @property @duration @function @delay;
+  -ms-transition: @property @duration @function @delay;
+  -o-transition: @property @duration @function @delay;
+  transition: @property @duration @function @delay;
+}
+
+.box1 {
+  .transition;
+}
+
+.box2 {
+  .transition(@duration: 2s);
+}
+
+.box3 {
+  .transition(@duration: 2s; @property: width;);
+}
+
+//-&gt;编译为CSS的结果
+.box1 {
+    -webkit-transition: all 1s linear 0s;
+    -moz-transition: all 1s linear 0s;
+    -ms-transition: all 1s linear 0s;
+    -o-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}
+
+.box2 {
+    -webkit-transition: all 2s linear 0s;
+    -moz-transition: all 2s linear 0s;
+    -ms-transition: all 2s linear 0s;
+    -o-transition: all 2s linear 0s;
+    transition: all 2s linear 0s;
+}
+
+.box3 {
+    -webkit-transition: width 2s linear 0s;
+    -moz-transition: width 2s linear 0s;
+    -ms-transition: width 2s linear 0s;
+    -o-transition: width 2s linear 0s;
+    transition: width 2s linear 0s;
+}
+</code></pre><p>此外我们需要值得注意的是，LESS中也有arguments。</p>
+<pre><code>//-&gt;LESS代码
+.transition(@property:all;@duration:1s;@function:linear;@delay:0s;) {
+  -webkit-transition: @arguments;
+  transition: @arguments;
+}
+
+.box1 {
+  .transition;
+}
+
+//-&gt;编译为CSS的结果
+.box1 {
+    -webkit-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}
+</code></pre><p>我们还可以把我们的变量像JS的函数一样操作，不仅仅有参数，还有返回值。</p>
+<pre><code>//-&gt;LESS代码
+.average(@x, @y) {
+  @result: ((@x + @y) / 2);
+}
+
+div {
+  .average(16px, 50px); //&quot;call&quot; the mixin
+  padding: @result; //use its &quot;return&quot; value
+}
+
+//-&gt;编译为CSS的结果
+div {
+    padding: 33px;
+}
+</code></pre><p>6、Mixin Guards</p>
+<p>我们可以在mixin中设置条件；常用的条件运算符：&gt;、&gt;=、&lt;、&lt;=、=；我们设定的条件还可以使用IS函数：iscolor、isnumber、isstring、iskeyword、isurl、ispixel、ispercentage…</p>
+<pre><code>//-&gt;LESS代码
+.mixin (@a) when (lightness(@a) &gt;= 50%) {
+  background-color: black;
+}
+
+.mixin (@a) when (lightness(@a) &lt; 50%) {
+  background-color: white;
+}
+
+.box1{
+  .mixin(#ddd);
+}
+
+.box2{
+  .mixin(#555);
+}
+
+//-&gt;编译为CSS的结果
+.box1 {
+    background-color: black;
+}
+
+.box2 {
+    background-color: white;
+}
+</code></pre><p>when是在设置条件，除了像上面的写法外，我们还可以通过when设置多个条件，而且条件中可以使用is函数。</p>
+<pre><code>//-&gt;LESS代码:使用IS函数
+.mixin (@a; @b: 0) when (isnumber(@b)) { ... }
+.mixin (@a; @b: black) when (iscolor(@b)) { ... }
+
+//-&gt;LESS代码:多条件，可以使用and或者逗号间隔
+.mixin (@a) when (isnumber(@a)) and (@a &gt; 0) { ... }
+.mixin (@a) when (isnumber(@a)) , (@a &gt; 0) { ... }
+</code></pre><p>我们还可以通过与&amp;特性结合实现’if’类型的语句。</p>
+<pre><code>//-&gt;LESS代码:这里的意思是如果为true,.box的文字颜色才是白色
+@my-option: true;
+&amp; when (@my-option = true) {
+  .box {
+    color: white;
+  }
+}
+</code></pre><p>Loops</p>
+<p>在Less中，混合可以调用它自身。这样，当一个混合递归调用自己，再结合Guard条件表达式，就可以写出循环结构。使用递归循环最常见的情况就是生成栅格系统的CSS：</p>
+<pre><code>//-&gt;LESS代码
+.generate-columns(4);
+.generate-columns(@n, @i: 1) when (@i &lt;= @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+//-&gt;输出的CSS
+.column-1 {
+    width: 25%;
+}
+
+.column-2 {
+    width: 50%;
+}
+
+.column-3 {
+    width: 75%;
+}
+
+.column-4 {
+    width: 100%;
+}
+</code></pre><p>Merge</p>
+<p>Merge特性可以从多个属性中将值，集合到某一个样式属性的列表中（也就是多样式效果）。在编写的时候，+代表以逗号分隔，+_代表多个之前以空格分隔。</p>
+<pre><code>//-&gt;LESS代码
+.mixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+
+.myclass {
+  .mixin;
+  box-shadow+: 0 0 20px black;
+}
+
+.mixin2() {
+  transform+_: scale(2);
+}
+
+.myclass2 {
+  .mixin2;
+  transform+_: rotate(45deg);
+}
+
+//-&gt;输出的CSS
+.myclass {
+    box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+
+.myclass2 {
+    transform: scale(2) rotate(45deg);
+}
+</code></pre><p>Parent Selectors</p>
+<p>&amp;运算符其实就是让当前的选择器和父级选择器按照特定的规则进行连接，看下面的案例：</p>
+<pre><code>//-&gt;LESS代码
+.box {
+  color: blue;
+  &amp;:hover {
+    color: green;
+  }
+
+  &amp;-top {
+    height: 30px;
+  }
+
+  &amp;-center {
+    height: 500px;
+  }
+
+  //-&gt;多个&amp;&amp;
+  &amp; + &amp;-top {
+    color: red;
+  }
+
+  &amp; &amp;-top {
+    color: grey;
+  }
+
+  &amp;&amp;-top {
+    color: black;
+  }
+
+  &amp;, &amp;-top {
+    color: orange;
+  }
+}
+
+//-&gt;输出的CSS
+.box {
+    color: blue;
+}
+
+.box:hover {
+    color: green;
+}
+
+.box-top {
+    height: 30px;
+}
+
+.box-center {
+    height: 500px;
+}
+
+.box + .box-top {
+    color: red;
+}
+
+.box .box-top {
+    color: grey;
+}
+
+.box.box-top {
+    color: black;
+}
+
+.box, .box-top {
+    color: orange;
+}
+</code></pre><p>改变选择器顺序，下面的案例中，选择器.no-border-radius &amp;会前置插入它的父选择器.header .menu，最后变成.no-border-radius .header .menu形式输出：</p>
+<pre><code>//-&gt;LESS代码
+.header {
+  .menu {
+    border-radius: 5px;
+    .no-border-radius &amp; {
+      background-image: url(&apos;images/button-background.png&apos;);
+    }
+  }
+}
+
+//-&gt;输出的CSS
+.header .menu {
+    border-radius: 5px;
+}
+
+.no-border-radius .header .menu {
+    background-image: url(&apos;images/button-background.png&apos;);
+}
+</code></pre><p>Import Directives</p>
+<p>从其他样式表中导入样式。</p>
+<pre><code>//-&gt;LESS代码
+@import &quot;public.less&quot;;
+
+.box {
+  &amp;:after {
+    .clear;
+  }
+}
+
+//-&gt;输出的CSS:会把public中的样式也输出
+.clear {
+    display: block;
+    height: 0;
+    content: &quot;&quot;;
+    clear: both;
+    zoom: 1;
+}
+
+.box:after {
+    display: block;
+    height: 0;
+    content: &quot;&quot;;
+    clear: both;
+    zoom: 1;
+}
+</code></pre><p>我们发现上述的操作虽然实现了调取使用，但是会把public中的less也编译到了自己的这个css中，如果不想编译的话，我们需要配置一些参数：</p>
+<pre><code>//-&gt;LESS代码
+@import (reference) &quot;public.less&quot;;
+
+.box {
+  &amp;:after {
+    .clear;
+  }
+}
+
+//-&gt;输出的CSS:
+.box:after {
+    display: block;
+    height: 0;
+    content: &quot;&quot;;
+    clear: both;
+    zoom: 1;
+}
+</code></pre><p>除了reference以外我们还可以配置一些其他的参数值： inline：在输出中包含源文件但不加工它 less：将文件作为Less文件对象，无论是什么文件扩展名 css：将文件作为CSS文件对象，无论是什么文件扩展名 once：只包含文件一次（默认行为） multiple：包含文件多次</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-了解LESS和编译LESS" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/01/了解LESS和编译LESS/" class="article-date">
+      <time datetime="2016-03-01T12:00:01.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/01/了解LESS和编译LESS/">了解LESS和编译LESS</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>   我们大家都知道HTML和CSS不属于编程语言而是属于标记语言，所以很难像JS一样定义变量、编写方法、实现模块化开发等。而目前的CSS编写模式中，都是定义一些公共的样式类名，哪一块的HTML需要这个样式，就去增加对应的样式类名，所以我们经常看到一个标签上存在很多样式类名，在这种模式中我们要时常关注CSS的优先级，避免样式的重叠覆盖…</p>
+<p>为了解决CSS的这一困境，CSS预处理预编译的思想脱颖而出，比较具有代表性的有LESS、SASS、Stylus。它们在传统的CSS基础上增加了大量的新的语法，编写方式，常用的函数等，可以让我们的CSS像JS一样成为一门编程语言。基于LESS我么可以把一些经常用到的样式定义成变量或者函数，以后需要直接的调取使用即可，这样不仅有利于增加我们的开发速度，也有利于项目的后期维护与可复用性。</p>
+<p>LESS</p>
+<p>在这篇文章以及后续的文章中，我将带领去了解LESS，学会使用LESS进行项目的实战开发。LESS是一门CSS预处理语言，它扩展了CSS语言，增加了变量、Mixin、函数等特性，使CSS更易维护和扩展。使用LESS基本上按照这样的步骤：编写LESS代码，使用NODE、JS或者是其他的工具把编写的LESS代码编译成我们平时看到的CSS代码(因为浏览器是无法解析LESS的语法的，所以编写完成的LESS代码需要进行编译)。</p>
+<p>[先看一个简单的案例]</p>
+<p>在传统的CSS编写中，我们事先为一个盒子.box编写了一套样式，当鼠标滑过的时候，让盒子在原有样式的部分颜色值上发生改变，里面的DIV标签的阴影颜色变重，这样的话我们需要把之前的样式拿过来写一遍，只是调整一下透明度或者颜色值而已，页面中的冗余代码比较的多，也不方便后期的维护。</p>
+<pre><code>.box {
+    color: #f938ab;
+    border-color: #fdcdea;
+}
+
+.box1 div {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+//-&gt;在:hover触发的时候需要把上述的样式copy一份,在原来的基础上改变部分颜色值和透明度
+.box:hover {
+    color: #fe33ac;
+}
+
+.box:hover div {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+</code></pre><p>如果我们使用的是LESS，那么我们可以节省很多的工作，也可以实现可扩展性和通用性，看下面的LESS代码：</p>
+<pre><code>//-&gt;定义变量存储颜色值
+@color: #f938ab;
+
+//-&gt;你可以把它理解为JS中的一个函数
+.box-shadow(@style, @alpha:50%) {
+    -webkit-box-shadow: @style rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @style rgba(0, 0, 0, @alpha);
+    -ms-box-shadow: @style rgba(0, 0, 0, @alpha);
+    -o-box-shadow: @style rgba(0, 0, 0, @alpha);
+    box-shadow: @style rgba(0, 0, 0, @alpha);
+}
+
+.box {
+    color: @color;
+    border-color: #fdcdea;
+
+    //-&gt;嵌套:代表是 .box div
+    div {
+        .box-shadow(0 0 5px, 30%)
+    }
+
+    //-&gt;代表的是 .box:hover
+    &amp;:hover {
+        //-&gt;saturate:LESS提供的颜色处理方法(还有很多其它的方法),用来调整颜色的饱和度变化
+        color: saturate(@color, 5%);
+
+        //-&gt;嵌套:代表是 .box:hover div
+        div {
+            .box-shadow(0 0 5px)
+        }
+    }
+}
+</code></pre><p>通过NODE编译后的结果为：</p>
+<pre><code>.box {
+    color: #f938ab;
+    border-color: #fdcdea;
+}
+
+.box div {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.box:hover {
+    color: #fe33ac;
+}
+
+.box:hover div {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+</code></pre><p>大家感受一下，是不是感觉LESS很强大，一方面不仅仅让我们少些了很多的代码，而且我们定义的变量或者“函数”具有很强的公用性，以后其他的结构需要这样的样式，我们直接的调取就好了。既然认识到了LESS的强大，那么我们接下来就一步步的学会LESS的使用。</p>
+<p>LESS的编译</p>
+<p>上述我们提到，编写完成的LESS代码是不能直接在浏览器中运行的，需要编译成正常的CSS代码。那么我们首先就来学习一下常用的LESS编译方式。</p>
+<p>1、在浏览器中调用LESS.JS</p>
+<p>LESS只支持在现代浏览器中运行（最新版本的Chrome, Firefox, Safari 和 IE）。我们不建议在生产环境中使用LESS客户端，因为在将LESS编译成CSS的时候，用户会看到加载延迟的现象，即便在浏览器中有不足一秒的加载延迟，但也会降低性能。</p>
+<p>首先引入我们设置样式的LESS文件，注意：这里的rel=’stylesheet/less’</p>
+<pre><code>&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet/less&quot; href=&quot;1.less&quot;/&gt;
+</code></pre><p>其次为了方便开发过程中的调试(上线后我们也可以配置一些必要的参数)，我们可以在引入LESS.JS之前设置一些配置的参数。我们一般都把所有的配置参数放在全局变量less中。</p>
+<pre><code>//-&gt;在引入LESS之前设置一个全局的变量less,配置一些参数值(根据情况自行选择需要配置的项)
+var less = {
+    //-&gt;evn:设置运行的环境(生产模式还是开发模式)
+    //production:编译后的CSS缓存到本地localStorage中
+    //development:没有把编译后的CSS缓存到本地,在URL不是标准的格式下(例如:file://...),自动设置为development
+    env: &quot;development&quot;,
+
+    //-&gt;logLevel:javascript控制台日志量
+    logLevel: 2,
+
+    //-&gt;async:同步或者异步导入文件,默认是false代表同步
+    async: false,
+
+    //-&gt;fileAsync:使用文件协议访问页面时异步加载导入的文件,默认是false,如有需要设置为true
+    fileAsync: false,
+
+    //-&gt;poll:在监视模式下，每两次请求之间的时间间隔(ms)
+    poll: 1000,
+
+    //-&gt;dumpLineNumbers:当设置dumpLineNumbers直接输出源行信息到编译好的CSS的文件中时，有利于你调试指定行。comments参数用于输出用户可以理解的内容，而mediaQuery使用Firefox一个扩展来解析CSS和抽取信息。
+    dumpLineNumbers: &quot;comments&quot;,
+
+    //-&gt;relativeUrls：是否调整相对路径。如果为false，则url已经是相对于入口的LESS文件。
+    relativeUrls: false
+};
+//-&gt;还有其它的参数,自己下去后可以再进行扩展
+</code></pre><p>然后引入我们的less.js</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;less.js&quot;&gt; &lt;/script&gt;
+</code></pre><p>最后开启监视模式后,只要我们的LESS改变，在一定时间内，浏览器就会重新的编译，我们可以看到想要的效果</p>
+<pre><code>//-&gt;启用监视模式(env必须要设置成development)
+less.watch();
+</code></pre><p>2、使用NODE命令编译LESS</p>
+<p>这种方式是目前项目中最常用的方式，也是我推荐大家使用的方式，它是把我们的LESS文件编译成CSS文件，我们项目中直接的引入CSS文件即可，基本步骤：安装-&gt;编译/压缩编译-&gt;或者使用NODE代码实现批量编译等</p>
+<p>把LESS模块安装到全局NODE环境中</p>
+<pre><code>npm install less -g
+</code></pre><p>使用命令进行编译</p>
+<pre><code>//-&gt;把styles.less文件编译成styles.css文件(如果没有这个CSS文件自己会创建)
+lessc styles.less styles.css
+
+//-&gt;编译完成的CSS文件是经过压缩的
+lessc styles.less styles.min.css -x或者--compress
+</code></pre><p>如果你想要更牛X的压缩,还可以自己单独的设定,下面我们使用–clean-css。这个需要提前的安装less-plugin-clean-css模块才可以。</p>
+<pre><code>//-&gt;安装less-plugin-clean-css
+npm install -g less-plugin-clean-css
+
+//-&gt;安装成功后就可以使用它压缩了
+lessc --clean-css styles.less styles.min.css
+</code></pre><p>3、在NODE环境中编写批量编译的代码</p>
+<p>我们在上述用NODE命令编译的时候，一次只能编译一个文件，这样，如果页面中有多个LESS，每一次编译都是比较耗费时间的，所以我们结合NODE的FS文件读写操作，可以写一套批量编译的代码。</p>
+<pre><code>//-&gt;定义编译文件目录和目标导出目录
+var dirPath = &quot;./less/&quot;, tarPath = &quot;./css/&quot;;
+
+//-&gt;导入NODE中需要使用的模块
+var fs = require(&quot;fs&quot;),
+    less = require(&quot;less&quot;);
+
+//-&gt;读取dirPath中的所有文件,检查文件的类型,只有LESS文件我们才进行存储
+var ary = [],
+    files = fs.readdirSync(dirPath);
+files.forEach(function (file, index) {
+    /\.(LESS)/i.test(file) ? ary.push(file) : null;
+});
+
+//-&gt;把目录下的所有文件进行编译,把编译完成的结果保存在指定的目录中
+ary.forEach(function (file) {
+    var newFile = file.replace(&quot;.less&quot;, &quot;.css&quot;),
+        conFile = fs.readFileSync(dirPath + file, &quot;utf-8&quot;);
+    less.render(conFile, {compress: true}, function (error, output) {
+        fs.writeFileSync(tarPath + newFile, output.css, &quot;utf-8&quot;);
+    });
+});
+</code></pre><p>4、使用工具编译LESS</p>
+<p>目前常用的编译工具有：Koala(据说目前最流行的)、在线编译(<a href="http://tool.oschina.net/less)、SimpLESS等。关于工具的使用，自己下去下载研究即可，非常的简单，本篇文章不做过多的说明。" target="_blank" rel="external">http://tool.oschina.net/less)、SimpLESS等。关于工具的使用，自己下去下载研究即可，非常的简单，本篇文章不做过多的说明。</a></p>
+
       
     </div>
     

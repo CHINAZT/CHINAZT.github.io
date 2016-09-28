@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  
+  <title>LESS基础语法 | 冰箱里的水</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="LESS基础语法
+我们一起来学习一下LESS的基础语法，LESS的基础语法基本上分为以下几个方面：变量、混合(Mixins)、嵌套规则、运算、函数、作用域等。这些基础语法需要我们先牢牢的掌握住，然后才可以灵活的在项目中进行实战。
+变量
+和JS中的变量一样，只是LESS的变量定义不是使用VAR而是使用@。
+//-&amp;gt;LESS代码
+@link-color: #428bca;
+@link-color">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LESS基础语法">
+<meta property="og:url" content="http://yoursite.com/2016/03/01/LESS基础语法/index.html">
+<meta property="og:site_name" content="冰箱里的水">
+<meta property="og:description" content="LESS基础语法
+我们一起来学习一下LESS的基础语法，LESS的基础语法基本上分为以下几个方面：变量、混合(Mixins)、嵌套规则、运算、函数、作用域等。这些基础语法需要我们先牢牢的掌握住，然后才可以灵活的在项目中进行实战。
+变量
+和JS中的变量一样，只是LESS的变量定义不是使用VAR而是使用@。
+//-&amp;gt;LESS代码
+@link-color: #428bca;
+@link-color">
+<meta property="og:updated_time" content="2016-09-28T01:15:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LESS基础语法">
+<meta name="twitter:description" content="LESS基础语法
+我们一起来学习一下LESS的基础语法，LESS的基础语法基本上分为以下几个方面：变量、混合(Mixins)、嵌套规则、运算、函数、作用域等。这些基础语法需要我们先牢牢的掌握住，然后才可以灵活的在项目中进行实战。
+变量
+和JS中的变量一样，只是LESS的变量定义不是使用VAR而是使用@。
+//-&amp;gt;LESS代码
+@link-color: #428bca;
+@link-color">
+  
+    <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">冰箱里的水</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/newzt" title="GitHub"></a></li>
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:js_zhangtong@163.com" title="Email"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">我是一名非著名的JavaScript前端开发者，不断学习！I can do it !</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">冰箱里的水</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">冰箱里的水</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/newzt" title="GitHub"></a></li>
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:js_zhangtong@163.com" title="Email"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="[layout]-LESS基础语法" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/01/LESS基础语法/" class="article-date">
+      <time datetime="2016-03-01T12:00:02.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LESS基础语法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>LESS基础语法</p>
+<p>我们一起来学习一下LESS的基础语法，LESS的基础语法基本上分为以下几个方面：变量、混合(Mixins)、嵌套规则、运算、函数、作用域等。这些基础语法需要我们先牢牢的掌握住，然后才可以灵活的在项目中进行实战。</p>
+<p>变量</p>
+<p>和JS中的变量一样，只是LESS的变量定义不是使用VAR而是使用@。</p>
+<pre><code>//-&gt;LESS代码
+@link-color: #428bca;
+@link-color-hover: darken(@link-color, 10%);
+
+a {
+    color: @link-color;
+    &amp;:hover {
+        color: @link-color-hover;
+    }
+}
+
+.box {
+    color: @link-color;
+}
+
+//-&gt;编译为CSS的结果
+a {
+    color: #428bca;
+}
+
+a:hover {
+    color: #3071a9;
+}
+
+.box {
+    color: #428bca;
+}
+</code></pre><p>除了上述用变量存储公用的属性值，我们还可以用变量存储公用的URL、选择器等等</p>
+<pre><code>//-&gt;LESS代码
+.@{selector} {
+    width: 100px;
+    height: 100px;
+    @{property}: #000;
+    background: url(&quot;@{bgImg}/test.png&quot;);
+
+    &amp;:after {
+        display: block;
+        content: @@var;
+    }
+}
+@selector: box;
+@bgImg: &quot;../img&quot;;
+@property: color;
+@name: &quot;珠峰培训&quot;;
+@var: &quot;name&quot;;
+
+//-&gt;编译为CSS的结果
+.box {
+    width: 100px;
+    height: 100px;
+    color: #000;
+    background: url(&quot;../img/test.png&quot;);
+}
+
+.box:after {
+    display: block;
+    content: &quot;珠峰培训&quot;;
+}
+</code></pre><p>在上述的代码中我们发现，变量存储的值可以作为选择器，也可以作为样式属性名，同样也可以像类似于JS中字符串拼接的方式把变量值的和另外一个字符串进行拼接，而且@@var是把var变量存储的值作为另外一个变量的名从而获取对应的值。还有一点值的我们注意的是，变量可以定在使用代码的下面，这个有点类似于JS中的预解释，不管写在上面还是下面，都是相当于全局的变量，并且都可以把存储值获取到(但是建议大家把变量都统一在最上面定义)。</p>
+<p>Mixin混合</p>
+<p>1、基本使用</p>
+<p>从字面意思上理解，所谓的混合其实应该是把很多的样式混合在一起，这样理解不准确，个人的理解，所谓的混合其实是把某个选择器中的样式拿过来使用，我们看下面的代码。</p>
+<pre><code>//-&gt;LESS代码
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    .public;
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    width: 100px;
+    height: 100px;
+    list-style: none;
+}
+</code></pre><p>观察上述的代码，我们发现其实nav ul是把public中设定的样式属性值copy了一份到自己的样式中。如果你想在编译完成的结果中不输出public这个样式的结果，只需要按照下述的代码编写即可：</p>
+<pre><code>//-&gt;LESS代码
+.public() {//-&gt;在选择器后面加上()就可以不编译这个样式了
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    .public;
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果
+nav ul {
+    width: 100px;
+    height: 100px;
+    list-style: none;
+}
+</code></pre><p>2、Extend</p>
+<p>虽然在上述的案例中，nav ul把public中的样式继承了过来，但是原理却是把代码copy一份过来，这样编译后的CSS中依然会存留大量的冗余CSS代码，为了避免这一点，我们可以使用extend伪类来实现样式的继承使用。</p>
+<pre><code>//-&gt;LESS代码
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    &amp;:extend(.public);
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果
+.public, nav ul {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul {
+    list-style: none;
+}
+</code></pre><p>或者：</p>
+<pre><code>//-&gt;LESS代码
+.public {
+    width: 100px;
+    height: 100px;
+}
+
+nav ul:extend(.public) {
+    list-style: none;
+}
+
+//-&gt;编译为CSS的结果和第一种写法一样
+</code></pre><p>3、命名空间和作用域</p>
+<p>在LESS的语法中，我们可以指定命名空间，实现在一个盒子中层级嵌套式的编写。下面案例中，.box就是命名空间，里面的img、.gray都是这个空间下的样式，调取的话需要.box &gt; .gray。</p>
+<pre><code>//-&gt;LESS代码
+.box {
+    width: 100px;
+    height: 100px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .gray {
+        color: #eee;
+    }
+    &amp;:hover {
+        background: green;
+    }
+}
+
+#nav {
+    .box;
+}
+
+#header {
+    .box &gt; .gray;
+}
+
+//-&gt;编译为CSS的结果
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+}
+
+.box .gray {
+    color: #eee;
+}
+
+.box:hover {
+    background: green;
+}
+
+#nav {
+    width: 100px;
+    height: 100px;
+}
+
+#nav img {
+    width: 100%;
+    height: 100%;
+}
+
+#nav .gray {
+    color: #eee;
+}
+
+#nav:hover {
+    background: green;
+}
+
+#header {
+    color: #eee;
+}
+</code></pre><p>在LESS中定义了命名空间就创建了一个私有的作用域，在这个私有作用域中使用的变量都是先看一下自己作用域中有没有，没有的话，在向上一级查找（类似于JS的作用域链）。</p>
+<pre><code>//-&gt;LESS代码
+@color: #ccc;
+.box {
+    @color: #eee;
+    .gray {
+        color: @color;
+    }
+}
+
+.box2 {
+    .gray {
+        color: @color;
+    }
+}
+
+//-&gt;编译为CSS的结果
+.box .gray {
+    color: #eee;
+}
+
+.box2 .gray {
+    color: #ccc;
+}
+</code></pre><p>4、!important</p>
+<p>在调用的混合集后面追加 !important 关键字，可以使混合集里面的所有属性都继承 !important:</p>
+<pre><code>//-&gt;LESS代码
+@color: #ccc;
+.box {
+  @color: #eee;
+  .gray {
+    color: @color;
+  }
+}
+
+nav ul {
+  .box !important;
+}
+
+//-&gt;编译为CSS的结果
+.box .gray {
+    color: #eee;
+}
+
+nav ul .gray {
+    color: #eee !important;
+}
+</code></pre><p>5、Parametric Mixins</p>
+<p>如同JS一样，LESS也可以向函数一样设定形参数，这个技巧在我们的项目中会被经常的使用到，例如：处理CSS3的兼容问题</p>
+<pre><code>//-&gt;LESS代码
+.transition(@property:all;@duration:1s;@function:linear;@delay:0s;) {
+  -webkit-transition: @property @duration @function @delay;
+  -moz-transition: @property @duration @function @delay;
+  -ms-transition: @property @duration @function @delay;
+  -o-transition: @property @duration @function @delay;
+  transition: @property @duration @function @delay;
+}
+
+.box1 {
+  .transition;
+}
+
+.box2 {
+  .transition(@duration: 2s);
+}
+
+.box3 {
+  .transition(@duration: 2s; @property: width;);
+}
+
+//-&gt;编译为CSS的结果
+.box1 {
+    -webkit-transition: all 1s linear 0s;
+    -moz-transition: all 1s linear 0s;
+    -ms-transition: all 1s linear 0s;
+    -o-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}
+
+.box2 {
+    -webkit-transition: all 2s linear 0s;
+    -moz-transition: all 2s linear 0s;
+    -ms-transition: all 2s linear 0s;
+    -o-transition: all 2s linear 0s;
+    transition: all 2s linear 0s;
+}
+
+.box3 {
+    -webkit-transition: width 2s linear 0s;
+    -moz-transition: width 2s linear 0s;
+    -ms-transition: width 2s linear 0s;
+    -o-transition: width 2s linear 0s;
+    transition: width 2s linear 0s;
+}
+</code></pre><p>此外我们需要值得注意的是，LESS中也有arguments。</p>
+<pre><code>//-&gt;LESS代码
+.transition(@property:all;@duration:1s;@function:linear;@delay:0s;) {
+  -webkit-transition: @arguments;
+  transition: @arguments;
+}
+
+.box1 {
+  .transition;
+}
+
+//-&gt;编译为CSS的结果
+.box1 {
+    -webkit-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}
+</code></pre><p>我们还可以把我们的变量像JS的函数一样操作，不仅仅有参数，还有返回值。</p>
+<pre><code>//-&gt;LESS代码
+.average(@x, @y) {
+  @result: ((@x + @y) / 2);
+}
+
+div {
+  .average(16px, 50px); //&quot;call&quot; the mixin
+  padding: @result; //use its &quot;return&quot; value
+}
+
+//-&gt;编译为CSS的结果
+div {
+    padding: 33px;
+}
+</code></pre><p>6、Mixin Guards</p>
+<p>我们可以在mixin中设置条件；常用的条件运算符：&gt;、&gt;=、&lt;、&lt;=、=；我们设定的条件还可以使用IS函数：iscolor、isnumber、isstring、iskeyword、isurl、ispixel、ispercentage…</p>
+<pre><code>//-&gt;LESS代码
+.mixin (@a) when (lightness(@a) &gt;= 50%) {
+  background-color: black;
+}
+
+.mixin (@a) when (lightness(@a) &lt; 50%) {
+  background-color: white;
+}
+
+.box1{
+  .mixin(#ddd);
+}
+
+.box2{
+  .mixin(#555);
+}
+
+//-&gt;编译为CSS的结果
+.box1 {
+    background-color: black;
+}
+
+.box2 {
+    background-color: white;
+}
+</code></pre><p>when是在设置条件，除了像上面的写法外，我们还可以通过when设置多个条件，而且条件中可以使用is函数。</p>
+<pre><code>//-&gt;LESS代码:使用IS函数
+.mixin (@a; @b: 0) when (isnumber(@b)) { ... }
+.mixin (@a; @b: black) when (iscolor(@b)) { ... }
+
+//-&gt;LESS代码:多条件，可以使用and或者逗号间隔
+.mixin (@a) when (isnumber(@a)) and (@a &gt; 0) { ... }
+.mixin (@a) when (isnumber(@a)) , (@a &gt; 0) { ... }
+</code></pre><p>我们还可以通过与&amp;特性结合实现’if’类型的语句。</p>
+<pre><code>//-&gt;LESS代码:这里的意思是如果为true,.box的文字颜色才是白色
+@my-option: true;
+&amp; when (@my-option = true) {
+  .box {
+    color: white;
+  }
+}
+</code></pre><p>Loops</p>
+<p>在Less中，混合可以调用它自身。这样，当一个混合递归调用自己，再结合Guard条件表达式，就可以写出循环结构。使用递归循环最常见的情况就是生成栅格系统的CSS：</p>
+<pre><code>//-&gt;LESS代码
+.generate-columns(4);
+.generate-columns(@n, @i: 1) when (@i &lt;= @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+//-&gt;输出的CSS
+.column-1 {
+    width: 25%;
+}
+
+.column-2 {
+    width: 50%;
+}
+
+.column-3 {
+    width: 75%;
+}
+
+.column-4 {
+    width: 100%;
+}
+</code></pre><p>Merge</p>
+<p>Merge特性可以从多个属性中将值，集合到某一个样式属性的列表中（也就是多样式效果）。在编写的时候，+代表以逗号分隔，+_代表多个之前以空格分隔。</p>
+<pre><code>//-&gt;LESS代码
+.mixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+
+.myclass {
+  .mixin;
+  box-shadow+: 0 0 20px black;
+}
+
+.mixin2() {
+  transform+_: scale(2);
+}
+
+.myclass2 {
+  .mixin2;
+  transform+_: rotate(45deg);
+}
+
+//-&gt;输出的CSS
+.myclass {
+    box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+
+.myclass2 {
+    transform: scale(2) rotate(45deg);
+}
+</code></pre><p>Parent Selectors</p>
+<p>&amp;运算符其实就是让当前的选择器和父级选择器按照特定的规则进行连接，看下面的案例：</p>
+<pre><code>//-&gt;LESS代码
+.box {
+  color: blue;
+  &amp;:hover {
+    color: green;
+  }
+
+  &amp;-top {
+    height: 30px;
+  }
+
+  &amp;-center {
+    height: 500px;
+  }
+
+  //-&gt;多个&amp;&amp;
+  &amp; + &amp;-top {
+    color: red;
+  }
+
+  &amp; &amp;-top {
+    color: grey;
+  }
+
+  &amp;&amp;-top {
+    color: black;
+  }
+
+  &amp;, &amp;-top {
+    color: orange;
+  }
+}
+
+//-&gt;输出的CSS
+.box {
+    color: blue;
+}
+
+.box:hover {
+    color: green;
+}
+
+.box-top {
+    height: 30px;
+}
+
+.box-center {
+    height: 500px;
+}
+
+.box + .box-top {
+    color: red;
+}
+
+.box .box-top {
+    color: grey;
+}
+
+.box.box-top {
+    color: black;
+}
+
+.box, .box-top {
+    color: orange;
+}
+</code></pre><p>改变选择器顺序，下面的案例中，选择器.no-border-radius &amp;会前置插入它的父选择器.header .menu，最后变成.no-border-radius .header .menu形式输出：</p>
+<pre><code>//-&gt;LESS代码
+.header {
+  .menu {
+    border-radius: 5px;
+    .no-border-radius &amp; {
+      background-image: url(&apos;images/button-background.png&apos;);
+    }
+  }
+}
+
+//-&gt;输出的CSS
+.header .menu {
+    border-radius: 5px;
+}
+
+.no-border-radius .header .menu {
+    background-image: url(&apos;images/button-background.png&apos;);
+}
+</code></pre><p>Import Directives</p>
+<p>从其他样式表中导入样式。</p>
+<pre><code>//-&gt;LESS代码
+@import &quot;public.less&quot;;
+
+.box {
+  &amp;:after {
+    .clear;
+  }
+}
+
+//-&gt;输出的CSS:会把public中的样式也输出
+.clear {
+    display: block;
+    height: 0;
+    content: &quot;&quot;;
+    clear: both;
+    zoom: 1;
+}
+
+.box:after {
+    display: block;
+    height: 0;
+    content: &quot;&quot;;
+    clear: both;
+    zoom: 1;
+}
+</code></pre><p>我们发现上述的操作虽然实现了调取使用，但是会把public中的less也编译到了自己的这个css中，如果不想编译的话，我们需要配置一些参数：</p>
+<pre><code>//-&gt;LESS代码
+@import (reference) &quot;public.less&quot;;
+
+.box {
+  &amp;:after {
+    .clear;
+  }
+}
+
+//-&gt;输出的CSS:
+.box:after {
+    display: block;
+    height: 0;
+    content: &quot;&quot;;
+    clear: both;
+    zoom: 1;
+}
+</code></pre><p>除了reference以外我们还可以配置一些其他的参数值： inline：在输出中包含源文件但不加工它 less：将文件作为Less文件对象，无论是什么文件扩展名 css：将文件作为CSS文件对象，无论是什么文件扩展名 once：只包含文件一次（默认行为） multiple：包含文件多次</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/03/01/LESS语言特性/">
+                    LESS语言特性
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/01/了解LESS和编译LESS/">
+                    了解LESS和编译LESS
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <li id="bds_twi"><a href="#" class="bds_twi" data-cmd="twi" title="分享到推特"></a></li>
+            <li id="bds_tsina"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li id="bds_sqq"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a></li>
+            <li id="bds_copy"><a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a></li>
+            <li id="bds_mail"><a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a></li>
+            <li id="bds_weixin"><a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a></li>
+            <li id="bds_more"><a href="#" class="bds_more" data-cmd="more"></i></a></li>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"LESS基础语法　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/01/LESS基础语法/" data-title="LESS基础语法" data-url="http://yoursite.com/2016/03/01/LESS基础语法/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chinazt"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/03/01/LESS语言特性/" title="上一篇: LESS语言特性">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/01/了解LESS和编译LESS/" title="下一篇: 了解LESS和编译LESS">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/移动端横竖屏检测/">移动端横竖屏检测</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/LESS语言特性/">LESS语言特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/LESS基础语法/">LESS基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/了解LESS和编译LESS/">了解LESS和编译LESS</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 冰箱里的水
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  
+  <title>LESS语言特性 | 冰箱里的水</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述
+作为一种 CSS 扩展, Less 不仅向后兼容 CSS, 它还使用现有的 CSS 语法新增了额外的特性. 这使得学习 Less 更轻松, 一旦有任何问题，可以随时退回使用标准的 CSS.
+Variables (变量)
+管理重复值
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+#header {
+color: @light-blue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LESS语言特性">
+<meta property="og:url" content="http://yoursite.com/2016/03/01/LESS语言特性/index.html">
+<meta property="og:site_name" content="冰箱里的水">
+<meta property="og:description" content="概述
+作为一种 CSS 扩展, Less 不仅向后兼容 CSS, 它还使用现有的 CSS 语法新增了额外的特性. 这使得学习 Less 更轻松, 一旦有任何问题，可以随时退回使用标准的 CSS.
+Variables (变量)
+管理重复值
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+#header {
+color: @light-blue">
+<meta property="og:updated_time" content="2016-09-28T01:15:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LESS语言特性">
+<meta name="twitter:description" content="概述
+作为一种 CSS 扩展, Less 不仅向后兼容 CSS, 它还使用现有的 CSS 语法新增了额外的特性. 这使得学习 Less 更轻松, 一旦有任何问题，可以随时退回使用标准的 CSS.
+Variables (变量)
+管理重复值
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+#header {
+color: @light-blue">
+  
+    <link rel="alternative" href="/atom.xml" title="冰箱里的水" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">冰箱里的水</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/newzt" title="GitHub"></a></li>
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:js_zhangtong@163.com" title="Email"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">我是一名非著名的JavaScript前端开发者，不断学习！I can do it !</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">冰箱里的水</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">冰箱里的水</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/newzt" title="GitHub"></a></li>
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:js_zhangtong@163.com" title="Email"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="[layout]-LESS语言特性" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/01/LESS语言特性/" class="article-date">
+      <time datetime="2016-03-01T12:00:03.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LESS语言特性
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>概述</p>
+<p>作为一种 CSS 扩展, Less 不仅向后兼容 CSS, 它还使用现有的 CSS 语法新增了额外的特性. 这使得学习 Less 更轻松, 一旦有任何问题，可以随时退回使用标准的 CSS.</p>
+<p>Variables (变量)</p>
+<p>管理重复值</p>
+<pre><code>@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+#header {
+color: @light-blue;
+}
+</code></pre><p>除了使用变量管理值,还可以用在其他地方,例如选择器,属性名,url,@import语句中</p>
+<pre><code>//选择器
+@mySelector : banner;
+.@{mySelector}{
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0 auto;
+}
+//url
+@images: &quot;../img&quot;;
+
+//属性
+@property:color;
+.widget{
+    @{property}:#0ee;
+    background-@{property}:#999
+}
+//使用变量定义变量名
+@fnord:&quot;I am fnord&quot;;
+@var :&quot;fnord&quot;;
+content:@@var;
+
+//变量不一定要提前申明
+.lazy-eval{
+    width:@var;
+}
+@var :@a;
+@a:9%
+
+//变量先在当前作用域查找,没有再去往上一级查找
+@var:0;
+.class{
+   @var: 1;
+  .brass {
+    @var: 2;
+    three: @var;
+    @var: 3;
+  }
+  one: @var;
+}
+//编译为
+.class {
+    one:1;
+}
+.class .brass{
+    three:3;
+}
+</code></pre><p>Extend (扩展)</p>
+<p>不同选择器公用相同的样式,避免添加基础类<br>    nav ul {<br>      &amp;:extend(.inline);<br>      background: blue;<br>    }<br>    //编译为<br>    nav ul {<br>      background: blue;<br>    }<br>    .inline,<br>    nav ul {<br>      color: red;<br>    }</p>
+<p>规则集内的扩展</p>
+<pre><code>pre:hover,
+.some-class {
+  &amp;:extend(div pre);
+}
+//与下面的写法相同
+pre:hover:extend(div pre),
+.some-class:extend(div pre) {}
+</code></pre><p>扩展多个类,使用逗号分割</p>
+<pre><code>.e:extend(.f) {}
+.e:extend(.g) {}
+//上面的代码与下面做的事情一样
+.e:extend(.f, .g) {}
+</code></pre><p>编写在media声明内的extend也应该只匹配同一media声明内的选择器</p>
+<pre><code>@media print {
+  .screenClass:extend(.selector) {} // media内的extend
+  .selector { // 这个会匹配到-因为在同一的media内
+    color: black;
+  }
+}
+.selector { // 定义样式表中的规则 - extend会忽略它
+  color: red;
+}
+@media screen {
+  .selector {  // 另一个media声明内的规则 - extend也会忽略它
+    color: blue;
+  }
+}
+</code></pre><p>编写在media声明内的extend不会匹配嵌套声明内的选择器</p>
+<pre><code>@media screen{
+    .screenClass:extend(.selector){}
+    @media (min-width:1023px){
+        .selector{color:blue};//嵌套media内的规则-extend会忽视它
+    }
+}
+</code></pre><p>顶级extend匹配一切，包括media嵌套内的选择器</p>
+<pre><code>@media screen {
+  .selector {  /* media嵌套内的规则 - 顶级extend正常工作 */
+    color: blue;
+  }
+  @media (min-width: 1023px) {
+    .selector {  /* media嵌套内的规则 - 顶级extend正常工作 */
+      color: blue;
+    }
+  }
+}
+
+.topLevel:extend(.selector) {} /* 顶级extend匹配一切 */
+</code></pre><p>Mixins (混合)</p>
+<p>不同的选择器之间可以相互调用,调用时,括号可加可不加</p>
+<pre><code>.a, #b {
+  color: red;
+}
+.mixin-class {
+  .a();
+}
+.mixin-id {
+  #b();
+}
+</code></pre><p>混合集不仅可以包含各种属性,还可以包括各种选择器</p>
+<pre><code>.my-hover-mixin() {
+  &amp;:hover {
+    border: 1px solid red;
+  }
+}
+button {
+  .my-hover-mixin();
+}
+</code></pre><p>(命名空间 ) 可以将属性嵌套到比较复杂的选择器中,可以嵌套id或class</p>
+<pre><code> #outer {
+  .inner {
+    color: red;
+  }
+}
+
+.c {
+  #outer &gt; .inner; //调用时建议使用这种方式,当然&gt;是可选的
+}
+// 下面四种写法效果是一样的
+#outer &gt; .inner;
+#outer &gt; .inner();
+#outer.inner;
+#outer.inner();
+//把混合集放到一个id选择器里面，这样可以确保它（这个混合集）不会跟其他的库冲突。
+</code></pre><p>调用的混合集后面追加 !important 关键字，可以使混合集里面的所有属性都继承 !important：</p>
+<pre><code>.foo{
+    color:#333;
+    background:#555
+}
+.important{
+    .foo() !important ;
+}
+//结果为:
+.important {
+  background: #555 !important;
+  color: #333 !important;
+}
+</code></pre><p>带参数的混合</p>
+<pre><code>.border-radius(@radius:5px) {//可以给参数设置初始值
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+//设置初始值后就可以像这样调用它
+#header{
+    .border-radius  
+}
+</code></pre><p>可以使用不接受参数的混合 ,如果想在输出的CSS中隐藏规则集,但又想使用规则集中的属性,则这个特性很有用</p>
+<pre><code>.wrap() {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre { .wrap }
+//输出
+pre {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+</code></pre><p>带多个参数的mixins</p>
+<pre><code>.mixin(@color; @padding; @margin: 2) {
+  color-3: @color;
+  padding-3: @padding;
+  margin: @margin @margin @margin @margin;
+}
+.some .selector div {
+  .mixin(#008000);
+}
+//注:任何参数都已通过它的名称来引用，这样就不必按照任意特定的顺序来使用参数
+</code></pre><p>多个参数统一设置还可以使用@arguments 变量</p>
+<pre><code> .transition(@property:all,@duration;@timing-function;@delay){
+
+ -webkit-transition:@property @duration @timing-function @delay;
+    -moz-transition:@property @duration @timing-function @delay;
+     -ms-transition:@property @duration @timing-function @delay;
+      -o-transition:@property @duration @timing-function @delay;
+         transition:@property @duration @timing-function @delay;
+}
+
+//上面可以简写成如下
+.transition(@property:all,@duration;@timing-function;@delay){   
+    -webkit-transition:@arguments;
+       -moz-transition:@arguments;
+        -ms-transition:@arguments;
+         -o-transition:@arguments;
+            transition:@arguments;
+}
+</code></pre><p>接收数量不定的参数 ,可以使用 … ,在变量名后面使用它,它会将这些参数分配给变量</p>
+<pre><code> .mixin(...) {        // matches 0-N arguments
+.mixin() {           // matches exactly 0 arguments
+.mixin(@a: 1) {      // matches 0-1 arguments
+.mixin(@a: 1; ...) { // matches 0-N arguments
+.mixin(@a; ...) {    // matches 1-N arguments
+
+//此外
+.mixin(@a; @rest...) {
+   // @rest is bound to arguments after @a
+   // @arguments is bound to all arguments
+}
+</code></pre><p>匹配模式<br>根据不同的参数,设定不同的行为</p>
+<pre><code>@switch:light
+.mixin(dark,@color){
+    color : darken(@color:10%);
+}
+.mixin(light,@color){
+    color : lighten(@color:10%);
+}
+.mixin(@_,@color){ //匹配任意值,但要注意@color必须写
+    display:block;
+}
+.a{
+    .mixin(@switch,#333);
+}   
+注:也可以基于参数个人来匹配
+</code></pre><p>作为函数使用的混合<br>在类似函数的mixin中,变量会充当它的返回值</p>
+<pre><code> .mixin() {
+  @width:  100%;
+  @height: 200px;
+}
+
+.caller {
+  .mixin(); //先运行
+  width:  @width; //调用返回值
+  height: @height;
+}
+//结果:
+.caller{
+    width:100%;
+    height:200%;
+}
+</code></pre><p>带参数的函数混合</p>
+<pre><code> .average(@x, @y) {
+  @average: ((@x + @y) / 2);
+}
+
+div {
+  .average(16px, 50px); // &quot;call&quot; the mixin
+  padding: @average;    // use its &quot;return&quot; value
+}
+</code></pre><p>定义在mixin中的mixin同样可以作为返回值</p>
+<pre><code>.unlock(@value) { // 外层的 mixin
+  .doSomething() { // 被嵌套的 mixin
+    declaration: @value;
+  }
+}
+
+#namespace {
+  .unlock(5); // unlock doSomething mixin
+  .doSomething(); //嵌套混入被复制到这里，并可用
+}
+#namespace {
+  declaration: 5;
+}
+</code></pre><p>在mixin中定义包装的CSS代码块</p>
+<pre><code>// 声明 detached 规则集合
+@detached-ruleset: { background: red; };
+
+// 使用 detached 规则集合
+.top {
+    @detached-ruleset();  //()这个括号是必须写的
+}
+//结果为:
+.top {
+  background: red;
+}
+</code></pre><p>导入规则</p>
+<pre><code>从其他样式表中导入样式。
+
+在标准的CSS中，@import必须在所有其他类型的规则之前。但是Less.js不在乎你把@import语句放在什么位置。
+</code></pre><p>File extensions （文件扩展名）</p>
+<pre><code>如果文件有一个.css扩展名，则将它作为CSS对象,其他的则作为Less文件导入进来
+</code></pre><p>Import (导入选项)</p>
+<pre><code>语法：@import (keyword) “filename”;
+
+reference：使用Less文件但不输出 
+inline：在输出中包含源文件但不加工它 
+less：将文件作为Less文件对象，无论是什么文件扩展名 
+css：将文件作为CSS文件对象，无论是什么文件扩展名 
+once：只包含文件一次（默认行为） 
+multiple：包含文件多次
+</code></pre><p>Mixin Guards (带条件的mixins)</p>
+<pre><code>.mixin (@a) when (lightness(@a) &gt;= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) &lt; 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+.class1 { .mixin(#ddd) }
+.class2 { .mixin(#555) }
+
+//输出
+.class1 {
+  background-color: black;
+  color: #ddd;
+}
+.class2 {
+  background-color: white;
+  color: #555;
+}
+</code></pre><p>Guard中的比较运算符 (&gt;,&gt;=,=, =&lt;,&lt;) ,此外,关键字true,是让两个mixins等价的唯一真值</p>
+<pre><code>.truth (@a) when (@a) { ... }
+.truth (@a) when (@a = true) { ... }//除了关键字true，其他任何值都是假值：
+</code></pre><p>注意，你也可以比较其他每个参数或者不使用参数</p>
+<pre><code>@media: mobile;
+.mixin (@a) when (@media = mobile) { ... }
+.mixin (@a) when (@media = desktop) { ... }
+
+.max (@a; @b) when (@a &gt; @b) { width: @a }
+.max (@a; @b) when (@a &lt; @b) { width: @b }
+</code></pre><p>Guard逻辑运算符<br>您可以在guards之间使用逻辑运算符。语法是基于CSS媒体查询。<br>使用and关键字来组合guards：</p>
+<pre><code>.mixin (@a) when (isnumber(@a)) and (@a &gt; 0) { ... }
+</code></pre><p>你可以通过用逗号 , 分隔guards来模仿 or 运算符。如果任何 guards 为 true，那么它认为是匹配的：</p>
+<pre><code>.mixin (@a) when (@a &gt; 10), (@a &lt; -10) { ... }
+</code></pre><p>使用 not 关键字来否定条件：</p>
+<pre><code>.mixin (@b) when not (@b &gt; 0) { ... }
+</code></pre><p>类型检查函数<br>基本的类型检查函数<br>iscolor<br>isnumber<br>isstring<br>iskeyword<br>isurl<br>你想检查一个值除了数字是否是一个特定的单位，你可以使用下列方法之一<br>ispixel<br>ispercentage<br>isem<br>isunit<br>你还可以通过与&amp;特性结合实现’if’类型的语句，从而允许组合多个约束。</p>
+<pre><code>&amp; when (@my-option = true) {
+  button {
+    color: white;
+  }
+  a {
+    color: blue;
+  }
+}
+</code></pre><p>Loops （循环）</p>
+<p>使用递归循环最常见的情况就是生成栅格系统的CSS：</p>
+<pre><code>.loop(@counter) when (@counter &gt; 0) {
+  .loop((@counter - 1));    // 递归调用自身
+  width: (10px * @counter); // 每次调用时产生的样式代码
+}
+
+div {
+  .loop(5); // 调用循环
+}
+
+//结果
+div {
+  width: 10px;
+  width: 20px;
+  width: 30px;
+  width: 40px;
+  width: 50px;
+}
+</code></pre><p>使用递归循环最常见的情况就是生成栅格系统的CSS：</p>
+<pre><code>.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =&lt; @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+输出:
+.column-1 {
+  width: 25%;
+}
+.column-2 {
+  width: 50%;
+}
+.column-3 {
+  width: 75%;
+}
+.column-4 {
+  width: 100%;
+}
+</code></pre><p>Merge (合并)</p>
+<p>从多个属性中将值集合到一个单一属性之下的逗号或空格分割属性列表中。对于诸如background和transform之类的属性来说，merge非常有用。</p>
+<pre><code>.mixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+.myclass {
+  .mixin();
+  box-shadow+: 0 0 20px black;
+}
+//输出
+.myclass {
+  box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+
+.mixin() {
+  transform+_: scale(2);
+}
+.myclass {
+  .mixin();
+  transform+_: rotate(15deg);
+}
+
+//输出
+.myclass {
+  transform: scale(2) rotate(15deg);
+}
+</code></pre><p>为避免任何非有意的添加，merge需要在每个待加入的声明中显示的设置一个+或者+_标记</p>
+<p>Parent Selectors （父级选择器)</p>
+<p>&amp; 运算符表示一个 嵌套规则 的父选择器，它在应用修改类或者应用伪类给现有选择器时最常用：</p>
+<pre><code>a {
+  color: blue;
+  &amp;:hover {
+    color: green;
+  }
+}
+
+//输出
+a {
+  color: blue;
+}
+
+a:hover {
+  color: green;
+}
+
+
+.link {
+  &amp; + &amp; {
+    color: red;
+  }
+
+  &amp; &amp; {
+    color: green;
+  }
+
+  &amp;&amp; {
+    color: blue;
+  }
+
+  &amp;, &amp;ish {
+    color: cyan;
+  }
+}
+//输出
+
+.link + .link {
+  color: red;
+}
+.link .link {
+  color: green;
+}
+.link.link {
+  color: blue;
+}
+.link, .linkish {
+  color: cyan;
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/03/16/移动端横竖屏检测/">
+                    移动端横竖屏检测
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/01/LESS基础语法/">
+                    LESS基础语法
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <li id="bds_twi"><a href="#" class="bds_twi" data-cmd="twi" title="分享到推特"></a></li>
+            <li id="bds_tsina"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li id="bds_sqq"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a></li>
+            <li id="bds_copy"><a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a></li>
+            <li id="bds_mail"><a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a></li>
+            <li id="bds_weixin"><a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a></li>
+            <li id="bds_more"><a href="#" class="bds_more" data-cmd="more"></i></a></li>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"LESS语言特性　| 冰箱里的水　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/01/LESS语言特性/" data-title="LESS语言特性" data-url="http://yoursite.com/2016/03/01/LESS语言特性/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"chinazt"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/03/16/移动端横竖屏检测/" title="上一篇: 移动端横竖屏检测">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/01/LESS基础语法/" title="下一篇: LESS基础语法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/移动端横竖屏检测/">移动端横竖屏检测</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/LESS语言特性/">LESS语言特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/LESS基础语法/">LESS基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/了解LESS和编译LESS/">了解LESS和编译LESS</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 冰箱里的水
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
