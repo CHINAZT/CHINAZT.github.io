@@ -206,6 +206,270 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="[layout]-移动端常用META标签总结" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/移动端常用META标签总结/" class="article-date">
+      <time datetime="2016-03-17T12:00:01.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/移动端常用META标签总结/">移动端常用META标签总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>移动端常用META标签总结</p>
+<p>移动端基本上必加的几个标签</p>
+<p>声明viewport视口</p>
+<p>viewport对于移动端设备来说非常的重要，用于定义视口的各种行为。其中最为重要的就是要设定一个展示页面的宽度width=device-width，如果我们不设置的话，width默认的值是980PX，假设我们当前用的是IPHONE 5来访问H5页面，IPHONE 5本身的宽度只有320PX，但是设备定义了H5页面展示的区域宽度应该是980PX，这样的话要想把H5页面全部进行展示，只有整体缩小大约三倍或者让用户在320PX的区域中来回的挪动才能看全整个H5页面。这种方式用户的体验度会非常的差，所以我们设定width=device-width，意思是当前设备屏幕有多宽，那么就按照多宽来渲染页面，这样就不会出现需要靠缩小或者左右移动来看完整个页面了。</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;/&gt;
+</code></pre><p>这里说明一下其它几个属性的作用:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Value</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td style="text-align:center">正整数或device-width</td>
+<td style="text-align:right">定义视口的宽度，单位为像素</td>
+</tr>
+<tr>
+<td>height</td>
+<td style="text-align:center">正整数或device-height</td>
+<td style="text-align:right">定义视口的高度，单位为像素</td>
+</tr>
+<tr>
+<td>initial-scale</td>
+<td style="text-align:center">[0.0-10.0]</td>
+<td style="text-align:right">定义初始缩放值</td>
+</tr>
+<tr>
+<td>minimum-scale</td>
+<td style="text-align:center">[0.0-10.0]</td>
+<td style="text-align:right">定义缩小最小比例，它必须小于或等于maximum-scale设置</td>
+</tr>
+<tr>
+<td>maximum-scale</td>
+<td style="text-align:center">[0.0-10.0]</td>
+<td style="text-align:right">定义放大最大比例，它必须大于或等于minimum-scale设置</td>
+</tr>
+<tr>
+<td>user-scalable</td>
+<td style="text-align:center">yes/no</td>
+<td style="text-align:right">定义是否允许用户手动缩放页面，默认值yes</td>
+</tr>
+</tbody>
+</table>
+<p>忽略数字自动识别为电话号码</p>
+<p>在IOS Safari（其他浏览器和Android均不会）上会对那些看起来像是电话号码的数字处理为电话链接。比如：7位数字，形如：1234567；带括号及加号的数字，形如：(+86)123456789；双连接线的数字，形如：00-00-00111；11位数字，形如：13800138000可能还有其他类型的数字也会被识别，但在具体的业务场景中，有些时候这是不必须的，所以你可以关闭电话自动识别，然后在需要拨号的地方，开启电话呼出和短信功能。</p>
+<pre><code>&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;/&gt;
+</code></pre><p>开启拨打电话/发送短信功能</p>
+<pre><code>&lt;a href=&quot;tel:123456&quot;&gt;立即拨打电话&lt;/a&gt;     &lt;a href=&quot;sms:123456&quot;&gt;立即发送短信&lt;/a&gt;
+</code></pre><p>如果同样也需要禁止自动识别邮箱，可以在原来的基础上增加“email=no”。</p>
+<pre><code>&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no,email=no&quot;/&gt;
+&lt;a href=&quot;mailto:zhufengpeixun@163.com&quot;&gt;给我们发邮件&lt;/a&gt;
+</code></pre><p>把页面增加到桌面主屏幕</p>
+<p>在苹果手机的Safari浏览器中访问一个页面，用户可以通过“添加到桌面”这一操作把网页保存到自己的主屏幕桌面上（就像安装一个APP，在主屏幕上就会有一个操作的图标），这样下一次可以直接点击图标打开页面。(只对IOS有效)</p>
+<p>WebApp全屏模式</p>
+<p>当我们将一个网页添加到主屏幕时，会更希望它能有像App一样的表现，没有地址栏和状态栏全屏显示。</p>
+<pre><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;/&gt;
+</code></pre><p>设置状态栏颜色</p>
+<p>只有在开启WebApp全屏模式下才能起到效果。content的值为 default(状态栏将为正常的，即白色，网页从状态栏以下开始显示) | black(状态栏将为黑色，网页从状态栏以下开始显示) | black-translucent(状态栏将为灰色半透明，网页将充满整个屏幕，状态栏会盖在网页之上)。</p>
+<pre><code>&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;/&gt;
+</code></pre><p>添加到主屏后的图标</p>
+<pre><code>&lt;link href=&quot;图片的地址&quot; sizes=&quot;114x114&quot; rel=&quot;apple-touch-icon-precomposed&quot;/&gt;
+</code></pre><p>IOS系统中对ICON有一套规范，就是在IOS设备的图标统一为“四边圆角”、“高光处理”。至于“图标阴影”，是IOS设备中统一为所有桌面元素增加的，所以不作为图标单独处理的样式。rel=”apple-touch-icon-precomposed”是设定按照设计稿原图的图标显示，rel=”apple-touch-icon”是设定在原图的基础上增加一些高光光亮效果。一般来说我们的ICON的尺寸是114x114。</p>
+<p>添加到主屏后的标题</p>
+<pre><code>&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;/&gt;
+</code></pre><p>其它的一些移动端偶尔使用的META标签</p>
+<p>添加智能App广告条 Smart App Banner(不常用)</p>
+<pre><code>&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;/&gt;
+</code></pre><p>QQ浏览器(X5内核)独有的META</p>
+<pre><code>&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait|landscape&quot;/&gt; //-&gt;设置屏幕方向     &lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;/&gt; //-&gt;设置全屏
+</code></pre><p>UC浏览器独有的META</p>
+<pre><code>&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait|landscape&quot;/&gt; //-&gt;设置屏幕方向     &lt;meta name=&quot;full-screen&quot; content=&quot;true&quot;/&gt; //-&gt;设置全屏     &lt;meta name=&quot;viewport&quot; content=&quot;uc-fitscreen=no|yes&quot;/&gt; //-&gt;缩放不出现滚动条     &lt;meta name=&quot;nightmode&quot; content=&quot;enable|disable&quot;/&gt; //-&gt;夜间模式
+</code></pre><p>强制图片显示：UC浏览器为了节省流量，为用户提供了无图模式，但是如果页面的图片是必不可少的，如验证码的，需要强制浏览器显示图片，可以设置imagemode。通过META设置图片加载方式会作用于整个页面，如果希望对单个图片进行设置，那么可以使用这个<img src="" show="force"></p>
+<pre><code>&lt;meta name=&quot;imagemode&quot; content=&quot;force&quot;/&gt;
+</code></pre><p>使用了application这种应用模式后，页面讲默认全屏，禁止长按菜单，禁止收拾，标准排版，以及强制图片显示。</p>
+<pre><code>&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;/&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="[layout]-移动端常用META标签" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/移动端常用META标签/" class="article-date">
+      <time datetime="2016-03-17T12:00:00.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/移动端常用META标签/">移动端常用META标签</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>什么是meta标签?</p>
+<p>HTML语言HEAD区的一个辅助性标签，我们通常都在HEAD区域编写一些meta(注意：meta只能写在HEAD区域)，用来提供关于HTML文档的元数据（meta-information），元数据不会显示在页面上，但是对于浏览器是可读取渲染的。它可用于浏览器如何显示内容或重新加载页面，页面SEO优化（关键词和页面描述）等…</p>
+<p>meta标签的属性</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:center">值</th>
+<th style="text-align:right">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>http-equiv</td>
+<td style="text-align:center">content-type / expire / refresh / set-cookie</td>
+<td style="text-align:right">把content属性关联到HTTP头部</td>
+</tr>
+<tr>
+<td>name</td>
+<td style="text-align:center">author / description / keywords / generator / revised …</td>
+<td style="text-align:right">把content属性关联到一个名称</td>
+</tr>
+<tr>
+<td>content</td>
+<td style="text-align:center">some text</td>
+<td style="text-align:right">定义用于翻译content属性值的格式</td>
+</tr>
+</tbody>
+</table>
+<p>页面中常用的meat标签总结</p>
+<p>一、http-equiv属性</p>
+<p>http-equiv顾名思义，相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值。</p>
+<p>字符编码：声明文档使用的字符编码</p>
+<p>该声明用来指定文档的编码，除了UTF-8(国际通用语言编码,也是最常使用的)，可选值还有：GB2312(简体中文)、BIG5(繁体中文)、iso-2022-jp(日文)、ks_c_5601(韩文)、ISO-8859-1(英文)等</p>
+<pre><code>&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=Edge, chrome=1&quot;/&gt;
+</code></pre><p>当然，你可能还见过使用以下这种方式来定义文档字符编码。相对于这种方式，更推荐你使用第1种（推荐使用HTML5的声明方式）。</p>
+<pre><code>&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8;&quot;/&gt;
+</code></pre><p>Expires（期限）</p>
+<p>该声明用来指定页面的过期时间，一旦网页过期，从服务器上重新请求，其中时间必须使用GMT格式，或者直接是0（即不缓存）</p>
+<pre><code>&lt;meta http-equiv=&quot;expires&quot; content=&quot;Thu Jan 01 1970 00:00:00 GMT 或者 0&quot;/&gt;
+</code></pre><p>Pragma(cache模式）</p>
+<p>禁止浏览器从本地计算机的缓存中访问页面内容。</p>
+<pre><code>&lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;/&gt;     &lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;/&gt;
+</code></pre><p>Refresh（刷新）</p>
+<p>该声明用来指定页面自刷新或者跳转到其它页面，其中的时间单位是s。第一种写法是10s后刷新本页面，第二种写法是10s后跳转到新的页面。</p>
+<pre><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;10&quot;/&gt;     &lt;meta http-equiv=&quot;refresh&quot; content=&quot;10; url=...&quot;/&gt;
+</code></pre><p>Set-Cookie(cookie设定）</p>
+<p>如果网页过期，那么存盘的cookie将被删除。</p>
+<pre><code>&lt;meta http-equiv=&quot;set-cookie&quot; content=&quot;[cookie名字]=[cookie值]; expires=[cookie过期时间];path=/;&quot;/&gt;
+</code></pre><p>Window-target（显示窗口的设定）</p>
+<p>强制页面在当前窗口以独立页面显示。用来防止别人在框架里调用自己的页面。</p>
+<pre><code>&lt;meta http-equiv=&quot;window-target&quot; content=&quot;_top&quot;/&gt;
+</code></pre><p>声明使用的浏览器及版本</p>
+<p>x-ua-compatible设置是从IE8开始增加的（很明显，只适用于IE），对于过往的版本无法识别。开发者可以通过设置x-ua-compatible来指定渲染引擎的类型和版本，并且因为需求不同可以有多种不同的设置。</p>
+<pre><code>&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=7&quot;/&gt;     &lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=4&quot;/&gt;     &lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=50&quot;/&gt;
+</code></pre><p>当直接指定content为IE的某个具体版本，如上述代码第1条，客户端的IE将会使用IE7.0标准模式对页面进行渲染，并忽略Doctype定义。当指定的IE版本在客户端IE中不存在时，IE将会尝试将该值转换为最为接近的版本。例如指定一个低于5.0的IE版本，如上述代码第2条，客户端的IE将会使用IE5.0对页面进行渲染，由于IE5.0并没有标准模式，所以将会直接使用quirks mode来渲染；如果指定一个大于客户端IE的版本，如上述代码第3条，假定客户端IE的最高版本为9.0，那么IE会将该值转换为IE=9，即使用IE9.0标准模式对页面进行渲染。</p>
+<pre><code>&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=EmulateIE7&quot;/&gt;
+</code></pre><p>当指定的content值加了Emulate前缀时，如上述代码，客户端IE将会根据Doctype定义来决定如何来对页面进行渲染。假设页面使用了标准的Doctype，那么此定义效果等同上面的情况；假设页面并没有使用标准的Doctype，那么将使用quirks mode来渲染。</p>
+<pre><code>&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=Edge&quot;/&gt;
+</code></pre><p>当指定的content值为IE=Edge时，如上述代码，客户端的IE将会使用最高的标准模式对页面进行渲染。</p>
+<pre><code>&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=7, 10, 11&quot;/&gt;
+</code></pre><p>当指定的content值有多个版本时，如上述代码，假定客户端IE版本为8.0或者9.0，则使用IE7.0标准模式对页面进行渲染；假定客户端IE版本为10.0或者11.0，则直接使用对应版本的标准模式对页面进行渲染。</p>
+<pre><code>&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;IE=Edge, chrome=1&quot;/&gt;
+</code></pre><p>当指定的content值为IE=Edge, chrome=1时，如上述代码，假定客户端安装了Google Chrome Frame，则在IE中使用chrome的渲染引擎来渲染页面，否则，将会使用客户端IE最高的标准模式对页面进行渲染。</p>
+<p>二、NAME属性</p>
+<p>Keywords（关键字）</p>
+<p>用来告诉搜索引擎你网页的关键字是什么(这个关键字的设定对于整个页面的SEO优化非常的重要)。一般来说我们会根据当前页面所展示的内容来设定一组关键词语，这样用户在网上进行搜索的时候，搜索引擎会把拥有或者靠近相关关键词的页面呈现给用户，以达到产品推广的作用(当然这个需要长期的SEO/SEM等运营推广才会让自己的网页在搜索出的结果中靠前)。关键字内容太短，搜索引擎可能不会认为和这些内容有关，但是关键字的设定不能超过874个字符。</p>
+<pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;javascript培训,js培训,HTML5培训,css培训,前端开发培训,node.js培训,nodeJS培训,移动端培训,北京珠峰培训&quot;/&gt;
+</code></pre><p>description（网站内容描述）</p>
+<p>用来告诉搜索引擎你的网站主要内容。网站内容描述（description）的设计要点：</p>
+<p>①网页描述为自然语言而不是罗列关键词（与keywords设计正好相反）；<br>②尽可能准确地描述网页的核心内容，通常为网页内容的摘要信息，也就是希望搜索引擎在检索结果中展示的摘要信息；<br>③网页描述中含有有效关键词；<br>④网页描述内容与网页标题或者网页主体内容有高度相关性；<br>⑤网页描述的文字不必太多，一般每个网页都应有一个不超过150个字符且能准确反映网页内容的描述标签。<br>     <meta name="description" content="珠峰培训是中国前端开发知名品牌，七年JS前端培训，以专注立身；70%的同学来自老学员推荐，以诚信立业。先学习考试通过后交学费；四周内可无条件退学费；工资不到9千退学费。我们专注的特色培训有：javascript培训,node.JS培训,前端开发培训,HTML5培训,移动端培训"><br>robots（机器人向导）</p>
+<p>robots用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。</p>
+<p>content的参数有 all(默认值),none,index,noindex,follow,nofollow。 all：文件将被检索，且页面上的链接可以被查询； none：文件将不被检索，且页面上的链接不可以被查询； index：文件将被检索； follow：页面上的链接可以被查询； noindex：文件将不被检索； nofollow：页面上的链接不可以被查询。</p>
+<pre><code>&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;     &lt;meta name=&quot;google&quot; content=&quot;index,follow&quot;/&gt; -&gt;下面是声明其它搜索引擎的搜索模式     &lt;meta name=&quot;googlebot&quot; content=&quot;index,follow&quot;/&gt;     &lt;meta name=&quot;verify&quot; content=&quot;index,follow&quot;/&gt;
+</code></pre><p>声明搜索引擎抓取间隔</p>
+<p>有时候你可能并不希望站点一直被搜索引擎抓取，而是每间隔一段时间才来访问一次，这时，可以声明revisit-after meta。</p>
+<pre><code>&lt;meta name=&quot;revisit-after&quot; content=&quot;10 days&quot;/&gt;
+</code></pre><p>声明网页的作者信息</p>
+<pre><code>&lt;meta name=&quot;author&quot; content=&quot;zhufeng,zhufengpeixun@qq.com&quot;/&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="[layout]-检测浏览器的类型" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
