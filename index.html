@@ -206,6 +206,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="[layout]-html5shiv解决低版本ie浏览器不支持html5元素的办法" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/19/html5shiv解决低版本ie浏览器不支持html5元素的办法/" class="article-date">
+      <time datetime="2016-03-19T12:00:03.000Z" itemprop="datePublished">2016-03-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/html5shiv解决低版本ie浏览器不支持html5元素的办法/">html5shiv解决低版本ie浏览器不支持html5元素的办法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p> 低版本ie浏览器不支持html5元素是一个非常正常的事情了，现在也只有高版本浏览器可以支持html5元素了，但现在在国内高版本浏览器不多，如果做一个html5网站要让低版本浏览器也支持我们可以通过html5shiv来解决，具体如下。</p>
+<p>八年抗战，html5终于定稿，近年来，随着html5的盛行，我们在页面中也越来越多的运用到html5元素，但是悲催的是，脑残的IE的低版本实在让人抓狂，咱们辛苦规划好的页面在这些IE版别下显得是浆糊一桶。为了让这不一样的IE版别之间能”认识”HTML5元素，开源的html5shiv呈现了！</p>
+<p>1、html5shiv的特点</p>
+<p>html5shiv的最大特点是让那些个不认HTML5的IE浏览器认出HTML5元素，并依照最基本的处理方法处理HTML5元素——块化（display:block)。这样就阻止了脑残的IE对我们前端人员的残害。</p>
+<p>2、html5shiv的使用方法</p>
+<p>html5shiv的运用方法非常简略，默许只需要将html5shiv按下面方法放在页面的head内即可。</p>
+<pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src=&quot;dist/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre><p>3、html5shiv的原理</p>
+<p>html5shiv的原理是使用createElement方法，这包含document.createElement和document.createDocumentFragment，对当前页面的HTML5元素进行动态的调整，并且为这些元素提供最基本的样式。</p>
+<p>4、html5shiv官方给的建议</p>
+<p>a.使用min版本的js（压缩过的）以节省带宽和提高加载速度；</p>
+<p>b.必须在body元素之前加载；</p>
+<p>c.可以在页面的CSS之前或者之后加载，但从性能性能上出发，CSS先于html5shiv加载会更优。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="[layout]-移动端常用META标签总结" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
